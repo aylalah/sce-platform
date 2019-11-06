@@ -41,6 +41,7 @@ Route::get('displaybusiness','DisplayController@displaybusiness');
 Route::get('displaypeople','DisplayController@displaypeople');
 Route::get('displaynews','DisplayController@displaynews');
 Route::get('displaylocation','DisplayController@displaylocation');
+Route::get('displayactbytitle','DisplayController@displayactbytitle');
 
 Route::get('getcontent/{id}','ContentController@getcontent');
 Route::post('updatecontent','ContentController@update');
@@ -63,6 +64,11 @@ Route::get('getAllPost','UserController@getAllPost');
 
 Route::post('trash','ContentController@trash');
 Route::post('deletetitle','ContentController@destroytitle');
+
+Route::post('cateupdate','CategoryController@update');
+Route::post('catetrash','CategoryController@catetrash');
+Route::post('actupdate','ActivitiesController@update');
+Route::post('acttrash','ActivitiesController@acttrash');
 //  Route::get('test',function(){rolecate
 //      return response()->json([
 //          'user'=>['fname'=>'tawa',

@@ -59,7 +59,7 @@ export class SigninComponent implements OnInit {
     onSubmit() {
      
       this.form.role_id=1
-   
+  //  console.log(this.form)
       this.Jarwis.signup(this.form).subscribe(
        
         data => this.handleResponse(data),

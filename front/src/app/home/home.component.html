@@ -73,128 +73,74 @@
             </div><!-- /.row -->
         </div><!-- /.container -->
     </section><!-- /#our-services -->
-    
+
+
+
+
     <section id="price-drop" class="block">
-      <div class="container">
-          <header class="section-title">
-              <h2>{{actname}} </h2>
-              <a (click)="navigat(id)" class="link-arrow">All Properties</a>
-          </header>
-          
-          <div class="row">
-              <div class="col-md-3 col-sm-6" *ngFor="let r of resec" >
-                  <div class="property">
-                      <a  href="Content/{{r.id}}">
-                          <div class="property-image">  
-                              <!-- <img alt="" class="img-rounded"  [defaultImage]="defaultImage" [lazyLoad]="'https://images.unsplash.com/photo-1443890923422-7819ed4101c0?fm=jpg'">                               -->
-                              <img alt="" class="img-rounded" src= 'https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/{{r.t_image}}'>
-                          </div>
-                          <div class="overlay">
-                              <div class="info">
-                                  <div class="tag price">{{r.catname}}</div>
-                                  <h3>{{r.name_title}}</h3>
-                                  <!-- <figure>{{r.about}}</figure> -->
-                              </div>
-                              <ul class="additional-info">
-                                  <!-- <li>
-                                      <header>View:</header>
-                                      <figure>{{r.view}}<sup>2</sup></figure>
-                                  </li>
-                                  <li>
-                                      <header>Comment:</header>
-                                      <figure>23</figure>
-                                  </li> -->
-                              </ul>
-                          </div>
-                      </a>
-                  </div><!-- /.property -->
-              </div><!-- /.col-md-3 -->
-              
+        <div class="container">
+            <div *ngFor="let a of act">
+            <header class="section-title" >
+                <h2>{{a.actname}}</h2>
+                <a (click)="navigat(a.id)" class="link-arrow">All Properties</a>
+            </header>
             
-          </div><!-- /.row-->
-      </div><!-- /.container -->
-  </section><!-- /#price-drop -->
-  <section id="price-drop" class="block">
-    <div class="container">
-        <header class="section-title">         
-            <h2>{{actname1}}</h2>
-            <a (click)="navigat(id1)" class="link-arrow">All Properties</a>
-        </header>
-        <div class="row">
-            <div class="col-md-3 col-sm-6" *ngFor="let r of resac">
-                <div class="property">
-                    <a href="Content/{{r.id}}">
-                        <div class="property-image">
-                            <img alt="" class="img-rounded" src="https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/{{r.t_image}}">
-                        </div>
-                        <div class="overlay">
-                            <div class="info">
-                                <div class="tag price">{{r.catname}}</div>
-                                <h3>{{r.name_title}}</h3>
-                                <!-- <figure>{{r.about}}</figure> -->
+            <div class="row">
+                <div class="col-md-3 col-sm-6" *ngFor="let r of acttitle" >
+                    <div class="property" *ngIf="r.activity_id === a.id">
+                        <a  href="Content/{{r.id}}">
+                            <div class="property-image">  
+                                <!-- <img alt="" class="img-rounded"  [defaultImage]="defaultImage" [lazyLoad]="'https://images.unsplash.com/photo-1443890923422-7819ed4101c0?fm=jpg'">                               -->
+                                <img alt="" class="img-rounded" src= 'https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/{{r.t_image}}'>
                             </div>
-                            <ul class="additional-info">
-                                <!-- <li>
-                                    <header>View:</header>
-                                    <figure>{{r.view}}<sup>2</sup></figure>
-                                </li>
-                                <li>
-                                    <header>Comment:</header>
-                                    <figure>23</figure>
-                                </li> -->
-                            </ul>
-                        </div>
-                    </a>
-                </div><!-- /.property -->
-            </div><!-- /.col-md-3 -->
+                            <div class="overlay">
+                                <div class="info">
+                                    <div class="tag price">{{r.catname}}</div>
+                                    <h3>{{r.name_title}}</h3>
+                                    <!-- <figure>{{r.about}}</figure> -->
+                                </div>
+                                <ul class="additional-info">
+                                    <!-- <li>
+                                        <header>View:</header>
+                                        <figure>{{r.view}}<sup>2</sup></figure>
+                                    </li>
+                                    <li>
+                                        <header>Comment:</header>
+                                        <figure>23</figure>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </a>
+                    </div><!-- /.property -->
+                </div><!-- /.col-md-3 -->
+                
+              </div>
+            </div><!-- /.row-->
+        </div><!-- /.container -->
+    </section><!-- /#price-drop -->
 
-           
-            
 
-        </div><!-- /.row-->
-    </div><!-- /.container -->
-  </section><!-- /#price-drop -->
-  <section id="price-drop" class="block">
-  <div class="container">
-      <header class="section-title">
 
-         <h2>{{actname2}}</h2>
-          <a  (click)="navigat(id2)" class="link-arrow">All Properties</a>
-      </header>
-      <div class="row">
-          <div class="col-md-3 col-sm-6" *ngFor="let r of resbc">
 
-              <div class="property">
-                  <a href="Content/{{r.id}}">
-                      <div class="property-image">
-                          <img alt="" class="img-rounded" src="https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/{{r.t_image}}">
-                      </div>
-                      <div class="overlay">
-                        <div class="info">
-                            <div class="tag price">{{r.catname}}</div>
-                            <h3>{{r.name_title}}</h3>
-                            <!-- <figure>{{r.about}}</figure> -->
-                        </div>
-                        <ul class="additional-info">
-                            <!-- <li>
-                                <header>View:</header>
-                                <figure>{{r.view}}<sup>2</sup></figure>
-                            </li>
-                            <li>
-                                <header>Comment:</header>
-                                <figure>23</figure>
-                            </li> -->
-                        </ul>
-                    </div>
-                  </a>
-              </div><!-- /.property -->
-          </div><!-- /.col-md-3 -->
 
-         
-          
-      </div><!-- /.row-->
-  </div><!-- /.container -->
-</section><!-- /#price-drop -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <aside id="advertising" class="block">
         <div class="container">
@@ -209,82 +155,7 @@
             </a>
         </div>
     </aside><!-- /#adveritsing-->
-    <section id="new-properties" class="block">
-        <div class="container">
-            <header class="section-title">
-                <h2>{{actname4}}</h2>
-                <a (click)="navigat(id4)" class="link-arrow">All Properties</a>
-            </header>
-            <div class="row">
-                <div class="col-md-3 col-sm-6" *ngFor="let r of resnc">
-                    <div class="property">
-                        <a href="Content/{{r.id}}">
-                            <div class="property-image">
-                                <img alt="" class="img-rounded" src="https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/{{r.t_image}}">
-                            </div>
-                            <div class="overlay">
-                                <div class="info">
-                                    <div class="tag price" (click)="onClick()">{{r.catname}}</div>
-                                    <h3>{{r.name_title}}</h3>
-                                    <!-- <figure>{{r.about}}</figure> -->
-                                </div>
-                                <ul class="additional-info">
-                                    <!-- <li>
-                                        <header>View:</header>
-                                        <figure>{{r.view}}<sup>2</sup></figure>
-                                    </li>
-                                    <li>
-                                        <header>Comment:</header>
-                                        <figure>23</figure>
-                                    </li> -->
-                                </ul>
-                            </div>
-                        </a>
-                    </div><!-- /.property -->
-                </div><!-- /.col-md-3 -->  
-               
-               
-            </div><!-- /.row-->
-        </div><!-- /.container-->
-    </section><!-- /#new-properties-->
-    <section id="new-properties" class="block">
-        <div class="container">
-            <header class="section-title">
-                <h2>{{actname5}}</h2>
-                <a (click)="navigat(id5)" class="link-arrow">All Properties</a>
-            </header>
-            <div class="row">
-                <div class="col-md-3 col-sm-6" *ngFor="let r of respc">
-                    <div class="property">
-                        <a href="Content/{{r.id}}">
-                            <div class="property-image">
-                                <img alt="" class="img-rounded" src="https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/{{r.t_image}}">
-                            </div>
-                            <div class="overlay">
-                                <div class="info">
-                                    <div class="tag price" (click)="onClick()">{{r.catname}}</div>
-                                    <h3>{{r.name_title}}</h3>
-                                    <!-- <figure>{{r.about}}</figure> -->
-                                </div>
-                                <ul class="additional-info">
-                                    <!-- <li>
-                                        <header>View:</header>
-                                        <figure>{{r.view}}<sup>2</sup></figure>
-                                    </li>
-                                    <li>
-                                        <header>Comment:</header>
-                                        <figure>23</figure>
-                                    </li> -->
-                                </ul>
-                            </div>
-                        </a>
-                    </div><!-- /.property -->
-                </div><!-- /.col-md-3 -->  
-               
-               
-            </div><!-- /.row-->
-        </div><!-- /.container-->
-    </section><!-- /#new-properties-->
+   
     <section id="partners" class="block">
         <div class="container">
             <header class="section-title"><h2>Our Partners</h2></header>

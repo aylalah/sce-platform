@@ -68,6 +68,7 @@ export class JarwisService {
   displayevent() {
     return this.http.get<any>(`${this.baseUrl}/displayevent`,)
   }
+ 
   displayartifact() {
     return this.http.get<any>(`${this.baseUrl}/displayartifact`,)
   }
@@ -139,4 +140,22 @@ deletetitle(data) {
 trash(data) {
   return this.http.post<any>(`${this.baseUrl}/trash`, data)
 }
+
+activitytrash(data) {
+  return this.http.post<any>(`${this.baseUrl}/activitytrash`, data)
 }
+catetrash(data) {
+  return this.http.post<any>(`${this.baseUrl}/catetrash`, data)
+}
+cateupdate(data) {
+  return this.http.post<any>(`${this.baseUrl}/cateupdate`, data)
+}
+
+acttrash(data) {
+  return this.http.post<any>(`${this.baseUrl}/acttrash`, data)
+}
+actupdate(data) {
+  return this.http.post<any>(`${this.baseUrl}/actupdate`, data)
+}
+}
+

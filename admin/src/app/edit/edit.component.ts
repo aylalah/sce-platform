@@ -177,8 +177,8 @@ onSubmit2() {
     data => this.handleResponse(data),
       error => this.handleError(error)
  );
-//  this.disabled=true;
-//   this.sav= 'Updating';
+ this.disabled=true;
+  this.sav= 'Updating';
  }
  handleError(error: any): void {
   // this.disabled=false;
@@ -191,7 +191,7 @@ onSubmit2() {
   let snackBarRef = this.snackBar.open('Successfully', 'Dismiss', {
     duration: 2000
   })
-//  this.disabled=true;
+  this.disabled=true;
  this.router.navigateByUrl('/admin');
  //  this.router.navigateByUrl('/User/(side:Details)');
  }

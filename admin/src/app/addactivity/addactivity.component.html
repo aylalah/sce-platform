@@ -27,18 +27,18 @@
                   <div class="panel-heading no-title"> </div>
                   <div class="panel-body">
                     <h2 class="mgbt-xs-20">Add Activity</h2>
-                    <form class="form-horizontal"  action="#" role="form" id="register-form">
-                      <div class="alert alert-danger vd_hidden">
+                    <form class="form-horizontal"  #signupForm=ngForm (ngSubmit)="onSubmit()" role="form" id="register-form">
+                      <!-- <div class="alert alert-danger vd_hidden">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="icon-cross"></i></button>
                         <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>Oh snap!</strong> Change a few things up and try submitting again. </div>
                       <div class="alert alert-success vd_hidden">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="icon-cross"></i></button>
-                        <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong>Well done!</strong>. </div>
+                        <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong>Well done!</strong>. </div> -->
                       <div class="form-group">
                         <div class="col-md-12">
                           <label class="control-label  col-sm-2">Activity Name <span class="vd_red">*</span></label>
                           <div id="first-name-input-wrapper"  class="controls col-sm-6">
-                            <input type="text" placeholder="" class="width-60 required" name="name" id="name" required >
+                            <input type="text" placeholder="" class="width-60 required" name="actname" id="name" [(ngModel)]="form.actname" required >
                           </div>
                         </div>
                       </div>
@@ -46,7 +46,7 @@
                         <div class="col-md-12">
                           <label class="control-label  col-sm-2">Description <span class="vd_red">*</span></label>
                           <div id="company-input-wrapper" class="controls col-sm-6">
-                            <textarea type="text" placeholder="Your Company Co, Ltd." class="width-60 required" required  name="company" rows="4"> </textarea>
+                            <textarea type="text" placeholder="Your Company Co, Ltd." class="width-60 required" required  name="destription" rows="4" [(ngModel)]="form.destription"> </textarea>
                           </div>
                         </div>
                       </div>            
@@ -55,7 +55,7 @@
                         <div class="col-sm-2"></div>
                         <div class="col-md-6 mgbt-xs-10 mgtp-20">                        
                           <div class="mgtp-10">
-                            <button class="btn vd_bg-green vd_white" type="submit" id="submit-register" name="submit-register">Register</button>
+                            <button class="btn vd_bg-green vd_white" type="submit" id="submit-register" name="submit-register">Save</button>
                           </div>
                         </div>                     
                       </div>
@@ -91,10 +91,13 @@
                   <td>1</td>
                   <td>{{c.actname}}</td>
                   <td class="center">{{c.destription}}</td>
-                  <td class="center"><span class="label label-success" ></span>   </td>
+                  <td class="center"><span class="label label-danger" *ngIf ="c.status=== 'N'">INACTIVE</span>
+                    <span class="label label-warning" *ngIf ="c.status=== 'E'">PENDING</span>
+                    <span class="label label-success" *ngIf ="c.status=== 'Y'">LIVE</span>
+                    <span class="label label-default " *ngIf ="c.status=== 'T'">TRASH</span>  </td>
                   <td class="menu-action rounded-btn" ><a data-original-title="view" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-green"> <i class="fa fa-eye"></i> </a> 
-                                                      <a data-original-title="edit" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-yellow" routerLink="" (click)="navigates(t.id)"> <i class="fa fa-pencil"></i> </a> 
-                                                      <a data-original-title="delete" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-red"> <i class="fa fa-times"></i> </a></td>
+                                                      <a data-original-title="edit" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-yellow"  (click)="editAct(c.id)"> <i class="fa fa-pencil"></i> </a> 
+                                                      <a data-original-title="delete" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-red" (click)="acttrash(c.id)"> <i class="fa fa-times"></i> </a></td>
                 </tr>                
               </tbody>
             </table>

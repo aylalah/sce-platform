@@ -117,4 +117,6 @@ res:any;
   this.ngOnInit()
   //  this.router.navigateByUrl('/User/(side:Details)');
   }
+
+  
 }

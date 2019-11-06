@@ -68,6 +68,9 @@ export class HomeComponent implements OnInit {
   id3: any;
   id4: any;
   id5: any;
+  act: any;
+  actdata: any;
+  acttitle: any;
   
   constructor(private Jarwis: JarwisService,private router: Router,private mapserver: MapServiceService, private coordGet: MapServiceService) { }
 
@@ -97,78 +100,15 @@ export class HomeComponent implements OnInit {
       })
     
 
-      this.Jarwis.displayevent().subscribe(
+      this.Jarwis.displayactbytitle().subscribe(
         data=>{
-          // All data which contain category and subcat
-        this.rese = data;  
-        //this is one category which is event
-        this.reseh=this.rese.event[0]
-        this.actname=this.reseh.actname
-        this.id=this.reseh.id 
-        //this is all subcat under event category
-        this.resec=this.rese.subevent
-
-        this.uimage='https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/'+this.resec.image;
-
-      
-        
-        }
-      )
-
-      this.Jarwis.displayartifact().subscribe(
-        data=>{
-        this.resa = data;  
-        this.resah=this.resa.event[0]
-        this.actname1=this.resah.actname
-        this.id1=this.resah.id
-        this.resac=this.resa.arti_cat
-       
-        
-        
-        }
-      )
-      this.Jarwis.displaybusiness().subscribe(
-        data=>{
-        this.resb = data; 
-        this.resbh=this.resb.event[0]
-        this.actname2=this.resbh.actname
-        this.id2=this.resbh.id
-        this.resbc=this.resb.subevent 
-    
-
-        
-        }
-      )
-      this.Jarwis.displaylocation().subscribe(
-        data=>{
-        this.resl = data;  
-        this.reslh=this.resb.event[0]
-        this.actname3=this.reslh.actname
-        this.id3=this.reslh.id
-        this.reslc=this.resl.subevent 
-     
-        
-        }
-      )
-      this.Jarwis.displaynews().subscribe(
-        data=>{
-        this.resn= data;  
-        this.resnh=this.resn.event[0]
-        this.actname4=this.resnh.actname
-        this.id4=this.resnh.id
-        this.resnc=this.resn.subevent 
-       
-        
-        }
-      )
-      this.Jarwis.displaypeople().subscribe(
-        data=>{
-        this.resp = data;  
-        this.resph=this.resp.event[0]
-        this.actname5=this.resph.actname
-        this.id5=this.resph.id
-        this.respc=this.resp.subevent 
-       
+        this.actdata = data;  
+        this.act=this.actdata.event
+        console.log(this.act)
+        // this.actname5=this.resph.actname
+        // this.id5=this.resph.id
+        this.acttitle=this.actdata.subevent 
+       console.log(this.acttitle)
         
         
         }
