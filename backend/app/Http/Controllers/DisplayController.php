@@ -17,7 +17,22 @@ class DisplayController extends Controller
      */
 
 
+    public function displayactbytitle()
+    {
+        return response()->json(
+            
+            [
 
+                'event' =>Activities::all(),
+                'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
+                ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
+            //    ->where('activity_id','=',1)
+               ->where('status','=','Y')
+               ->inRandomOrder()->limit(4)
+                ->get()
+            ]
+        );
+    }
     public function displayevent()
     {
         return response()->json(

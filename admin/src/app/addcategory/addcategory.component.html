@@ -74,7 +74,7 @@
               <ul class="list-wrapper no-bd-btm" *ngFor="let cr of cres">
         <!-- <li class="group-heading">Category</li> -->
         <li *ngIf="cr.activity_id === c.id">  
-            <a href="#" > 
+            <a  > 
                     <div class="menu-icon"><img src="assets/img/avatar/avatar.jpg" alt="example image"></div> 
                     <div class="menu-text">{{cr.catname}}
                         <div class="menu-info">
@@ -115,14 +115,17 @@
               </tr> 
             </thead>
             <tbody>
-              <tr *ngFor="let c of res">
-                <td>1</td>
-                <td>{{c.actname}}</td>
+              <tr *ngFor="let c of cres">
+                <td>{{c.id}}</td>
+                <td>{{c.catname}}</td>
                 <td class="center">{{c.destription}}</td>
-                <td class="center"><span class="label label-success" ></span>   </td>
+                <td class="center"><span class="label label-danger" *ngIf ="c.status=== 'N'">INACTIVE</span>
+                  <span class="label label-warning" *ngIf ="c.status=== 'E'">PENDING</span>
+                  <span class="label label-success" *ngIf ="c.status=== 'Y'">LIVE</span>
+                  <span class="label label-default " *ngIf ="c.status=== 'T'">TRASH</span> </td>
                 <td class="menu-action rounded-btn" ><a data-original-title="view" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-green"> <i class="fa fa-eye"></i> </a> 
-                                                    <a data-original-title="edit" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-yellow" routerLink="" (click)="navigates(t.id)"> <i class="fa fa-pencil"></i> </a> 
-                                                    <a data-original-title="delete" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-red"> <i class="fa fa-times"></i> </a></td>
+                                                    <a data-original-title="edit" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-yellow"  (click)="editCategory(c.id)"> <i class="fa fa-pencil"></i> </a> 
+                                                    <a data-original-title="delete" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-red" (click)="catetrash(c.id)"> <i class="fa fa-times"></i> </a></td>
               </tr>                
             </tbody>
           </table>

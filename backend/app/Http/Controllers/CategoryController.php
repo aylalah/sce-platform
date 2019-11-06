@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Category;
 class CategoryController extends Controller
@@ -67,9 +67,37 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id=$request->id;
+     
+        // return $id;
+       
+        $update=DB::table('categories')
+        ->where('id', $id)
+        ->update(['catname' =>$request->catname,'destription' => $request->destription,'status'=>'E']); 
+      
+        //  return $trash;
+        if($update){
+            return '
+                "success":"true"
+            ';
+        }
+    }
+    public function catetrash(Request $request)
+    {
+        $id=$request[0];
+     
+        //  return $id;
+       
+        $trash=DB::table('categories')
+    ->where('id', $id)
+    ->update(['status' =>'T']); 
+        if($trash){
+            return '
+                "success":"true"
+            ';
+        }
     }
 
     /**

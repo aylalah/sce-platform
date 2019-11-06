@@ -166,6 +166,7 @@ export class UpdateComponent implements OnInit {
     })
    this.disabled=true;
     this.router.navigateByUrl('/User/(side:Mypost)');
+    this.ngOnInit();
   }
 
 }

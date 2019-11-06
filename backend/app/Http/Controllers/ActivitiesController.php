@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Activities;
 class ActivitiesController extends Controller
@@ -35,8 +35,9 @@ class ActivitiesController extends Controller
      */
     public function store(Request $request)
     {
-        $data= Activities::create($request-> all());
+        $data= Activities::create($request->all());
         return $data;
+        // return $request;
     }
 
     /**
@@ -68,9 +69,37 @@ class ActivitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id=$request->id;
+     
+        //  return $id;
+       
+        $update=DB::table('activities')
+        ->where('id', $id)
+        ->update(['actname' =>$request->actname,'destription' => $request->destription,'status'=>'E']); 
+      
+        //  return $trash;
+        if($update){
+            return '
+                "success":"true"
+            ';
+        }
+    }
+    public function acttrash(Request $request)
+    {
+        $id=$request[0];
+     
+        //  return $id;
+       
+        $trash=DB::table('activities')
+    ->where('id', $id)
+    ->update(['status' =>'T']); 
+        if($trash){
+            return '
+                "success":"true"
+            ';
+        }
     }
 
     /**
