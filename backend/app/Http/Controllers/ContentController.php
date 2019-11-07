@@ -146,6 +146,10 @@ class ContentController extends Controller
         return '
             "success":"true"
         ';
+    }else{
+        return '
+            "success":"Anything change"
+        ';
     }
     }
     public function updatelive(Request $request)
