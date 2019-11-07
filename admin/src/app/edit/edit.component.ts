@@ -84,6 +84,7 @@ export class EditComponent implements OnInit {
   
   ngOnInit() {
     this.orderForm =  this.formBuilder.group({
+      name_title:this.title,
       gcontents: this.formBuilder.array([
         // {
         //   header:'',
@@ -116,6 +117,13 @@ export class EditComponent implements OnInit {
      this.contents=this.response.content
      // console.log(this.contents);
      this.comment=this.response.comment
+     this.orderForm =  this.formBuilder.group({
+      name_title:this.title,
+      gcontents: this.formBuilder.array([
+       
+      ])
+     
+    });
      for (let i in this.contents){
        // console.log('here')
        const control = <FormArray>this.orderForm.controls['gcontents'];
@@ -129,7 +137,7 @@ export class EditComponent implements OnInit {
      let val=this.orderForm.value;
     this.result=val.gcontents;
    //  console.log(this.result)
-     // console.log(this.orderForm.value)
+     console.log(this.orderForm.value)
      this.image='https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/'+this.res.t_image
      this.uimage='https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/'+this.res.image;
       
@@ -159,8 +167,6 @@ handleErr(error: any): void {
  this.disabled=false;
  this.sav= 'Update';
 }
-
-
 
 handleResp(data) {    
  let snackBarRef = this.snackBar.open('Update Successfully', 'Dismiss', {

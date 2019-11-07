@@ -27,7 +27,7 @@ class DisplayController extends Controller
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
             //    ->where('activity_id','=',1)
-               ->where('status','=','Y')
+            ->where('status','=','Y')
                ->inRandomOrder()->limit(4)
                 ->get()
             ]
@@ -43,7 +43,7 @@ class DisplayController extends Controller
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
                ->where('activity_id','=',1)
-               ->where('status','=','Y')
+               ->where('titles.status','=','Y')
                ->inRandomOrder()->limit(4)
                 ->get()
             ]
@@ -59,7 +59,7 @@ class DisplayController extends Controller
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
                ->where('activity_id','=',6)
-               ->where('status','=','Y')
+               ->where('titles.status','=','Y')
                ->inRandomOrder()->limit(4)
                 ->get()
             ]
@@ -71,10 +71,10 @@ class DisplayController extends Controller
             [
 
                 'event' =>Activities::where('id','=',2)->get(),
-                'arti_cat'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
+                'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
                ->where('activity_id','=',2)
-               ->where('status','=','Y')
+               ->where('titles.status','=','Y')
                ->inRandomOrder()->limit(4)
                ->get()
             ]
@@ -90,7 +90,7 @@ class DisplayController extends Controller
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
                ->where('activity_id','=',3)
-               ->where('status','=','Y')
+               ->where('titles.status','=','Y')
                ->inRandomOrder()->limit(4)
                 ->get()
             ]
@@ -104,7 +104,7 @@ class DisplayController extends Controller
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
                ->where('activity_id','=',4)
-               ->where('status','=','Y')
+               ->where('titles.status','=','Y')
                ->inRandomOrder()->limit(4)
               ->get()
             ]
@@ -120,7 +120,7 @@ class DisplayController extends Controller
                 ->join('users','titles.user_id','=','users.id')
             ->select('titles.*','categories.catname','categories.destription','categories.activity_id','users.firstname','users.lastname','users.middlename')
               ->where('activity_id','=',5)
-              ->where('status','=','Y')
+              ->where('titles.status','=','Y')
               ->inRandomOrder()->limit(4)
                ->get()
             ]

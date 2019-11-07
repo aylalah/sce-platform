@@ -126,12 +126,13 @@ class ContentController extends Controller
     {
         $id=$request->id;
       $fdata=$request->fdata;
+      $name_title=$request->fdata['name_title'];
     $detcontents= $fdata['gcontents'];
-    //  return $detcontents;
+    //   return $name_title;
    
     $updatetitle=DB::table('titles')
     ->where('id', $id)
-    ->update(['status' =>'E']); 
+    ->update(['status' =>'E','name_title'=>$name_title]); 
     foreach ($detcontents as $item) {
         $update = DB::table('contents')
                     ->where([
@@ -140,12 +141,16 @@ class ContentController extends Controller
                     ->update(array('header' => $item['header'], 'content' => $item['content']));
     
     }
-    return $update;
-    // if($update){
-    //     return '
-    //         "success":"true"
-    //     ';
-    // }
+    // return $update;
+    if($update | $updatetitle ){
+        return '
+            "success":"true"
+        ';
+    }else{
+        return '
+            "success":"Anything change"
+        ';
+    }
     }
     public function updatelive(Request $request)
     {
