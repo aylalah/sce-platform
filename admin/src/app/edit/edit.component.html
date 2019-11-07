@@ -119,6 +119,14 @@
                                    
                                  
                                             <div [formGroup]="orderForm">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label for="submit-title">Title</label>
+                                                            <input type="text" formControlName="name_title" class="form-control" id="submit-title" name="name_title" required>
+                                                        </div>
+                                                    </div>                                            
+                                                </div>
                                                 <div class="row" formArrayName="gcontents">
         
                                                         <div  *ngFor="let c of result; let i = index" [formGroupName]="i">                                   
@@ -127,7 +135,7 @@
                                                                 <div class="row">
                                                                   <div class="col-md-8">
                                                                       <div class="form-group">
-                                                                          <label for="submit-title">Title</label>
+                                                                          <label for="submit-title">Header</label>
                                                                           <input type="text" formControlName="header" class="form-control" id="submit-title" name="header" required>
                                                                       </div>
                                                                   </div>                                            

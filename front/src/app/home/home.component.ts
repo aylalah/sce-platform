@@ -100,16 +100,75 @@ export class HomeComponent implements OnInit {
       })
     
 
-      this.Jarwis.displayactbytitle().subscribe(
+      this.Jarwis.displayevent().subscribe(
         data=>{
-        this.actdata = data;  
-        this.act=this.actdata.event
-        console.log(this.act)
-        // this.actname5=this.resph.actname
-        // this.id5=this.resph.id
-        this.acttitle=this.actdata.subevent 
-       console.log(this.acttitle)
+          // All data which contain category and subcat
+        this.rese = data;  
+        //this is one category which is event
+        this.reseh=this.rese.event[0]
+        this.actname=this.reseh.actname
+        this.id=this.reseh.id
+        //this is all subcat under event category
+        this.resec=this.rese.subevent
+        //  console.log(this.id)
         
+        }
+      )
+
+      this.Jarwis.displayartifact().subscribe(
+        data=>{
+        this.resa = data;  
+        this.resah=this.resa.event[0]
+        this.actname1=this.resah.actname
+        this.id1=this.resah.id
+        this.resac=this.resa.subevent
+        //  console.log(this.id1)
+
+        
+        }
+      )
+      this.Jarwis.displaybusiness().subscribe(
+        data=>{
+        this.resb = data; 
+        this.resbh=this.resb.event[0]
+        this.actname2=this.resbh.actname
+        this.id2=this.resbh.id
+        this.resbc=this.resb.subevent 
+        // console.log(this.id2)
+
+        
+        }
+      )
+      this.Jarwis.displaylocation().subscribe(
+        data=>{
+        this.resl = data;  
+        this.reslh=this.resb.event[0]
+        this.actname3=this.reslh.actname
+        this.id3=this.reslh.id
+        this.reslc=this.resl.subevent 
+      //  console.log(this.reslc)
+        
+        }
+      )
+      this.Jarwis.displaynews().subscribe(
+        data=>{
+        this.resn= data;  
+        this.resnh=this.resn.event[0]
+        this.actname4=this.resnh.actname
+        this.id4=this.resnh.id
+        this.resnc=this.resn.subevent 
+        // console.log(this.resnc)
+        
+        }
+      )
+      this.Jarwis.displaypeople().subscribe(
+        data=>{
+        this.resp = data;  
+        this.resph=this.resp.event[0]
+        this.actname5=this.resph.actname
+        this.id5=this.resph.id
+        this.respc=this.resp.subevent 
+        //  console.log(this.respc)
         
         }
       )

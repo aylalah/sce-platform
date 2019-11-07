@@ -75,7 +75,7 @@ class CategoryController extends Controller
        
         $update=DB::table('categories')
         ->where('id', $id)
-        ->update(['catname' =>$request->catname,'destription' => $request->destription,'status'=>'E']); 
+        ->update(['catname' =>$request->catname,'destription' => $request->destription]); 
       
         //  return $trash;
         if($update){

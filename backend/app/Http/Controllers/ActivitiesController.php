@@ -77,7 +77,7 @@ class ActivitiesController extends Controller
        
         $update=DB::table('activities')
         ->where('id', $id)
-        ->update(['actname' =>$request->actname,'destription' => $request->destription,'status'=>'E']); 
+        ->update(['actname' =>$request->actname,'destription' => $request->destription]); 
       
         //  return $trash;
         if($update){
