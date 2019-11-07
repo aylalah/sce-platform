@@ -61,12 +61,15 @@ Route::get('titlecomment','UserController@getcommentforTitle');
 Route::post('addview','UserController@addview');
 Route::post('updatePost','UserController@updatepost');
 Route::get('getAllPost','UserController@getAllPost');
+Route::get('getUsers','UserController@getUsers');
+Route::get('getAdmins','UserController@getAdmins');
 
 Route::post('trash','ContentController@trash');
 Route::post('deletetitle','ContentController@destroytitle');
 
 Route::post('cateupdate','CategoryController@update');
 Route::post('catetrash','CategoryController@catetrash');
+
 Route::post('actupdate','ActivitiesController@update');
 Route::post('acttrash','ActivitiesController@acttrash');
 //  Route::get('test',function(){rolecate

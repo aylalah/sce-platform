@@ -157,5 +157,11 @@ acttrash(data) {
 actupdate(data) {
   return this.http.post<any>(`${this.baseUrl}/actupdate`, data)
 }
+getadmins() {
+  return this.http.get<any>(`${this.baseUrl}/getAdmins`,)
+}
+getUsers() {
+  return this.http.get<any>(`${this.baseUrl}/getUsers`,)
+}
 }
 

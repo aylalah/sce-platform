@@ -5,9 +5,21 @@ namespace App\Http\Controllers;
 use App\title;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\User;
 class UserController extends Controller
 {
+
+    public function getUsers()
+    {
+        return DB::table("users")->where('role','=','1')
+        ->get();
+    }
+    public function getAdmins()
+    {
+        return DB::table("users")->where('role','=','2')
+        ->get();
+    }
+
     public function getComments()
     {
         return DB::table("comment_tb")->get();

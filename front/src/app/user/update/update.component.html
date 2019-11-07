@@ -12,7 +12,7 @@
                     </div><!-- /.form-group -->
                 </div>
 
-            <form  #signupForm=ngForm class="form-submit">
+            <form  [formGroup]="orderForm" class="form-submit">
                 <div class="row">
                     <div class="block">
                         <div class="col-md-12 col-sm-12">
@@ -30,7 +30,7 @@
 
                                                     <div class="form-group">
                                                         <label for="form-create-agency-title">Name or Title:</label>
-                                                        <input type="text" class="form-control" id="form-create-agency-title" disabled value="{{title}}">
+                                                        <input type="text" class="form-control" formControlName="name_title"  name="name_title" id="form-create-agency-title" disabled >
                                                     </div><!-- /.form-group -->
                                                     <div class="form-group">
                                                         <label for="form-create-agency-title">Location:</label>
@@ -54,7 +54,7 @@
                                  <section id="basic-information">
                                     <header><h2>Content</h2></header>
                                 <div>       
-                                    <div [formGroup]="orderForm">
+                                    <div >
                                         <div class="row" formArrayName="gcontents">
 
                                                 <div  *ngFor="let c of result; let i = index" [formGroupName]="i">                                   
