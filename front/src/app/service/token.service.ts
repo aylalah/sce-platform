@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
 export class TokenService {
   private iss = {
     
-    // login: 'https://sce-ogun.sabiogun.jtcheck.com/backend/public/api/login',
-    // signup: 'https://sce-ogun.sabiogun.jtcheck.com/backend/public/api/signup'
+    login: 'https://sce-ogun.sabiogun.jtcheck.com/backend/public/api/login',
+    signup: 'https://sce-ogun.sabiogun.jtcheck.com/backend/public/api/signup'
 
-    login: 'http://localhost/sce-platform/backend/public/api/login',
-    signup: 'http://localhost/sce-platform/backend/public/api/signup'
+    // login: 'http://localhost/sce-platform/backend/public/api/login',
+    // signup: 'http://localhost/sce-platform/backend/public/api/signup'
 
     
   };
@@ -19,6 +19,7 @@ export class TokenService {
     this.set(token);
     // console.log(this.isValid());
   }
+
 
   set(token) {
     localStorage.setItem('token', token);

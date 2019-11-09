@@ -91,8 +91,8 @@ class CategoryController extends Controller
         //  return $id;
        
         $trash=DB::table('categories')
-    ->where('id', $id)
-    ->update(['status' =>'T']); 
+    ->where('id', $id)->delete();
+    // ->update(['status' =>'T']); 
         if($trash){
             return '
                 "success":"true"

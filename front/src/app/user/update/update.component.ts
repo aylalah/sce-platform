@@ -83,7 +83,6 @@ export class UpdateComponent implements OnInit {
   
   ngOnInit() {
     this.orderForm =  this.formBuilder.group({
-      name_title:this.title,
       gcontents: this.formBuilder.array([
         // {
         //   header:'',
@@ -115,13 +114,6 @@ export class UpdateComponent implements OnInit {
         this.contents=this.response.content
         console.log(this.contents);
         this.comment=this.response.comment
-        this.orderForm =  this.formBuilder.group({
-          name_title:this.title,
-          gcontents: this.formBuilder.array([
-           
-          ])
-         
-        });
         for (let i in this.contents){
           // console.log('here')
           const control = <FormArray>this.orderForm.controls['gcontents'];

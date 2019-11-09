@@ -68,4 +68,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['population/'+id+'']);
   }
 
+  navigatestrash(){
+    this.ngOnInit();
+    this.router.navigate(['trash/']);
+  }
+
+
 }

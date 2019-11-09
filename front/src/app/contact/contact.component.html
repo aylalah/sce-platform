@@ -1,22 +1,149 @@
 <!-- Page Content -->
 <div id="page-content">
-  <!-- Breadcrumb -->
-  <div class="container">
-      <ol class="breadcrumb">
-          <li><a href="">Home</a></li>
-          <li class="active">Thank you!</li>
-      </ol>
-  </div>
-  <!-- end Breadcrumb -->
+        <!-- Breadcrumb -->
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Contact</li>
+            </ol>
+        </div>
+        <!-- end Breadcrumb -->
 
-  <div class="container">
-      <section class="center submission-message">
-          <a href="" ><img src="assets/img/sabiogun.png" alt="brand"></a>
-          <header>This  Page is still under construction</header>
-          <p>Please sing in and go on with your contribution, we are coming soon</p>
-          <a href="/" class="link-arrow">Go to homepage</a>
-          <a href="Login" class="link-arrow">Log in</a>
-      </section>
-  </div><!-- /.container -->
-</div>
-<!-- end Page Content -->
+        <div class="container">
+            <div class="row">
+                <!-- Contact -->
+                <div class="col-md-9 col-sm-9">
+                    <section id="agent-detail">
+                        <header><h1>Contact Us</h1></header>
+                        <section id="contact-information">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-5">
+                                    <section id="address">
+                                        <header><h3>Address</h3></header>
+                                        <address>
+                                            <strong></strong><br>
+                                            DEAG Foundation
+                                                Ogun State                                           
+                                            
+                                        </address>
+                                        +234 (080) 73351737
+                                        <a href="#">contact@deag.org</a><br>
+                                        <strong>Youtube: </strong>Sabi.ogun
+                                    </section><!-- /#address -->
+                                    <section id="social">
+                                        <header><h3>Social Profiles</h3></header>
+                                        <div class="agent-social">
+                                            <a href="#" class="fa fa-twitter btn btn-grey-dark"></a>
+                                            <a href="#" class="fa fa-facebook btn btn-grey-dark"></a>
+                                            <a href="#" class="fa fa-linkedin btn btn-grey-dark"></a>
+                                        </div>
+                                    </section><!-- /#social -->
+                                </div><!-- /.col-md-4 -->
+                                <div class="col-md-8 col-sm-7">
+                                    <header><h3>Where We Are</h3></header>
+                                    <div id="contact-map"></div>
+                                </div><!-- /.col-md-8 -->
+                            </div><!-- /.row -->
+                        </section><!-- /#agent-info -->
+                        <hr class="thick">
+                        <section id="form">
+                            <header><h3>Send Us a Message</h3></header>
+                            <form role="form" id="form-contact" method="post"  class="clearfix">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="form-contact-name">Your Name<em>*</em></label>
+                                            <input type="text" class="form-control" id="form-contact-name" name="form-contact-name" required>
+                                        </div><!-- /.form-group -->
+                                    </div><!-- /.col-md-6 -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="form-contact-email">Your Email<em>*</em></label>
+                                            <input type="email" class="form-control" id="form-contact-email" name="form-contact-email" required>
+                                        </div><!-- /.form-group -->
+                                    </div><!-- /.col-md-6 -->
+                                </div><!-- /.row -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="form-contact-message">Your Message<em>*</em></label>
+                                            <textarea class="form-control" id="form-contact-message" rows="8" name="form-contact-message" required></textarea>
+                                        </div><!-- /.form-group -->
+                                    </div><!-- /.col-md-12 -->
+                                </div><!-- /.row -->
+                                <div class="form-group clearfix">
+                                    <button type="submit" class="btn pull-right btn-default" id="form-contact-submit">Send a Message</button>
+                                </div><!-- /.form-group -->
+                                <div id="form-status"></div>
+                            </form><!-- /#form-contact -->
+                        </section>
+                    </section><!-- /#agent-detail -->
+                </div><!-- /.col-md-9 -->
+                <!-- end Contact -->
+                <!-- sidebar -->
+                <div class="col-md-3 col-sm-3">
+                    <section id="sidebar">
+                        <aside id="edit-search">
+                                <header><h3>Categories</h3></header>
+                                <div *ngFor="let r of result">
+                                <a routerlink="" (click)="naviga(r.id)" class="universal-button">
+                                        <figure class="fa fa-home"></figure>
+                                        <span>{{r.actname}}</span>                                        
+                                    </a><!-- /.universal-button -->
+                                </div>
+                        </aside><!-- /#edit-search -->
+                        <!-- <aside id="featured-properties">
+                            <header><h3>Featured Properties</h3></header>
+                            <div class="property small">
+                                <a href="property-detail.html">
+                                    <div class="property-image">
+                                        <img alt="" src="assets/img/properties/property-06.jpg">
+                                    </div>
+                                </a>
+                                <div class="info">
+                                    <a href="property-detail.html"><h4>2186 Rinehart Road</h4></a>
+                                    <figure>Doral, FL 33178 </figure>
+                                    <div class="tag price">$ 72,000</div>
+                                </div> -->
+                            <!-- </div>/.property -->
+                            <!-- <div class="property small">
+                                <a href="property-detail.html">
+                                    <div class="property-image">
+                                        <img alt="" src="assets/img/properties/property-09.jpg">
+                                    </div>
+                                </a>
+                                <div class="info">
+                                    <a href="property-detail.html"><h4>2479 Murphy Court</h4></a>
+                                    <figure>Minneapolis, MN 55402</figure>
+                                    <div class="tag price">$ 36,000</div>
+                                </div>
+                            </div>/.property -->
+                            <!-- <div class="property small">
+                                <a href="property-detail.html">
+                                    <div class="property-image">
+                                        <img alt="" src="assets/img/properties/property-03.jpg">
+                                    </div>
+                                </a>
+                                <div class="info">
+                                    <a href="property-detail.html"><h4>1949 Tennessee Avenue</h4></a>
+                                    <figure>Minneapolis, MN 55402</figure>
+                                    <div class="tag price">$ 128,600</div>
+                                </div>
+                            </div>/.property -->
+                        <!-- </aside>/#featured-properties -->
+                        <!-- <aside id="our-guides">
+                            <header><h3>Our Guides</h3></header>
+                            
+                            <a href="#" class="universal-button">
+                                <figure class="fa fa-umbrella"></figure>
+                                <span>Right Insurance for You</span>
+                                <span class="arrow fa fa-angle-right"></span>
+                            </a>/.universal-button -->
+                        <!-- </aside>/#our-guide -->
+                    </section><!-- /#sidebar -->
+                </div><!-- /.col-md-3 -->
+                <!-- end Sidebar -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div>
+    <!-- end Page Content -->

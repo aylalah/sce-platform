@@ -28,6 +28,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete'​;
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { UpdateComponent } from './user/update/update.component';
+import { TrashComponent } from './trash/trash.component';
 // import { LazyLoadImageModule, scrollPreset } from 'ng-lazyload-image';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PopulationComponent } from './population/population.component';
@@ -58,6 +59,7 @@ import { EditcatComponent } from './editcat/editcat.component';
     PopulationComponent,
     EditComponent,
     AddactivityComponent,
+    TrashComponent,
     EditactComponent,
     EditcatComponent
   ],

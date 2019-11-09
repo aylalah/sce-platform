@@ -5,21 +5,9 @@ namespace App\Http\Controllers;
 use App\title;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\User;
+
 class UserController extends Controller
 {
-
-    public function getUsers()
-    {
-        return DB::table("users")->where('role','=','1')
-        ->get();
-    }
-    public function getAdmins()
-    {
-        return DB::table("users")->where('role','=','2')
-        ->get();
-    }
-
     public function getComments()
     {
         return DB::table("comment_tb")->get();
@@ -84,8 +72,9 @@ class UserController extends Controller
     }
 
     public function addview(Request $request){
-        $view = DB::table('titles')->select('views')->where('id','=',$request)->get();
-        $addview = DB::table('titles')->where('id','=',$request)
+    // return $request->id;
+        $view = DB::table('titles')->select('views')->where('id','=',$request->id)->get();
+        $addview = DB::table('titles')->where('id','=',$request->id)
         ->update(array(
             'views'=> $view[0]->views+1
         )
@@ -108,5 +97,12 @@ class UserController extends Controller
         (select COUNT(id) from titles where status = "Y") as "approved",(select COUNT(id) from titles where status = "E") as "editted" from titles');
       return $post;
 
+    }
+    public function name(){
+        $name = DB::select('SELECT titles.id, name_title, location, t_image, about, views, status, count(comment) as "comment" from titles
+         left outer join comment_tbs on (titles.id = comment_tbs.title_id) left outer join categories on(categories.id = titles.category_id) 
+         WHERE activity_id = 1 group by titles.id, name_title, location, t_image, about, views, status');
+        //  $name2 =DB::table('titles')->select("titles.id", "name_title"," location", "t_image", "about"," views"," status"),DB::raw('count(comment) as comment'
+        //  )
     }
 }

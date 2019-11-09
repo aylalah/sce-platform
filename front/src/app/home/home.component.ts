@@ -71,6 +71,7 @@ export class HomeComponent implements OnInit {
   act: any;
   actdata: any;
   acttitle: any;
+  comment: any;
   
   constructor(private Jarwis: JarwisService,private router: Router,private mapserver: MapServiceService, private coordGet: MapServiceService) { }
 
@@ -107,6 +108,7 @@ export class HomeComponent implements OnInit {
         //this is one category which is event
         this.reseh=this.rese.event[0]
         this.actname=this.reseh.actname
+        this.comment=this.rese.comment[0].length
         this.id=this.reseh.id
         //this is all subcat under event category
         this.resec=this.rese.subevent

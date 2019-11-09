@@ -6,9 +6,9 @@ import { HttpClient } from '@angular/common/http';
 )
 export class JarwisService {
 
-  // private baseUrl = 'https://sce-ogun.sabiogun.jtcheck.com/backend/public/api';
+  private baseUrl = 'https://sce-ogun.sabiogun.jtcheck.com/backend/public/api';
 
-  private baseUrl = 'http://localhost/sce-platform/backend/public/api';
+  // private baseUrl = 'http://localhost/sce-platform/backend/public/api';
 
   constructor(private http: HttpClient) { }
   roleuser() {
@@ -137,6 +137,10 @@ deletetitle(data) {
   return this.http.post<any>(`${this.baseUrl}/deletetitle`, data)
 }
 
+getalltrashtitle() {
+  return this.http.get<any>(`${this.baseUrl}/getalltrashtitle`,)
+}
+
 trash(data) {
   return this.http.post<any>(`${this.baseUrl}/trash`, data)
 }
@@ -156,12 +160,6 @@ acttrash(data) {
 }
 actupdate(data) {
   return this.http.post<any>(`${this.baseUrl}/actupdate`, data)
-}
-getadmins() {
-  return this.http.get<any>(`${this.baseUrl}/getAdmins`,)
-}
-getUsers() {
-  return this.http.get<any>(`${this.baseUrl}/getUsers`,)
 }
 }
 
