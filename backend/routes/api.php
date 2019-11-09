@@ -62,13 +62,16 @@ Route::post('addview','UserController@addview');
 Route::post('updatePost','UserController@updatepost');
 Route::get('getAllPost','UserController@getAllPost');
 
+Route::get('getalltrashtitle','DisplayController@getalltrashtitle');
 Route::post('trash','ContentController@trash');
 Route::post('deletetitle','ContentController@destroytitle');
 
+Route::post('updateView','ContentController@updateView');
 Route::post('cateupdate','CategoryController@update');
 Route::post('catetrash','CategoryController@catetrash');
 Route::post('actupdate','ActivitiesController@update');
 Route::post('acttrash','ActivitiesController@acttrash');
+Route::get('name','UserController@name');
 //  Route::get('test',function(){rolecate
 //      return response()->json([
 //          'user'=>['fname'=>'tawa',

@@ -7,6 +7,7 @@ use App\title;
 use App\Category;
 use App\Content;
 use App\Activities;
+use App\comment_tbs;
 use App\User;
 class DisplayController extends Controller
 {
@@ -38,7 +39,7 @@ class DisplayController extends Controller
         return response()->json(
             
             [
-
+                // 'comment' =>comment_tbs::where('id','=',1)->get(),
                 'event' =>Activities::where('id','=',1)->get(),
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
@@ -55,6 +56,7 @@ class DisplayController extends Controller
         return response()->json(
             
             [
+                // 'comment' =>comment_tbs::where('id','=',6)->get(),
                 'event' =>Activities::where('id','=',6)->get(),
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
@@ -157,9 +159,23 @@ class DisplayController extends Controller
         return response()->json([
             title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
             ->select('titles.*','categories.catname')
+            ->where('status','=','Y')
             ->inRandomOrder()->limit(2)
                ->get()
         ]);
+    }
+
+    public function getalltrashtitle()
+    {
+        return response()->json(
+          
+            title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
+            ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
+        //    ->where('activity_id','=',3)
+           ->where('status','=','T')
+            ->get()
+    
+    );
     }
     
     public function search($searchTerm)

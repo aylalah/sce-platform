@@ -65,7 +65,7 @@
                       <figure class="icon"><i class="fa fa-money"></i></figure>
                       <aside class="description">
                           <header><h3>Preservation</h3></header>
-                          <p>Achive all these profitable and sustainably</p>
+                          <p>Deliberate and well-designed methodologies to maintain cultural heritage from the past for the benefit of the present and future generation</p>
                           <a href="#" class="link-arrow">Read More</a>
                       </aside>
                   </div><!-- /.feature-box -->
@@ -82,7 +82,7 @@
       <div class="container">
           <header class="section-title">
               <h2>{{actname}} </h2>
-              <a (click)="navigat(id)"  class="link-arrow">All Properties</a>
+              <a (click)="navigat(id)"  class="link-arrow">View More</a>
           </header>
           <div class="row">
               <div class="col-md-3 col-sm-6" *ngFor="let r of resec">
@@ -95,17 +95,17 @@
                               <div class="info">
                                   <div class="tag price" (click)="onClick()">{{r.catname}}</div>
                                   <h3>{{r.name_title}}</h3>
-                                  <figure>{{r.about}}</figure>
+                                  <figure><a href="#" class="link-icon" style="color: cornsilk;" ><i class="fa fa-eye" ></i>{{r.views}}</a></figure>
                               </div>
                               <ul class="additional-info">
                                   <li>
                                       <header>View:</header>
-                                      <figure>{{r.view}}<sup>2</sup></figure>
+                                      <figure></figure>
                                   </li>
-                                  <li>
+                                  <!-- <li>
                                       <header>Comment:</header>
                                       <figure>23</figure>
-                                  </li>
+                                  </li> -->
                               </ul>
                           </div>
                       </a>
@@ -121,7 +121,7 @@
         <header class="section-title">
 
             <!-- <h2>{{actname}} </h2>
-            <a href="Category/" class="link-arrow">All Properties</a>
+            <a href="Category/" class="link-arrow">View More</a>
         </header>
         <div class="row">
             <div class="col-md-3 col-sm-6" *ngFor="let r of resec">
@@ -129,7 +129,7 @@
                     <a (click)="navigate(r.id)"> -->
             <h2>{{actname1}}</h2>
             
-            <a (click)="navigat(id1)"   class="link-arrow">All Properties</a>
+            <a (click)="navigat(id1)"   class="link-arrow">View More</a>
             
         </header>
         <div class="row">
@@ -143,12 +143,12 @@
                             <div class="info">
                                 <div class="tag price">{{r.catname}}</div>
                                 <h3>{{r.name_title}}</h3>
-                                <figure>{{r.about}}</figure>
+                                <figure><a href="#" class="link-icon" style="color: cornsilk;"><i class="fa fa-eye" ></i>{{r.views}}</a></figure>
                             </div>
                             <ul class="additional-info">
                                 <li>
                                     <header>View:</header>
-                                    <figure>{{r.view}}<sup>2</sup></figure>
+                                    <figure>{{r.views}}</figure>
                                 </li>
                                 <li>
                                     <header>Comment:</header>
@@ -171,13 +171,13 @@
       <header class="section-title">
 
           <!-- <h2>{{actname1}}</h2>
-          <a href="Category/" class="link-arrow">All Properties</a>
+          <a href="Category/" class="link-arrow">View More</a>
       </header>
       <div class="row">
           <div class="col-md-3 col-sm-6" *ngFor="let r of resac"> -->
 
          <h2>{{actname2}}</h2>
-          <a (click)="navigat(id2)" class="link-arrow">All Properties</a>
+          <a (click)="navigat(id2)" class="link-arrow">View More</a>
       </header>
       <div class="row">
           <div class="col-md-3 col-sm-6" *ngFor="let r of resbc">
@@ -191,12 +191,12 @@
                         <div class="info">
                             <div class="tag price">{{r.catname}}</div>
                             <h3>{{r.name_title}}</h3>
-                            <figure>{{r.about}}</figure>
+                            <figure><a href="#" class="link-icon" style="color: cornsilk;"><i class="fa fa-eye" ></i>{{r.views}}</a></figure>
                         </div>
                         <ul class="additional-info">
                             <li>
                                 <header>View:</header>
-                                <figure>{{r.view}}<sup>2</sup></figure>
+                                <figure>{{r.views}}</figure>
                             </li>
                             <li>
                                 <header>Comment:</header>
@@ -232,7 +232,7 @@
       <div class="container">
           <header class="section-title">
               <h2>{{actname4}}</h2>
-              <a (click)="navigat(id4)"  class="link-arrow">All Properties</a>
+              <a (click)="navigat(id4)"  class="link-arrow">View More</a>
           </header>
           <div class="row">
               <div class="col-md-3 col-sm-6" *ngFor="let r of resnc">
@@ -245,12 +245,12 @@
                               <div class="info">
                                   <div class="tag price" (click)="onClick()">{{r.catname}}</div>
                                   <h3>{{r.name_title}}</h3>
-                                  <figure>{{r.about}}</figure>
+                                  <figure><a href="#" class="link-icon" style="color: cornsilk;"><i class="fa fa-eye" ></i>{{r.views}}</a></figure>
                               </div>
                               <ul class="additional-info">
                                   <li>
                                       <header>View:</header>
-                                      <figure>{{r.view}}<sup>2</sup></figure>
+                                      <figure>{{r.views}}</figure>
                                   </li>
                                   <li>
                                       <header>Comment:</header>

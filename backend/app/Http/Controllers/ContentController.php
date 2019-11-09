@@ -33,7 +33,7 @@ class ContentController extends Controller
        ->where('title_id','=',$id)
        ->get(),
        'content'=>content::orderBy('id')->join('titles','contents.name_id','=','titles.id')
-        ->select('contents.*','titles.name_title','titles.location','titles.t_image')
+        ->select('contents.*','titles.name_title','titles.location','titles.t_image','titles.views')
        ->where('name_id','=',$id)
        
        ->get()
@@ -154,7 +154,7 @@ class ContentController extends Controller
     }
     public function updatelive(Request $request)
     {
-  $id=$request->id;
+    $id=$request->id;
      
     //  return $id;
    
@@ -168,6 +168,33 @@ class ContentController extends Controller
     //         "success":"true"
     //     ';
     // }
+    }
+
+    public function updateView(Request $request)
+    {
+        $id=$request;
+        return $id;
+    // return response()->json(
+        
+       
+
+    //     $view = DB::where('id', $id)
+    //             -get();
+            // $data = $request -> count;
+            
+        // $hh= $view -> views + 1;
+   
+    // $updatView=DB::table('titles')
+    // ->where('id', $id)
+    // ->update(['views' =>'Y']); 
+  
+    //  return $updatetitle;
+    // if($update){
+    //     return '
+    //         "success":"true"
+    //     ';
+    // }
+    // );
     }
     public function trash(Request $request)
     {
