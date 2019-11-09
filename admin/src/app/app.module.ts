@@ -36,6 +36,9 @@ import { EditComponent } from './edit/edit.component';
 import { AddactivityComponent } from './addactivity/addactivity.component';
 import { EditactComponent } from './editact/editact.component';
 import { EditcatComponent } from './editcat/editcat.component';
+import { AllusersComponent } from './allusers/allusers.component';
+import { AlladminsComponent } from './alladmins/alladmins.component';
+import { EdituserComponent } from './edituser/edituser.component';
 
 
 @NgModule({
@@ -61,7 +64,10 @@ import { EditcatComponent } from './editcat/editcat.component';
     AddactivityComponent,
     TrashComponent,
     EditactComponent,
-    EditcatComponent
+    EditcatComponent,
+    AllusersComponent,
+    AlladminsComponent,
+    EdituserComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +93,7 @@ import { EditcatComponent } from './editcat/editcat.component';
   
   ],
   providers: [JarwisService,TokenService,AuthService,BeforeLoginService,AfterLoginService],
-  entryComponents: [EditcatComponent,EditactComponent,],
+  entryComponents: [EditcatComponent,EditactComponent,EdituserComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

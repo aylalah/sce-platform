@@ -61,6 +61,9 @@ Route::get('titlecomment','UserController@getcommentforTitle');
 Route::post('addview','UserController@addview');
 Route::post('updatePost','UserController@updatepost');
 Route::get('getAllPost','UserController@getAllPost');
+Route::get('getUsers','UserController@getUsers');
+Route::get('getAdmins','UserController@getAdmins');
+Route::post('userupdate','UserController@userupdate');
 
 Route::get('getalltrashtitle','DisplayController@getalltrashtitle');
 Route::post('trash','ContentController@trash');
