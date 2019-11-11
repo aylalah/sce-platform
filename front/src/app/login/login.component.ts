@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
 public role;
   public form = {
     email: null,
-    password: null
+    password: null,
+    status:'Y'
   };
 
   disabled= false;

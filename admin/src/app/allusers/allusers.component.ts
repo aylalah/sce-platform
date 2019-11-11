@@ -66,5 +66,23 @@ export class AllusersComponent implements OnInit {
     )   
     
   }
-
+  usertrash(id){
+    this.Jarwis.usertrash(id).subscribe(
+     data => this.handleRespon(data),
+       error => this.handleErr(error)
+  );
+   }
+ 
+   handleErr(error: any): void {
+   
+   }
+   handleRespon(data) { 
+    //  console.log(data) 
+    let snackBarRef = this.snackBar.open("Successfully move to trash", 'Dismiss', {
+     duration: 2000
+   })  
+  
+   this.ngOnInit()
+   
+   }
 }

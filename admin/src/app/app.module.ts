@@ -21,7 +21,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { DetailsComponent } from './user/details/details.component';
 import { PostComponent } from './user/post/post.component';
 import { MypostComponent } from './user/mypost/mypost.component';
-import {MatSelectModule,MatInputModule, MatListModule, MatSnackBarModule, MatToolbarModule, MatDialogModule,MatCardModule,MatIconModule,} from '@angular/material';
+import {MatSelectModule,MatInputModule,MatButtonModule,MatListModule, MatSnackBarModule, MatToolbarModule, MatDialogModule,MatCardModule,MatIconModule,} from '@angular/material';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
@@ -39,6 +39,7 @@ import { EditcatComponent } from './editcat/editcat.component';
 import { AllusersComponent } from './allusers/allusers.component';
 import { AlladminsComponent } from './alladmins/alladmins.component';
 import { EdituserComponent } from './edituser/edituser.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { EdituserComponent } from './edituser/edituser.component';
     EditcatComponent,
     AllusersComponent,
     AlladminsComponent,
-    EdituserComponent
+    EdituserComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -84,6 +86,7 @@ import { EdituserComponent } from './edituser/edituser.component';
      MatDialogModule,
     MatCardModule,
     MatIconModule,
+    MatButtonModule,
     // LazyLoadImageModule.forRoot({
     //   preset: scrollPreset 
     // }),
@@ -93,7 +96,7 @@ import { EdituserComponent } from './edituser/edituser.component';
   
   ],
   providers: [JarwisService,TokenService,AuthService,BeforeLoginService,AfterLoginService],
-  entryComponents: [EditcatComponent,EditactComponent,EdituserComponent],
+  entryComponents: [EditcatComponent,EditactComponent,EdituserComponent,ModalComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

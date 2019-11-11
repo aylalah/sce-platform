@@ -17,7 +17,8 @@ public role;
   public form = {
     email: null,
     password: null,
-    role_id:2
+    role_id:2,
+    status:'Y'
   };
 
   disabled= false;
