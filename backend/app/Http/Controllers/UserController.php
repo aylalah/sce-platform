@@ -171,7 +171,8 @@ class UserController extends Controller
     public function deleteuser(Request $request){
         $id=$request[0];
         // return $id;
-        $deletecat=DB::table('users')->where('id', $id)->delete();
+        $deletecat=DB::table('users')->where('id', $id)->update(['status' =>'D']); 
+        // ->delete();
         return $deletecat;
     }
 
