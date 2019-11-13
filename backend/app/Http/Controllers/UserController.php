@@ -8,6 +8,18 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
+    public function getUsers()
+    {
+        return DB::table("users")->where('role_id','=','1')
+        ->get();
+    }
+    public function getAdmins()
+    {
+        return DB::table("users")->where('role_id','=','2')
+        ->get();
+    }
+
     public function getComments()
     {
         return DB::table("comment_tb")->get();
@@ -105,4 +117,62 @@ class UserController extends Controller
         //  $name2 =DB::table('titles')->select("titles.id", "name_title"," location", "t_image", "about"," views"," status"),DB::raw('count(comment) as comment'
         //  )
     }
+
+    public function userupdate(Request $request)
+    {
+        $id=$request->id;
+     
+        // return $id;
+       
+        $update=DB::table('users')
+        ->where('id', $id)
+        ->update(['firstname' =>$request->firstname,'middlename' => $request->middlename,'lastname'=>$request->lastname,'phone'=>$request->phone,'family'=>$request->family,'role_id'=>$request->role_id,'address'=>$request->address]); 
+      
+        return $update;
+        // if($update){
+        //     return '
+        //         "success":"true"
+        //     ';
+        // }
+    }
+    public function usertrash(Request $request)
+    {
+        $id=$request[0];
+     
+        //  return $id;
+       
+        $trash=DB::table('users')
+    ->where('id', $id)
+    ->update(['status' =>'T']); 
+    return $trash;
+        // if($trash){
+        //     return '
+        //         "success":"true"
+        //     ';
+        // }
+    }
+    public function movetrashuser(Request $request)
+    {
+    $id=$request[0];
+     
+    //  return $id;
+   
+    $updatetitle=DB::table('users')
+    ->where('id', $id)
+    ->update(['status' =>'Y']); 
+  
+     return $updatetitle;
+    // if($update){
+    //     return '
+    //         "success":"true"
+    //     ';
+    // }
+    }
+    public function deleteuser(Request $request){
+        $id=$request[0];
+        // return $id;
+        $deletecat=DB::table('users')->where('id', $id)->delete();
+        return $deletecat;
+    }
+
 }

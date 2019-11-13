@@ -159,12 +159,38 @@ class DisplayController extends Controller
         return response()->json([
             title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
             ->select('titles.*','categories.catname')
-            ->where('status','=','Y')
+            ->where('titles.status','=','Y')
+
             ->inRandomOrder()->limit(2)
                ->get()
         ]);
     }
 
+
+    public function usertrashtitle()
+    {
+        return response()->json(
+           User::orderBy('id', 'desc')->where('status','=','T')
+            ->get()
+    
+    );
+    }
+    public function cattrashtitle()
+    {
+        return response()->json(
+           Category::orderBy('id', 'desc')->where('status','=','T')
+            ->get()
+    
+    );
+    }
+    public function acttrashtitle()
+    {
+        return response()->json(
+           Activities::orderBy('id', 'desc')->where('status','=','T')
+            ->get()
+    
+    );
+    }
     public function getalltrashtitle()
     {
         return response()->json(
@@ -172,7 +198,9 @@ class DisplayController extends Controller
             title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
             ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
         //    ->where('activity_id','=',3)
-           ->where('status','=','T')
+
+           ->where('titles.status','=','T')
+
             ->get()
     
     );

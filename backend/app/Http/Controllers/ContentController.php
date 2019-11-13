@@ -156,7 +156,7 @@ class ContentController extends Controller
     {
     $id=$request->id;
      
-    //  return $id;
+    // return $id;
    
     $updatetitle=DB::table('titles')
     ->where('id', $id)
