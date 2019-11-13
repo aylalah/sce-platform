@@ -180,7 +180,12 @@ export class HomeComponent implements OnInit {
         }
       )
      
-      
+      // this.Jarwis.count(i).subscribe(
+      //   data=>{
+      //   this.title = data;
+      //   }
+      // )
+     
    
       
       this.filteredStreets = this.control.valueChanges.pipe(

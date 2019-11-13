@@ -40,10 +40,11 @@ import { AllusersComponent } from './allusers/allusers.component';
 import { AlladminsComponent } from './alladmins/alladmins.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { ModalComponent } from './modal/modal.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     CategoryComponent,
     ContentComponent,
@@ -72,6 +73,7 @@ import { ModalComponent } from './modal/modal.component';
     ModalComponent
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AppRoutingModule,

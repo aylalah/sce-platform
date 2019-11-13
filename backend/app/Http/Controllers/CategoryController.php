@@ -94,11 +94,7 @@ class CategoryController extends Controller
     ->where('id', $id)
     ->update(['status' =>'T']); 
     return $trash;
-        //  if($trash){
-        //     return '
-        //         "success":"true"
-        //     ';
-        // }
+       
     }
 
     /**
@@ -147,30 +143,36 @@ class CategoryController extends Controller
     {
         $id=$request[0];
         // return $id;
-        $deletecat=DB::table('categories')->where('id', $id)->delete();
-        $deletet=DB::table('titles')->join('categories','titles.category_id','=','categories.id')->join('activities','categories.activity_id','=','activities.id')
-        ->select('titles.*','categories.id','activities.id')
-        ->where('categories.id', $id)->delete();
-         $deletec=DB::table('contents')->join('titles','contents.name_id','=','titles.id')->join('categories','titles.category_id','=','categories.id')->join('activities','categories.activity_id','=','activities.id')
-         ->select('contents.*','titles.id','categories.id','activities.id')
-         ->where('categories.id', $id)->delete();
+        // $deletecat=DB::table('categories')->where('id', $id)->delete();
        
+        // $deletet=DB::table('titles')->join('categories','titles.category_id','=','categories.id')->join('activities','categories.activity_id','=','activities.id')
+        // ->select('titles.*')
+        // ->where('categories.id','=',$id)
+
+        // ->get();
+        // foreach ($deletet as $item) {
+        //       $title=DB::table('titles')->where([
+        //           ['id','=',$item->id]
+        //       ])
+        //       ->delete();
+        // }
+            
+        //  $deletec=DB::table('contents')->join('titles','contents.name_id','=','titles.id')->join('categories','titles.category_id','=','categories.id')
+        //  ->select('contents.*')
+        //  ->where('titles.category_id','=',$id)
+        //  ->get();
+    //      foreach ($deletec as $item) {
+    //         $cat=DB::table('contents')->where([
+    //             ['id','=',$item->id]
+    //         ])
+    //         ->delete();
+    //         // return [$item->id];
+    //   }
    
     return $deletet;
     }
     public function destroy($id)
     {
-        // $id=$request[0];
-     
-        //  return $id;
-       
-        // $trash=DB::table('categories')
-        // ->where('id', $id)->delete();
-        // // ->update(['status' =>'T']); 
-        //     if($trash){
-        //         return '
-        //             "success":"true"
-        //         ';
-        //     }
+        
     }
 }
