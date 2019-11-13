@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { JarwisService } from '../service/jarwis.service';
 import { Router } from '@angular/router';
 import { MapServiceService } from '../map-service.service';
+
 import {MatDialog} from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
+
 @Component({
   selector: 'app-trash',
   templateUrl: './trash.component.html',
@@ -13,6 +15,7 @@ export class TrashComponent implements OnInit {
   resa: any;
   snackBar: any;
   lenght: any;
+<<                                            
   res: any;
   resp: any;
   respo: any;
@@ -158,5 +161,5 @@ this.Jarwis.getcattrashtitle().subscribe(
       console.log(`Dialog result: ${result}`);
     });
   }
-  
+
 }

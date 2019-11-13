@@ -91,10 +91,13 @@ class CategoryController extends Controller
         //  return $id;
        
         $trash=DB::table('categories')
+
     ->where('id', $id)
     ->update(['status' =>'T']); 
     return $trash;
-       
+      
+
+
     }
 
     /**

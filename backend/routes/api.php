@@ -82,6 +82,9 @@ Route::get('name','UserController@name');
 Route::post('movetrashu','UserController@movetrashuser');
 Route::post('deleteuser','UserController@deleteuser');
 
+Route::get('getalltrashtitle','DisplayController@getalltrashtitle');
+Route::post('trash','ContentController@trash');
+Route::post('deletetitle','ContentController@destroytitle');
 
 
 Route::post('updateView','ContentController@updateView');
@@ -91,6 +94,8 @@ Route::post('deletecat','CategoryController@deletecat');
 
 Route::post('actupdate','ActivitiesController@update');
 Route::post('acttrash','ActivitiesController@acttrash');
+
+Route::get('name','UserController@name');
 
 //  Route::get('test',function(){rolecate
 //      return response()->json([

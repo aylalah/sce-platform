@@ -175,4 +175,5 @@ class UserController extends Controller
         // ->delete();
         return $deletecat;
     }
+
 }
