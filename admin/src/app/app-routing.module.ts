@@ -16,6 +16,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PopulationComponent } from './population/population.component';
 import { EditComponent } from './edit/edit.component';
 import { TrashComponent } from './trash/trash.component';
+
 import { AlladminsComponent } from './alladmins/alladmins.component';
 import { AllusersComponent } from './allusers/allusers.component';
 

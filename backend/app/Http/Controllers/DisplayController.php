@@ -160,10 +160,12 @@ class DisplayController extends Controller
             title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
             ->select('titles.*','categories.catname')
             ->where('titles.status','=','Y')
+
             ->inRandomOrder()->limit(2)
                ->get()
         ]);
     }
+
 
     public function usertrashtitle()
     {
@@ -196,7 +198,9 @@ class DisplayController extends Controller
             title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
             ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
         //    ->where('activity_id','=',3)
+
            ->where('titles.status','=','T')
+
             ->get()
     
     );

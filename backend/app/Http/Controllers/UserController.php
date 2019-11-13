@@ -174,4 +174,5 @@ class UserController extends Controller
         $deletecat=DB::table('users')->where('id', $id)->delete();
         return $deletecat;
     }
+
 }
