@@ -69,18 +69,14 @@ export class AddactivityComponent implements OnInit {
     this.Jarwis.getact().subscribe(
       data=>{
       
-      this.cress = data;  
-      // this.roleid=this.res[0]
-
-    //  console.log(this.cress);
+      this.cress = data;       
 
       }
     ) 
     
     // console.log(this.cress)
     let category = this.cress.filter(c => c.id == id);
-    // console.log(id);
-    console.log(category[0])
+    
    const dialogRef = this.dialog.open(EditactComponent, {
      minWidth: '50%',
      data: {category: category[0]}
