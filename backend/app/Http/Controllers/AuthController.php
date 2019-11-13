@@ -29,7 +29,7 @@ class AuthController extends Controller
    
     public function login()
     {
-        $credentials = request(['email', 'password']);
+        $credentials = request(['email', 'password','status']);
 
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Email or password did not Exist'], 401);
@@ -40,7 +40,7 @@ class AuthController extends Controller
 
     public function adminLogin()
     {
-        $credentials = request(['email', 'password','role_id']);
+        $credentials = request(['email', 'password','role_id','status']);
 
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Email or password did not Exist'], 401);

@@ -21,7 +21,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { DetailsComponent } from './user/details/details.component';
 import { PostComponent } from './user/post/post.component';
 import { MypostComponent } from './user/mypost/mypost.component';
-import {MatSelectModule,MatInputModule, MatListModule, MatSnackBarModule, MatToolbarModule, MatDialogModule,MatCardModule,MatIconModule,} from '@angular/material';
+import {MatSelectModule,MatInputModule,MatButtonModule,MatListModule, MatSnackBarModule, MatToolbarModule, MatDialogModule,MatCardModule,MatIconModule,} from '@angular/material';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
@@ -36,10 +36,15 @@ import { EditComponent } from './edit/edit.component';
 import { AddactivityComponent } from './addactivity/addactivity.component';
 import { EditactComponent } from './editact/editact.component';
 import { EditcatComponent } from './editcat/editcat.component';
-
+import { AllusersComponent } from './allusers/allusers.component';
+import { AlladminsComponent } from './alladmins/alladmins.component';
+import { EdituserComponent } from './edituser/edituser.component';
+import { ModalComponent } from './modal/modal.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     CategoryComponent,
     ContentComponent,
@@ -61,9 +66,14 @@ import { EditcatComponent } from './editcat/editcat.component';
     AddactivityComponent,
     TrashComponent,
     EditactComponent,
-    EditcatComponent
+    EditcatComponent,
+    AllusersComponent,
+    AlladminsComponent,
+    EdituserComponent,
+    ModalComponent
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AppRoutingModule,
@@ -78,6 +88,7 @@ import { EditcatComponent } from './editcat/editcat.component';
      MatDialogModule,
     MatCardModule,
     MatIconModule,
+    MatButtonModule,
     // LazyLoadImageModule.forRoot({
     //   preset: scrollPreset 
     // }),
@@ -87,7 +98,7 @@ import { EditcatComponent } from './editcat/editcat.component';
   
   ],
   providers: [JarwisService,TokenService,AuthService,BeforeLoginService,AfterLoginService],
-  entryComponents: [EditcatComponent,EditactComponent,],
+  entryComponents: [EditcatComponent,EditactComponent,EdituserComponent,ModalComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

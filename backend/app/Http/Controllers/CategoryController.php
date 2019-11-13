@@ -91,13 +91,13 @@ class CategoryController extends Controller
         //  return $id;
        
         $trash=DB::table('categories')
-    ->where('id', $id)->delete();
-    // ->update(['status' =>'T']); 
-        if($trash){
-            return '
-                "success":"true"
-            ';
-        }
+
+    ->where('id', $id)
+    ->update(['status' =>'T']); 
+    return $trash;
+      
+
+
     }
 
     /**
@@ -106,8 +106,76 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function movetrashc(Request $request)
+    {
+    $id=$request[0];
+     
+    //  return $id;
+   
+    $updatetitle=DB::table('categories')
+    ->where('id', $id)
+    ->update(['status' =>'Y']); 
+  
+     return $updatetitle;
+    // if($update){
+    //     return '
+    //         "success":"true"
+    //     ';
+    // }
+    }
+
+    public function destroycat(Request $request)
+    {
+        $id=$request[0];
+    
+        // $deletet=DB::table('titles')->where('id', $id)->delete();
+        // $deletec=DB::table('contents')->where('name_id', $id)->delete();
+    //     if($deletet){
+    //     return '
+    //         "success":"true"
+    //     ';
+    // }else{
+    //     return '
+    //     "danger":"false"
+    // ';
+    // }
+    return $id;
+    }
+    public function deletecat(Request $request)
+    {
+        $id=$request[0];
+        // return $id;
+        // $deletecat=DB::table('categories')->where('id', $id)->delete();
+       
+        // $deletet=DB::table('titles')->join('categories','titles.category_id','=','categories.id')->join('activities','categories.activity_id','=','activities.id')
+        // ->select('titles.*')
+        // ->where('categories.id','=',$id)
+
+        // ->get();
+        // foreach ($deletet as $item) {
+        //       $title=DB::table('titles')->where([
+        //           ['id','=',$item->id]
+        //       ])
+        //       ->delete();
+        // }
+            
+        //  $deletec=DB::table('contents')->join('titles','contents.name_id','=','titles.id')->join('categories','titles.category_id','=','categories.id')
+        //  ->select('contents.*')
+        //  ->where('titles.category_id','=',$id)
+        //  ->get();
+    //      foreach ($deletec as $item) {
+    //         $cat=DB::table('contents')->where([
+    //             ['id','=',$item->id]
+    //         ])
+    //         ->delete();
+    //         // return [$item->id];
+    //   }
+   
+    return $deletet;
+    }
     public function destroy($id)
     {
-        //
+        
     }
 }

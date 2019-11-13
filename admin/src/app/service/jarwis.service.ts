@@ -8,7 +8,9 @@ export class JarwisService {
 
   private baseUrl = 'https://sce-ogun.sabiogun.jtcheck.com/backend/public/api';
 
+
   // private baseUrl = 'http://localhost/sce-platform/backend/public/api';
+
 
   constructor(private http: HttpClient) { }
   roleuser() {
@@ -137,8 +139,26 @@ deletetitle(data) {
   return this.http.post<any>(`${this.baseUrl}/deletetitle`, data)
 }
 
+deleteuser(data) {
+  return this.http.post<any>(`${this.baseUrl}/deleteuser`, data)
+}
+deletecat(data) {
+  return this.http.post<any>(`${this.baseUrl}/deletecat`, data)
+}
+deleteact(data) {
+  return this.http.post<any>(`${this.baseUrl}/deleteact`, data)
+}
 getalltrashtitle() {
   return this.http.get<any>(`${this.baseUrl}/getalltrashtitle`,)
+}
+getusertrashtitle() {
+  return this.http.get<any>(`${this.baseUrl}/usertrashtitle`,)
+}
+getcattrashtitle() {
+  return this.http.get<any>(`${this.baseUrl}/cattrashtitle`,)
+}
+getacttrashtitle() {
+  return this.http.get<any>(`${this.baseUrl}/acttrashtitle`,)
 }
 
 trash(data) {
@@ -161,5 +181,32 @@ acttrash(data) {
 actupdate(data) {
   return this.http.post<any>(`${this.baseUrl}/actupdate`, data)
 }
+getadmins() {
+  return this.http.get<any>(`${this.baseUrl}/getAdmins`,)
+}
+getUsers() {
+  return this.http.get<any>(`${this.baseUrl}/getUsers`,)
+}
+
+userupdate(data) {
+  return this.http.post<any>(`${this.baseUrl}/userupdate`, data)
+}
+usertrash(data) {
+  return this.http.post<any>(`${this.baseUrl}/usertrash`, data)
+}
+movetrashuser(data) {
+  return this.http.post<any>(`${this.baseUrl}/movetrashu`, data)
+}
+movetrashact(data) {
+  return this.http.post<any>(`${this.baseUrl}/movetrasha`, data)
+}
+movetrashcat(data) {
+  return this.http.post<any>(`${this.baseUrl}/movetrashc`, data)
+}
+
+
+// catetrash(data) {
+//   return this.http.post<any>(`${this.baseUrl}/catetrash`, data)
+// }
 }
 

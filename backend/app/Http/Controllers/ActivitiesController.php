@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Activities;
+use App\Content;
+use App\ Category;
+use App\title;
+use Image;
+use App\User;
+use App\comment_tbs;
 class ActivitiesController extends Controller
 {
     /**
@@ -17,6 +23,23 @@ class ActivitiesController extends Controller
         return response()->json(Activities::all());
     }
 
+    public function movetrasha(Request $request)
+    {
+    $id=$request[0];
+     
+    //  return $id;
+   
+    $updatetitle=DB::table('activities')
+    ->where('id', $id)
+    ->update(['status' =>'Y']); 
+  
+     return $updatetitle;
+    // if($update){
+    //     return '
+    //         "success":"true"
+    //     ';
+    // }
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -95,11 +118,12 @@ class ActivitiesController extends Controller
         $trash=DB::table('activities')
     ->where('id', $id)
     ->update(['status' =>'T']); 
-        if($trash){
-            return '
-                "success":"true"
-            ';
-        }
+    $trash;
+        // if($trash){
+        //     return '
+        //         "success":"true"
+        //     ';
+        // }
     }
 
     /**
@@ -108,8 +132,29 @@ class ActivitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function destroy($id)
     {
         //
+
+        
+    }
+    public function deleteact(Request $request)
+    {
+        $id=$request[0];
+        // return $id;
+        $deleteact=DB::table('activities')->where('id', $id)->delete();
+        $deletecat=DB::table('categories')->join('activities','categories.activity_id','=','activities.id')
+        ->select('categories.*','activities.id')
+        ->where('activities.id', $id)->delete();
+        $deletet=DB::table('titles')->join('categories','titles.category_id','=','categories.id')->join('activities','categories.activity_id','=','activities.id')
+        ->select('titles.*','categories.id','activities.id')
+        ->where('activities.id', $id)->delete();
+         $deletec=DB::table('contents')->join('titles','contents.name_id','=','titles.id')->join('categories','titles.category_id','=','categories.id')->join('activities','categories.activity_id','=','activities.id')
+         ->select('contents.*','titles.id','categories.id','activities.id')
+         ->where('activities.id', $id)->delete();
+       
+   
+    return $deletet;
     }
 }

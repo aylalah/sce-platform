@@ -17,6 +17,8 @@ import { PopulationComponent } from './population/population.component';
 import { EditComponent } from './edit/edit.component';
 import { TrashComponent } from './trash/trash.component';
 
+import { AlladminsComponent } from './alladmins/alladmins.component';
+import { AllusersComponent } from './allusers/allusers.component';
 
 const routes: Routes = [
 
@@ -35,8 +37,8 @@ const routes: Routes = [
   {path: 'addcat', component:  AddcategoryComponent },
   {path: 'addact', component:  AddactivityComponent },
   {path: 'About', component:  AboutComponent },
-  {path: 'Contact', component:  ContactComponent },
-
+  {path: 'alladmins', component:  AlladminsComponent },
+  {path: 'allusers', component:  AllusersComponent },
 ];
 
 @NgModule({

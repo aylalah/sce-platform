@@ -695,22 +695,45 @@
              </a> 
       </li>        -->
       <li>
-          <a href="javascript:void(0);" data-action="click-trigger">
+          <a  data-action="click-trigger">
               <span class="menu-icon"><i class="icon-palette"> </i></span> 
-              <span class="menu-text">Population</span>  
+              <span class="menu-text">User</span>  
               <span class="menu-badge"><span class="badge vd_bg-black-30"><i class="fa fa-angle-down"></i></span></span>
              </a>
            <div class="child-menu"  data-action="click-target">
               <ul>  
-                  <li *ngFor="let a of res">
-                      <a routerLink="" (click)="navigates(a.id)">
-                          <span class="menu-text">{{a.actname}}</span>  
+                  <li >
+                      <a routerLink="alladmins" >
+                          <span class="menu-text">Admins</span>  
                           <!-- <span class="menu-badge"><span class="badge vd_bg-red">Hot</span></span> -->
                       </a>
-                  </li>                                                                                                               
+                  </li>   
+                  <li >
+                    <a routerLink="allusers" >
+                        <span class="menu-text">Users</span>  
+                        <!-- <span class="menu-badge"><span class="badge vd_bg-red">Hot</span></span> -->
+                    </a>
+                </li>                                                                                                              
               </ul>   
             </div>
       </li> 
+      <li>
+        <a href="javascript:void(0);" data-action="click-trigger">
+            <span class="menu-icon"><i class="icon-palette"> </i></span> 
+            <span class="menu-text">Population</span>  
+            <span class="menu-badge"><span class="badge vd_bg-black-30"><i class="fa fa-angle-down"></i></span></span>
+           </a>
+         <div class="child-menu"  data-action="click-target">
+            <ul>  
+                <li *ngFor="let a of res">
+                    <a routerLink="" (click)="navigates(a.id)">
+                        <span class="menu-text">{{a.actname}}</span>  
+                        <!-- <span class="menu-badge"><span class="badge vd_bg-red">Hot</span></span> -->
+                    </a>
+                </li>                                                                                                               
+            </ul>   
+          </div>
+    </li>
       <li>
         <a href="javascript:void(0);" data-action="click-trigger">
             <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
@@ -750,7 +773,7 @@
       <div class="vd_menu vd_navbar-bottom-widget">
           <ul>
               <li>
-                  <a href="pages-logout.html">
+                  <a >
                       <span class="menu-icon"><i class="fa fa-sign-out"></i></span>          
                       <span class="menu-text">Logout</span>             
                   </a>

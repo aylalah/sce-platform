@@ -40,7 +40,7 @@
                 </tr> 
               </thead>
               <tbody>
-                <tr *ngFor="let t of title">
+                <tr *ngFor="let t of title | paginate: {itemsPerPage: 5, currentPage: p}">
                   <td>1</td>
                   <td>{{t.name_title}}</td>
                   <td class="center">{{t.updated_at}}</td>
@@ -53,18 +53,11 @@
                   <td class="menu-action rounded-btn" ><a data-original-title="view" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-green"> <i class="fa fa-eye"></i> </a> 
                                                       <a data-original-title="edit" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-yellow" routerLink="" (click)="navigates(t.id)"> <i class="fa fa-pencil"></i> </a> 
                                                       <a data-original-title="delete" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-red" (click)="trash(t.id)"> <i class="fa fa-times"></i> </a></td>
-                </tr>                
+                </tr> 
+                          
               </tbody>
             </table>
-            <ul class="pagination">
-              <li><a href="#">&laquo;</a></li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&raquo;</a></li>
-            </ul>
+            <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>     
           </div>
         </div>
         <!-- Panel Widget --> 
