@@ -15,7 +15,7 @@ export class TrashComponent implements OnInit {
   resa: any;
   snackBar: any;
   lenght: any;
-<<                                            
+                                            
   res: any;
   resp: any;
   respo: any;
