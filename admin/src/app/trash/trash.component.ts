@@ -60,7 +60,9 @@ this.Jarwis.getcattrashtitle().subscribe(
 })
 // console.log('here', this.resa ,this.res)
   }
-
+  navigate(id){
+ this.router.navigate(['edit/'+id+'']);
+  }
   movetrashp(id){
     
     // this.router.navigate(['edit/'+id+'']);

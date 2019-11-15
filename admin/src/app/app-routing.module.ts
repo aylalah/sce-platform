@@ -16,7 +16,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PopulationComponent } from './population/population.component';
 import { EditComponent } from './edit/edit.component';
 import { TrashComponent } from './trash/trash.component';
-
+import { ProfileComponent } from './user/profile/profile.component';
 import { AlladminsComponent } from './alladmins/alladmins.component';
 import { AllusersComponent } from './allusers/allusers.component';
 
@@ -37,8 +37,9 @@ const routes: Routes = [
   {path: 'addcat', component:  AddcategoryComponent },
   {path: 'addact', component:  AddactivityComponent },
   {path: 'About', component:  AboutComponent },
-  {path: 'alladmins', component:  AlladminsComponent },
-  {path: 'allusers', component:  AllusersComponent },
+  {path: 'alladmins', component:  AlladminsComponent,canActivate: [AfterLoginService] },
+  {path: 'allusers', component:  AllusersComponent,canActivate: [AfterLoginService] },
+  {path: 'profile', component:  ProfileComponent,canActivate: [AfterLoginService] },
 ];
 
 @NgModule({

@@ -31,7 +31,7 @@
                             </figure>
                         </section>
                         <section id="properties" class="display-lines">
-                            <div class="property" *ngFor="let t of title">
+                            <div class="property" *ngFor="let t of title | paginate: {itemsPerPage: 10, currentPage: p}">
                                 <figure class="tag status"></figure>
                                 <figure class="type" title="Apartment"><img src="" alt=""></figure>
                                 <div class="property-image">
@@ -67,15 +67,11 @@
 
                             <!-- Pagination -->
                             <div class="center">
-                                <ul class="pagination">
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                </ul><!-- /.pagination-->
+          <pagination-controls (pageChange)="p = $event" class="my-pagination text-info"></pagination-controls> 
+                                
                             </div><!-- /.center-->
                         </section><!-- /#properties-->
+                        
                     </section><!-- /#results -->
                 </div><!-- /.col-md-9 -->
                 <!-- end Results -->
