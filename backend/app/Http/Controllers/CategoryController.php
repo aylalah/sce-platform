@@ -146,33 +146,9 @@ class CategoryController extends Controller
     {
         $id=$request[0];
         // return $id;
-        // $deletecat=DB::table('categories')->where('id', $id)->delete();
-       
-        // $deletet=DB::table('titles')->join('categories','titles.category_id','=','categories.id')->join('activities','categories.activity_id','=','activities.id')
-        // ->select('titles.*')
-        // ->where('categories.id','=',$id)
-
-        // ->get();
-        // foreach ($deletet as $item) {
-        //       $title=DB::table('titles')->where([
-        //           ['id','=',$item->id]
-        //       ])
-        //       ->delete();
-        // }
-            
-        //  $deletec=DB::table('contents')->join('titles','contents.name_id','=','titles.id')->join('categories','titles.category_id','=','categories.id')
-        //  ->select('contents.*')
-        //  ->where('titles.category_id','=',$id)
-        //  ->get();
-    //      foreach ($deletec as $item) {
-    //         $cat=DB::table('contents')->where([
-    //             ['id','=',$item->id]
-    //         ])
-    //         ->delete();
-    //         // return [$item->id];
-    //   }
-   
-    return $deletet;
+        $deletecat=DB::table('categories')->where('id', $id)->delete();
+        $deletet=DB::table('titles')->where('categories_id','=',$id)->delete();
+       return $id;
     }
     public function destroy($id)
     {

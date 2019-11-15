@@ -102,10 +102,10 @@
                                       <header>View:</header>
                                       <figure></figure>
                                   </li>
-                                  <!-- <li>
+                                  <li>
                                       <header>Comment:</header>
-                                      <figure>23</figure>
-                                  </li> -->
+                                      <figure>{{r.comment_count}}</figure>
+                                  </li>
                               </ul>
                           </div>
                       </a>
@@ -120,13 +120,6 @@
     <div class="container">
         <header class="section-title">
 
-            <!-- <h2>{{actname}} </h2>
-            <a href="Category/" class="link-arrow">View More</a>
-        </header>
-        <div class="row">
-            <div class="col-md-3 col-sm-6" *ngFor="let r of resec">
-                <div class="property">
-                    <a (click)="navigate(r.id)"> -->
             <h2>{{actname1}}</h2>
             
             <a (click)="navigat(id1)"   class="link-arrow">View More</a>
@@ -152,7 +145,7 @@
                                 </li>
                                 <li>
                                     <header>Comment:</header>
-                                    <figure>23</figure>
+                                    <figure>{{r.comment_count}}</figure>
                                 </li>
                             </ul>
                         </div>
@@ -170,12 +163,7 @@
   <div class="container">
       <header class="section-title">
 
-          <!-- <h2>{{actname1}}</h2>
-          <a href="Category/" class="link-arrow">View More</a>
-      </header>
-      <div class="row">
-          <div class="col-md-3 col-sm-6" *ngFor="let r of resac"> -->
-
+       
          <h2>{{actname2}}</h2>
           <a (click)="navigat(id2)" class="link-arrow">View More</a>
       </header>
@@ -200,7 +188,7 @@
                             </li>
                             <li>
                                 <header>Comment:</header>
-                                <figure>23</figure>
+                                <figure>{{r.comment_count}}</figure>
                             </li>
                         </ul>
                     </div>
@@ -254,7 +242,7 @@
                                   </li>
                                   <li>
                                       <header>Comment:</header>
-                                      <figure>23</figure>
+                                      <figure>{{r.comment_count}}</figure>
                                   </li>
                               </ul>
                           </div>

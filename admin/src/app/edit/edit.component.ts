@@ -47,6 +47,7 @@ export class EditComponent implements OnInit {
   bio: any;
   location: any;
   paramsid: any;
+  t_image: any;
  
 
   constructor(private Jarwis: JarwisService, private router: Router, public actRoute: ActivatedRoute,  private formBuilder: FormBuilder,public snackBar: MatSnackBar ) { }
@@ -152,11 +153,21 @@ export class EditComponent implements OnInit {
 }));
  
 }
-
+uploadFiles(event){
+  let files =event.target.files[0];
+  let reader = new FileReader();
+  let vm = this;
+  reader.onloadend =()=> {
+    // body...
+    this.t_image = reader.result;
+ 
+  }
+  reader.readAsDataURL(files);
+}
 onSubmit() {
  // console.log(this.paramsid)
 //  console.log(this.orderForm.value) 
- this.Jarwis.updatecontent({fdata:this.orderForm.value,id:this.paramsid}).subscribe(
+ this.Jarwis.updatecontent({fdata:this.orderForm.value,id:this.paramsid,t_image:this.t_image}).subscribe(
    data => this.handleResp(data),
      error => this.handleErr(error)
 );
@@ -172,8 +183,10 @@ handleResp(data) {
  let snackBarRef = this.snackBar.open('Update Successfully', 'Dismiss', {
    duration: 2000
  })
-this.disabled=true;
-this.router.navigateByUrl('/admin');
+this.disabled=false;
+this.sav= 'Update';
+// this.router.navigateByUrl('/admin');
+this.ngOnInit()
 //  this.router.navigateByUrl('/User/(side:Details)');
 }
 onSubmit2() {

@@ -87,7 +87,7 @@
                 </tr> 
               </thead>
               <tbody>
-                <tr *ngFor="let c of res">
+                <tr *ngFor="let c of res  | paginate: {itemsPerPage: 10, currentPage: p}">
                   <td>1</td>
                   <td>{{c.actname}}</td>
                   <td class="center">{{c.destription}}</td>
@@ -101,15 +101,8 @@
                 </tr>                
               </tbody>
             </table>
-            <ul class="pagination">
-              <li><a href="#">&laquo;</a></li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&raquo;</a></li>
-            </ul>
+          <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls> 
+           
           </div>
         </div>
         <!-- Panel Widget --> 
