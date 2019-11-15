@@ -51,10 +51,10 @@ public function commentcount($id){
             
             [
                 // 'comment' =>comment_tbs::where('id','=',1)->get(),
-                'event' =>Activities::where('id','=',1)->get(),
+                'event' =>Activities::where('id','=',2)->get(),
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
-               ->where('activity_id','=',1)
+               ->where('activity_id','=',2)
                ->where('titles.status','=','Y')
                ->inRandomOrder()->limit(4)
                 ->get()
@@ -63,49 +63,18 @@ public function commentcount($id){
         );
     }
 
-    public function displaylocation()
-    {
-        return response()->json(
-            
-            [
-                // 'comment' =>comment_tbs::where('id','=',6)->get(),
-                'event' =>Activities::where('id','=',6)->get(),
-                'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
-                ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
-               ->where('activity_id','=',6)
-               ->where('titles.status','=','Y')
-               ->inRandomOrder()->limit(4)
-                ->get()
-            ]
-        );
-    }
+    
     public function displayartifact()
     {
-        // $titles = DB::table('titles')
-        //     ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
-        //     ->join('categories','titles.category_id','categories.id')
-        //     ->leftJoin('activities','categories.activity_id','activities.id')
-        //     ->where('activity_id','=',2)
-        //     ->where('titles.status','=','Y')
-        //     ->get();
-
-        // $comments = DB::table('comment_tbs')
-        //     ->select('comment','title_id');
-        // $acts = DB::table('activities')
-        //     ->select('actname', 'id')
-        //     ->where('id','=',2)
-        //     ->get();
-        
-        // return array('event'=>$acts, 'subevent'=>$titles, 'comments'=>$comments);
-    //    return DB::table('titles')
+      
        return response()->json(
             [
 
-                'event' =>Activities::where('id','=',2)->get(),
+                'event' =>Activities::where('id','=',6)->get(),
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 // ->join('comment_tbs','titles.id','=','comment_tbs.title_id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
-               ->where('activity_id','=',2)
+               ->where('activity_id','=',6)
                ->where('titles.status','=','Y')
             //    ->groupBy('comment')
             ->inRandomOrder()->limit(4)
@@ -124,11 +93,11 @@ public function commentcount($id){
         return response()->json(
             [
 
-                'event' =>Activities::where('id','=',3)->get(),
+                'event' =>Activities::where('id','=',7)->get(),
                 
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
-               ->where('activity_id','=',3)
+               ->where('activity_id','=',7)
                ->where('titles.status','=','Y')
                ->inRandomOrder()->limit(4)
                 ->get()

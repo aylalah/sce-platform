@@ -104,15 +104,17 @@ export class HomeComponent implements OnInit {
       this.Jarwis.displayevent().subscribe(
         data=>{
           // All data which contain category and subcat
+          
         this.rese = data;  
         //this is one category which is event
         this.reseh=this.rese.event[0]
         this.actname=this.reseh.actname
-        this.comment=this.rese.comment[0].length
+
+        // this.comment=this.rese.comment[0].length
         this.id=this.reseh.id
         //this is all subcat under event category
         this.resec=this.rese.subevent
-        //  console.log(this.id)
+         console.log(this.resec)
         
         }
       )
@@ -124,7 +126,7 @@ export class HomeComponent implements OnInit {
         this.actname1=this.resah.actname
         this.id1=this.resah.id
         this.resac=this.resa.subevent
-        //  console.log(this.id1)
+         console.log(this.resac)
 
         
         }
@@ -141,17 +143,7 @@ export class HomeComponent implements OnInit {
         
         }
       )
-      this.Jarwis.displaylocation().subscribe(
-        data=>{
-        this.resl = data;  
-        this.reslh=this.resb.event[0]
-        this.actname3=this.reslh.actname
-        this.id3=this.reslh.id
-        this.reslc=this.resl.subevent 
-      //  console.log(this.reslc)
-        
-        }
-      )
+      
       this.Jarwis.displaynews().subscribe(
         data=>{
         this.resn= data;  
