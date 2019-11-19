@@ -10,6 +10,7 @@ use App\title;
 use Image;
 use App\User;
 use App\comment_tbs;
+use App\Galleries;
 class ContentController extends Controller
 {
     /**
@@ -76,22 +77,34 @@ class ContentController extends Controller
     }
     public function store(Request $request)
     {
-        $authid=auth()->user()->id;
         
+        $authid=auth()->user()->id;
+        $image_name= $request->image;
           $request->merge(['user_id'=>$authid]);
          $detcontents = $request->contents;
-         if ($request->t_image ){
-            $file=$request->t_image;
-            $filename=time().'.' . explode('/', explode(':', substr($file, 0, strpos($file,';')))[1])[1];
-         
-            Image::make($file)->resize(300, 300)->save(public_path('/upload/uploads/'.$filename));
-           
-            $request->merge(['t_image'=>$filename]);
-           
-        }
+         $files=$image_name[0];
+         $filenames=time().'.' . explode('/', explode(':', substr($files, 0, strpos($files,';')))[1])[1];
+        Image::make($files)->resize(300, 300)->save(public_path('/upload/uploads/'.$filenames));
+       
+        $request->merge(['t_image'=>$filenames]);
+        // return $request;
         $content= title::create($request-> all());
         // return $content->id;
-
+$imageName=[];
+$count = 0;
+foreach ($image_name as $img) {
+        $file=$img;
+       $filename=$count.'.'.time().'.' . explode('/', explode(':', substr($file, 0, strpos($file,';')))[1])[1];
+    
+        Image::make($file)->resize(300, 300)->save(public_path('/upload/uploads/'.$filename));
+    $imageName[] =[
+     'title_id' => $content->id,
+   'image_name'=> $filename,
+    ] ; 
+    $count++;
+}
+   Galleries::insert($imageName);
+//  return $imageName;
         $contentData=[];
         
         foreach ($detcontents as $item) {
@@ -105,7 +118,7 @@ class ContentController extends Controller
             ] ; 
         }
      
-         Content::insert($contentData);
+        Content::insert($contentData);
          return $contentData;
     }
 

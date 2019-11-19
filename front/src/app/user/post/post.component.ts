@@ -17,13 +17,14 @@ public res:any;
 public response:any;
 public selectedid:any;
 public location:any;
-
+public img=[];
 public form = {
 category_id: null,
 name_title:'',
 location:null,
 about: 'Content',
 t_image:null,
+image:null,
 contents:null,
 }
   disabled=false;
@@ -51,6 +52,7 @@ contents:null,
       data => this.handleResponse(data),
         error => this.handleError(error)
    );
+
    this.disabled=true;
     this.sav= 'Posting';
   }
@@ -100,15 +102,22 @@ contents:null,
   }
   
   uploadFiles(event){
-    let files =event.target.files[0];
-    let reader = new FileReader();
-    let vm = this;
-    reader.onloadend =()=> {
-      // body...
-      this.form.t_image = reader.result;
-   
+    let files =event.target.files;
+    if (files){
+      for(let file of files){
+        let reader= new FileReader();
+        let vm = this;
+        reader.onload =()=> {
+         this.img.push(reader.result);
+        
+        }
+        reader.readAsDataURL(file);
+        
     }
-    reader.readAsDataURL(files);
+    }
+    this.form.image =this.img;
+    console.log(event)
+    console.log(this.form.image)
   }
   ngOnInit() {
     
