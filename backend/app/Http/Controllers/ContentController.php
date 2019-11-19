@@ -215,11 +215,7 @@ class ContentController extends Controller
     ->update(['status' =>'T']); 
   
      return $trash;
-    // if($update){
-    //     return '
-    //         "success":"true"
-    //     ';
-    // }
+    
     }
     public function destroytitle(Request $request)
     {
@@ -227,15 +223,7 @@ class ContentController extends Controller
     
         $deletet=DB::table('titles')->where('id', $id)->delete();
         $deletec=DB::table('contents')->where('name_id', $id)->delete();
-    //     if($deletet){
-    //     return '
-    //         "success":"true"
-    //     ';
-    // }else{
-    //     return '
-    //     "danger":"false"
-    // ';
-    // }
+   
     return $id;
     }
     public function destroy($id)
