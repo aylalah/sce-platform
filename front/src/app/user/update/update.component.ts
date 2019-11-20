@@ -47,7 +47,10 @@ export class UpdateComponent implements OnInit {
   bio: any;
   location: any;
   paramsid: any;
-
+  t_image: any;
+  img= [];
+  galleryimage: any;
+  gallery: any;
   constructor(private Jarwis: JarwisService, private router: Router, public actRoute: ActivatedRoute,  private formBuilder: FormBuilder,public snackBar: MatSnackBar ) { }
 
   getLength(): Number{
@@ -83,6 +86,7 @@ export class UpdateComponent implements OnInit {
   
   ngOnInit() {
     this.orderForm =  this.formBuilder.group({
+      name_title:this.title,
       gcontents: this.formBuilder.array([
         // {
         //   header:'',
@@ -108,10 +112,17 @@ export class UpdateComponent implements OnInit {
         this.title=this.res.name_title;
         this.about=this.res.about;
         this.dates=this.res.created_at;
-        // this.cat=this.response.name
+        this.gallery=this.response.gallery;
         this.name=this.res.firstname+" "+this.res.lastname+" "+this.res.middlename
         // console.log(this.cat)
         this.contents=this.response.content
+        this.orderForm =  this.formBuilder.group({
+          name_title:this.title,
+          gcontents: this.formBuilder.array([
+           
+          ])
+         
+        });
         console.log(this.contents);
         this.comment=this.response.comment
         for (let i in this.contents){
@@ -142,11 +153,38 @@ export class UpdateComponent implements OnInit {
    }));
     
   }
-
+  uploadGallery(event){
+    let files =event.target.files;
+    if (files){
+      for(let file of files){
+        let reader= new FileReader();
+        let vm = this;
+        reader.onload =()=> {
+         this.img.push(reader.result);
+        
+        }
+        reader.readAsDataURL(file);
+        
+    }
+    }
+    this.galleryimage =this.img;
+     
+  }
+  uploadFiles(event){
+    let files =event.target.files[0];
+    let reader = new FileReader();
+    let vm = this;
+    reader.onloadend =()=> {
+      // body...
+      this.t_image = reader.result;
+   
+    }
+    reader.readAsDataURL(files);
+  }
   onSubmit() {
     
    console.log(this.orderForm.value) 
-    this.Jarwis.updatecontent({fdata:this.orderForm.value,id:this.paramsid}).subscribe(
+    this.Jarwis.updatecontent({fdata:this.orderForm.value,id:this.paramsid,t_image:this.t_image,galleryimage:this.galleryimage}).subscribe(
       data => this.handleResponse(data),
         error => this.handleError(error)
    );

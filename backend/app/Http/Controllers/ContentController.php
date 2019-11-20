@@ -28,6 +28,11 @@ class ContentController extends Controller
         ->join('users','titles.user_id','=','users.id')
         ->select('titles.*','categories.catname','categories.destription','categories.activity_id','activities.actname','users.firstname','users.lastname','users.middlename', 'users.familybackground', 'users.image')
        ->where('titles.id','=',$id)->get(),
+       'gallery'=>Galleries::orderBy('id')->join('titles','Galleries.title_id','=','titles.id')
+       ->join('users','titles.user_id','=','users.id')
+        ->select('Galleries.*','titles.name_title','titles.location','titles.t_image','users.firstname','users.lastname','users.middlename','users.image','users.email')
+       ->where('title_id','=',$id)
+       ->get(),
        'comment'=>comment_tbs::orderBy('id')->join('titles','comment_tbs.title_id','=','titles.id')
        ->join('users','comment_tbs.user_id','=','users.id')
         ->select('comment_tbs.*','titles.name_title','titles.location','titles.t_image','users.firstname','users.lastname','users.middlename','users.image','users.email')
@@ -141,7 +146,8 @@ foreach ($image_name as $img) {
       $fdata=$request->fdata;
       $name_title=$request->fdata['name_title'];
     $detcontents= $fdata['gcontents'];
-    //   return $name_title;
+    $image_name=$request->galleryimage;
+    //   return $request;
     if ($request->t_image){
         $file=$request->t_image;
         $filename=time().'.' . explode('/', explode(':', substr($file, 0, strpos($file,';')))[1])[1];
@@ -153,6 +159,20 @@ foreach ($image_name as $img) {
         ->where('id', $id)
         ->update(['status' =>'E','t_image'=>$request->t_image]);
     }
+    $imageName=[];
+$count = 0;
+foreach ($image_name as $img) {
+        $file=$img;
+       $filename=$count.'.'.time().'.' . explode('/', explode(':', substr($file, 0, strpos($file,';')))[1])[1];
+    
+        Image::make($file)->resize(300, 300)->save(public_path('/upload/uploads/'.$filename));
+    $imageName[] =[
+     'title_id' => $id,
+   'image_name'=> $filename,
+    ] ; 
+    $count++;
+}
+  $gally= Galleries::insert($imageName);
     $updatetitle=DB::table('titles')
     ->where('id', $id)
     ->update(['status' =>'E','name_title'=>$name_title]); 
@@ -165,7 +185,7 @@ foreach ($image_name as $img) {
     
     }
     
-    if($update | $updatetitle){
+    if($update | $updatetitle | $gally){
         return $id;
     }else{
         return '

@@ -115,9 +115,15 @@
 
 
                     <form  #signupForm=ngForm class="form-submit">
-                       
-                                   
-                                 
+                      <div class="row">
+                      <div class="form-group">
+                        <!-- <label for="submit-area">Change title Image</label> -->
+                        <div class="input-group">
+                            <input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="Upload Gallery Images" (change)="uploadGallery($event)">
+                            <!-- <span class="input-group-addon">m<sup>2</sup></span> -->
+                        </div>
+                    </div>
+                           </div>      
                                             <div [formGroup]="orderForm">
                                                 <div class="row">
                                                     <div class="col-md-8">
