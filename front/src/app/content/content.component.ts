@@ -43,6 +43,7 @@ id: any;
   result: any;
   view: any;
  public tid;
+  location: any;
 constructor(private Jarwis: JarwisService,public snackBar: MatSnackBar,private router: Router, public actRoute: ActivatedRoute, private coordGet: MapServiceService) { }
 @ViewChild('map') mapElement: any;
 
@@ -119,10 +120,10 @@ handleError(error) {
                     this.dates=this.res.created_at;
                     this.bio=this.res.familybackground;
                     this.name=this.res.firstname+" "+this.res.lastname+" "+this.res.middlename;
+                    this.location= this.response.content[0].location;
                    
                     this.contents=this.response.content;
-                    this.comment=this.response.comment;                   
-                    
+                    this.comment=this.response.comment;               
                     
                     //map Init
                     this.coordGet.getLocality(this.response.content[0].location).subscribe(data=>{

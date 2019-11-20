@@ -76,6 +76,9 @@ export class JarwisService {
   displaypeople() {
     return this.http.get(`${this.baseUrl}/displaypeople`,)
   }
+  displaytourist() {
+    return this.http.get(`${this.baseUrl}/displaytourist`,)
+  }
   displaynews() {
     return this.http.get(`${this.baseUrl}/displaynews`,)
   }

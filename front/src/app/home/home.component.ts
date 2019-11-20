@@ -72,6 +72,9 @@ export class HomeComponent implements OnInit {
   actdata: any;
   acttitle: any;
   comment: any;
+  restc: any;
+  rest: any;
+  resth: any;
   
   constructor(private Jarwis: JarwisService,private router: Router,private mapserver: MapServiceService, private coordGet: MapServiceService) { }
 
@@ -140,6 +143,18 @@ export class HomeComponent implements OnInit {
         this.resbc=this.resb.subevent 
         // console.log(this.id2)
 
+        
+        }
+      )
+
+      this.Jarwis.displaytourist().subscribe(
+        data=>{
+        this.rest= data;  
+        this.resth=this.rest.event[0]
+        this.actname3=this.resth.actname
+        this.id4=this.resth.id
+        this.restc=this.rest.subevent 
+        // console.log(this.resnc)
         
         }
       )

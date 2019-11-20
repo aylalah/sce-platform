@@ -129,7 +129,17 @@ class ContentController extends Controller
       $name_title=$request->fdata['name_title'];
     $detcontents= $fdata['gcontents'];
     //   return $name_title;
-   
+    if ($request->t_image){
+        $file=$request->t_image;
+        $filename=time().'.' . explode('/', explode(':', substr($file, 0, strpos($file,';')))[1])[1];
+     
+        Image::make($file)->resize(300, 300)->save(public_path('/upload/uploads/'.$filename));
+       
+        $request->merge(['t_image'=>$filename]);
+        $updatet=DB::table('titles')
+        ->where('id', $id)
+        ->update(['status' =>'E','t_image'=>$request->t_image]);
+    }
     $updatetitle=DB::table('titles')
     ->where('id', $id)
     ->update(['status' =>'E','name_title'=>$name_title]); 
@@ -141,11 +151,9 @@ class ContentController extends Controller
                     ->update(array('header' => $item['header'], 'content' => $item['content']));
     
     }
-    // return $update;
-    if($update | $updatetitle ){
-        return '
-            "success":"true"
-        ';
+    
+    if($update | $updatetitle){
+        return $id;
     }else{
         return '
             "success":"Anything change"

@@ -43,7 +43,8 @@ Route::get('displayartifact','DisplayController@displayartifact');
 Route::get('displaybusiness','DisplayController@displaybusiness');
 Route::get('displaypeople','DisplayController@displaypeople');
 Route::get('displaynews','DisplayController@displaynews');
-Route::get('displaylocation','DisplayController@displaylocation');
+Route::get('displaytourist','DisplayController@displaytourist');
+
 Route::get('displayactbytitle','DisplayController@displayactbytitle');
 Route::get('getalltitle','DisplayController@getalltitle');
 Route::get('getalladmintitle','DisplayController@getalladmintitle');

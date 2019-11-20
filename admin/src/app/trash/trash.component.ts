@@ -14,7 +14,8 @@ import { ModalComponent } from '../modal/modal.component';
 export class TrashComponent implements OnInit {
   resa: any;
   snackBar: any;
-  lenght: any;                                         
+  lenght: any;
+                                            
   res: any;
   resp: any;
   respo: any;
@@ -59,7 +60,9 @@ this.Jarwis.getcattrashtitle().subscribe(
 })
 // console.log('here', this.resa ,this.res)
   }
-
+  navigate(id){
+ this.router.navigate(['edit/'+id+'']);
+  }
   movetrashp(id){
     
     // this.router.navigate(['edit/'+id+'']);

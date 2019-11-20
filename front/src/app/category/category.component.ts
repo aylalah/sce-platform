@@ -14,6 +14,7 @@ export class CategoryComponent implements OnInit {
   actname: any;
   title: any;
   lenght: void;
+  p:any;
 
   constructor(
     private Auth: AuthService,

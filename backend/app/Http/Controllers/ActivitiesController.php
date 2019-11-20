@@ -143,18 +143,16 @@ class ActivitiesController extends Controller
     {
         $id=$request[0];
         // return $id;
-        $deleteact=DB::table('activities')->where('id', $id)->delete();
-        $deletecat=DB::table('categories')->join('activities','categories.activity_id','=','activities.id')
-        ->select('categories.*','activities.id')
-        ->where('activities.id', $id)->delete();
+         $deleteact=DB::table('activities')->where('id', $id)->delete();
+         $deletecat=DB::table('categories')->where('activity_id', 8)->delete();
         $deletet=DB::table('titles')->join('categories','titles.category_id','=','categories.id')->join('activities','categories.activity_id','=','activities.id')
-        ->select('titles.*','categories.id','activities.id')
-        ->where('activities.id', $id)->delete();
+        ->select('titles.*','activity_id')
+        ->where('activity_id', 8)->delete();
          $deletec=DB::table('contents')->join('titles','contents.name_id','=','titles.id')->join('categories','titles.category_id','=','categories.id')->join('activities','categories.activity_id','=','activities.id')
-         ->select('contents.*','titles.id','categories.id','activities.id')
-         ->where('activities.id', $id)->delete();
+         ->select('contents.*','activity_id')
+         ->where('activity_id', 8)->delete();
        
    
-    return $deletet;
+    return $id;
     }
 }

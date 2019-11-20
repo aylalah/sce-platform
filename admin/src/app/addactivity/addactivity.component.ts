@@ -15,6 +15,7 @@ export class AddactivityComponent implements OnInit {
     destription:null,
     // activity_id:null,
   }
+  p:any;
   public res:any;
   message: any;
   error: any;

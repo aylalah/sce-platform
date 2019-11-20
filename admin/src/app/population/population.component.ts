@@ -21,6 +21,7 @@ export class PopulationComponent implements OnInit {
   contentres: any;
 res:any;
   lenght: any;
+  p:any;
 
   N= true;
   Y= true;

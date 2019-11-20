@@ -50,9 +50,9 @@
                   <td class="center">{{t.catname}}</td>
                   <td class="center"> <span class="label label-default" *ngIf ="t.status=== 'T'">Trash</span>
                   </td>
-                  <td class="menu-action rounded-btn" ><a data-original-title="view" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-green"> <i class="fa fa-undo"></i> </a> 
+                  <td class="menu-action rounded-btn" ><a data-original-title="view" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-green" (click)="movetrashp(t.id)"> <i class="fa fa-undo"></i> </a> 
 
-                                                      <a data-original-title="edit" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-yellow"  (click)="movetrashp(t.id)"> <i class="fa fa-pencil"></i> </a> 
+                                                      <a data-original-title="edit" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-yellow"  (click)="navigate(t.id)"> <i class="fa fa-pencil"></i> </a> 
                                                       <a data-original-title="delete" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-red" (click)="deletep(t.id)"> <i class="fa fa-times"></i> </a></td>
                 </tr>   
                 <tr *ngFor="let u of res">
@@ -62,7 +62,7 @@
                   <td class="center">{{u.role_id}}</td>
                   <td class="center"> <span class="label label-default" *ngIf ="u.status=== 'T'">Trash</span>
                   </td>
-                  <td class="menu-action rounded-btn" ><a data-original-title="view" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-green"> <i class="fa fa-undo"></i> </a> 
+                  <td class="menu-action rounded-btn" ><a data-original-title="view" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-green" (click)="movetrashu(t.id)"> <i class="fa fa-undo"></i> </a> 
                                                       <a data-original-title="edit" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-yellow"  (click)="movetrashu(u.id)"> <i class="fa fa-pencil"></i> </a> 
                                                       <a data-original-title="delete" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-red"  (click)="deleteu(u.id)"> <i class="fa fa-times"></i> </a></td>
                 </tr>    
@@ -73,7 +73,7 @@
                   <td class="center"></td>
                   <td class="center"> <span class="label label-default" *ngIf ="a.status=== 'T'">Trash</span>
                   </td>
-                  <td class="menu-action rounded-btn" ><a data-original-title="view" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-green"> <i class="fa fa-undo"></i> </a> 
+                  <td class="menu-action rounded-btn" ><a data-original-title="view" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-green" (click)="movetrasha(t.id)"> <i class="fa fa-undo"></i> </a> 
                                                       <a data-original-title="edit" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-yellow"  (click)="movetrasha(a.id)"><i class="fa fa-pencil"></i> </a> 
                                                       <!-- <a data-original-title="delete" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-red"  (click)="opencomformed()"> <i class="fa fa-times"></i> </a></td> -->
                                                       
@@ -86,22 +86,14 @@
                   <td class="center"></td>
                   <td class="center"> <span class="label label-default" *ngIf ="c.status=== 'T'">Trash</span>
                   </td>
-                  <td class="menu-action rounded-btn" ><a data-original-title="view" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-green"> <i class="fa fa-undo"></i> </a> 
+                  <td class="menu-action rounded-btn" ><a data-original-title="view" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-green" (click)="movetrashc(t.id)"> <i class="fa fa-undo"></i> </a> 
                                                       <a data-original-title="edit" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-yellow"  (click)="movetrashc(c.id)"> <i class="fa fa-pencil"></i> </a> 
                                                       <a data-original-title="delete" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-red"  (click)="deletec(c.id)"> <i class="fa fa-times"></i> </a></td>
                 </tr>           
 
               </tbody>
             </table>
-            <ul class="pagination">
-              <li><a href="#">&laquo;</a></li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&raquo;</a></li>
-            </ul>
+          
           </div>
         </div>
         <!-- Panel Widget --> 

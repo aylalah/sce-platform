@@ -95,17 +95,17 @@
                               <div class="info">
                                   <div class="tag price" (click)="onClick()">{{r.catname}}</div>
                                   <h3>{{r.name_title}}</h3>
-                                  <figure><a href="#" class="link-icon" style="color: cornsilk;" ><i class="fa fa-eye" ></i>{{r.views}}</a></figure>
+                                  <figure><a href="#" class="link-icon" style="color: cornsilk;" ><i class="fa fa-eye" ></i>{{r.views}}</a> &nbsp; <a href="#" class="link-icon" style="color: cornsilk;" ><i class="fa fa-comment" ></i>{{r.comment_count}}</a></figure>
                               </div>
                               <ul class="additional-info">
                                   <li>
                                       <header>View:</header>
                                       <figure></figure>
                                   </li>
-                                  <!-- <li>
+                                  <li>
                                       <header>Comment:</header>
-                                      <figure>23</figure>
-                                  </li> -->
+                                      <figure>{{r.comment_count}}</figure>
+                                  </li>
                               </ul>
                           </div>
                       </a>
@@ -120,13 +120,6 @@
     <div class="container">
         <header class="section-title">
 
-            <!-- <h2>{{actname}} </h2>
-            <a href="Category/" class="link-arrow">View More</a>
-        </header>
-        <div class="row">
-            <div class="col-md-3 col-sm-6" *ngFor="let r of resec">
-                <div class="property">
-                    <a (click)="navigate(r.id)"> -->
             <h2>{{actname1}}</h2>
             
             <a (click)="navigat(id1)"   class="link-arrow">View More</a>
@@ -143,7 +136,7 @@
                             <div class="info">
                                 <div class="tag price">{{r.catname}}</div>
                                 <h3>{{r.name_title}}</h3>
-                                <figure><a href="#" class="link-icon" style="color: cornsilk;"><i class="fa fa-eye" ></i>{{r.views}}</a></figure>
+                                <figure><a href="#" class="link-icon" style="color: cornsilk;" ><i class="fa fa-eye" ></i>{{r.views}}</a> &nbsp; <a href="#" class="link-icon" style="color: cornsilk;" ><i class="fa fa-comment" ></i>{{r.comment_count}}</a></figure>
                             </div>
                             <ul class="additional-info">
                                 <li>
@@ -152,7 +145,7 @@
                                 </li>
                                 <li>
                                     <header>Comment:</header>
-                                    <figure>23</figure>
+                                    <figure>{{r.comment_count}}</figure>
                                 </li>
                             </ul>
                         </div>
@@ -170,12 +163,7 @@
   <div class="container">
       <header class="section-title">
 
-          <!-- <h2>{{actname1}}</h2>
-          <a href="Category/" class="link-arrow">View More</a>
-      </header>
-      <div class="row">
-          <div class="col-md-3 col-sm-6" *ngFor="let r of resac"> -->
-
+       
          <h2>{{actname2}}</h2>
           <a (click)="navigat(id2)" class="link-arrow">View More</a>
       </header>
@@ -191,7 +179,7 @@
                         <div class="info">
                             <div class="tag price">{{r.catname}}</div>
                             <h3>{{r.name_title}}</h3>
-                            <figure><a href="#" class="link-icon" style="color: cornsilk;"><i class="fa fa-eye" ></i>{{r.views}}</a></figure>
+                            <figure><a href="#" class="link-icon" style="color: cornsilk;" ><i class="fa fa-eye" ></i>{{r.views}}</a> &nbsp; <a href="#" class="link-icon" style="color: cornsilk;" ><i class="fa fa-comment" ></i>{{r.comment_count}}</a></figure>
                         </div>
                         <ul class="additional-info">
                             <li>
@@ -200,7 +188,7 @@
                             </li>
                             <li>
                                 <header>Comment:</header>
-                                <figure>23</figure>
+                                <figure>{{r.comment_count}}</figure>
                             </li>
                         </ul>
                     </div>
@@ -227,6 +215,45 @@
           </a>
       </div>
   </aside><!-- /#adveritsing-->
+
+  <section id="new-properties" class="block">
+    <div class="container">
+        <header class="section-title">
+            <h2>{{actname3}}</h2>
+            <a (click)="navigat(id4)"  class="link-arrow">View More</a>
+        </header>
+        <div class="row">
+            <div class="col-md-3 col-sm-6" *ngFor="let r of restc">
+                <div class="property">
+                    <a href="Content/{{r.id}}">
+                        <div class="property-image">
+                            <img alt="" src='https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/{{r.t_image}}'>
+                        </div>
+                        <div class="overlay">
+                            <div class="info">
+                                <div class="tag price" (click)="onClick()">{{r.catname}}</div>
+                                <h3>{{r.name_title}}</h3>
+                                <figure><a href="#" class="link-icon" style="color: cornsilk;" ><i class="fa fa-eye" ></i>{{r.views}}</a> &nbsp; <a href="#" class="link-icon" style="color: cornsilk;" ><i class="fa fa-comment" ></i>{{r.comment_count}}</a></figure>
+                            </div>
+                            <ul class="additional-info">
+                                <li>
+                                    <header>View:</header>
+                                    <figure>{{r.views}}</figure>
+                                </li>
+                                <li>
+                                    <header>Comment:</header>
+                                    <figure>{{r.comment_count}}</figure>
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
+                </div><!-- /.property -->
+            </div><!-- /.col-md-3 -->  
+           
+           
+        </div><!-- /.row-->
+    </div><!-- /.container-->
+    </section>
  
   <section id="new-properties" class="block">
       <div class="container">
@@ -245,7 +272,7 @@
                               <div class="info">
                                   <div class="tag price" (click)="onClick()">{{r.catname}}</div>
                                   <h3>{{r.name_title}}</h3>
-                                  <figure><a href="#" class="link-icon" style="color: cornsilk;"><i class="fa fa-eye" ></i>{{r.views}}</a></figure>
+                                  <figure><a href="#" class="link-icon" style="color: cornsilk;" ><i class="fa fa-eye" ></i>{{r.views}}</a> &nbsp; <a href="#" class="link-icon" style="color: cornsilk;" ><i class="fa fa-comment" ></i>{{r.comment_count}}</a></figure>
                               </div>
                               <ul class="additional-info">
                                   <li>
@@ -254,7 +281,7 @@
                                   </li>
                                   <li>
                                       <header>Comment:</header>
-                                      <figure>23</figure>
+                                      <figure>{{r.comment_count}}</figure>
                                   </li>
                               </ul>
                           </div>
