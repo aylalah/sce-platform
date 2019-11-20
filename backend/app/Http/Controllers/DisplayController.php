@@ -17,16 +17,6 @@ class DisplayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-public function commentcount($id){
-     return response()->json(
-        comment_tbs::join('titles','titles.id','=','comment_tbs.title_id')
-        ->select(DB::raw('count(*) AS number_of_comment'), 'title.name_title')
-   
-    ->where('comment_tbs.title_id','=',$id)
-       
-        ->get()
-     );
-}
 
     public function displayactbytitle()
     {
@@ -81,43 +71,21 @@ public function commentcount($id){
     }
     public function displayartifact()
     {
-        // $titles = DB::table('titles')
-        //     ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
-        //     ->join('categories','titles.category_id','categories.id')
-        //     ->leftJoin('activities','categories.activity_id','activities.id')
-        //     ->where('activity_id','=',2)
-        //     ->where('titles.status','=','Y')
-        //     ->get();
-
-        // $comments = DB::table('comment_tbs')
-        //     ->select('comment','title_id');
-        // $acts = DB::table('activities')
-        //     ->select('actname', 'id')
-        //     ->where('id','=',2)
-        //     ->get();
-        
-        // return array('event'=>$acts, 'subevent'=>$titles, 'comments'=>$comments);
-    //    return DB::table('titles')
+      
        return response()->json(
             [
 
                 'event' =>Activities::where('id','=',2)->get(),
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
-                // ->join('comment_tbs','titles.id','=','comment_tbs.title_id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
                ->where('activity_id','=',2)
                ->where('titles.status','=','Y')
-            //    ->groupBy('comment')
             ->inRandomOrder()->limit(4)
                ->get()
             ]
         );
         
-        // array_map(function($s){
-        //     $title = $s['id'];
-        //     $comms = DB::raw("SELECT count(*) from comment_tbs where title_id=$title");
-        //     $s['comm_count'] = $comms;
-        // }, $res['subevent']);
+        
     }
     public function displaybusiness()
     {
@@ -234,7 +202,6 @@ public function commentcount($id){
           
             title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
             ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
-        //    ->where('activity_id','=',3)
 
            ->where('titles.status','=','T')
 
@@ -263,7 +230,6 @@ public function commentcount($id){
             ->select('titles.*','categories.catname','categories.destription','categories.activity_id','users.firstname','users.lastname','users.middlename')
             ->where('activity_id','=',$id)
             ->where('titles.status','=','Y')
-            // ->inRandomOrder()->take(4) 
                ->get(),
             'acti' =>Activities::where('id','=', $id)->get(),
             'cat' =>Category::where('activity_id','=', $id)->get()
@@ -294,11 +260,9 @@ public function commentcount($id){
                 ->join('users','titles.user_id','=','users.id')
             ->select('titles.*','categories.catname','categories.destription','categories.activity_id','users.firstname','users.lastname','users.middlename')
             ->where('user_id','=',$id)
-            // ->where('status','=','Y')
-            // ->inRandomOrder()->take(4) 
+           
                ->get(),
-            // 'acti' =>Activities::where('id','=', $id)->get(),
-            // 'cat' =>Category::where('activity_id','=', $id)->get()
+            
         
         ]);
     }
@@ -313,11 +277,9 @@ public function commentcount($id){
                 ->join('users','titles.user_id','=','users.id')
             ->select('contents.*','categories.catname','categories.destription','categories.activity_id','users.firstname','users.lastname','users.middlename')
             ->where('user_id','=',$id)
-            // ->where('status','=','Y')
-            // ->inRandomOrder()->take(4) 
+           
                ->get(),
-            // 'acti' =>Activities::where('id','=', $id)->get(),
-            // 'cat' =>Category::where('activity_id','=', $id)->get()
+          
         
         ]);
     }

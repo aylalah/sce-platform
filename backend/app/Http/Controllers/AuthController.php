@@ -50,37 +50,10 @@ class AuthController extends Controller
     }
 
     public function signup(SignUpRequest $request){
-        // $userReg = new User;
-        // $resp = array();
-        //     $userReg -> lname = $request -> input('lname');
-        //     $userReg -> fname = $request -> input('fname');
-        //     $userReg -> email = $request -> input('email');
-        //     $userReg -> address = $request -> input('address');
-        //     $userReg -> town = $request -> input('town');
-        //     $userReg -> image = $request -> input('img');
-        //     $userReg -> password = $request -> input('password');
-    
-    
-        //             $userReg ->save();
-        //             if($userReg->save()){
-        //                 $resp[] = $userReg;
-        //                 return json_encode($resp);                    
-        //             }
-
+       
             $user= User::create($request-> all());
             return $this->login($request);
-            // $insert_id = DB::table('users_tb')->insertGetId(
-            //     [
-            //         'title' => $request->title,
-            //          'password' => bcrypt("password"),
-            //         'first_name' => $request->first_name,
-            //         'middle_name' => $request->middle_name,
-            //         'last_name' => $request->last_name,
-            //         'gender' => $request->gender,
-            //         'address'=>$request->address
-
-            //     ]
-            // );
+           
        }
 
     /**

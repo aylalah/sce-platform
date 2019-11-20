@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return response()->json(Category::all());
+        return response()->json(Category::where('status','Y')->get());
     }
 
     /**
@@ -125,23 +125,7 @@ class CategoryController extends Controller
     // }
     }
 
-    public function destroycat(Request $request)
-    {
-        $id=$request[0];
-    
-        // $deletet=DB::table('titles')->where('id', $id)->delete();
-        // $deletec=DB::table('contents')->where('name_id', $id)->delete();
-    //     if($deletet){
-    //     return '
-    //         "success":"true"
-    //     ';
-    // }else{
-    //     return '
-    //     "danger":"false"
-    // ';
-    // }
-    return $id;
-    }
+   
     public function deletecat(Request $request)
     {
         $id=$request[0];

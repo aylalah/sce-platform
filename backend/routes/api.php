@@ -53,7 +53,6 @@ Route::get('usertrashtitle','DisplayController@usertrashtitle');
 Route::get('cattrashtitle','DisplayController@cattrashtitle');
 Route::get('acttrashtitle','DisplayController@acttrashtitle');
 Route::get('getalltrashtitle','DisplayController@getalltrashtitle');
-Route::get('count/{id}','DisplayController@commentcount');
 
 Route::get('getcontent/{id}','ContentController@getcontent');
 Route::post('updatecontent','ContentController@update');
@@ -103,6 +102,4 @@ Route::get('name','UserController@name');
 //          'lname'=>'adio']
 //      ]); 
 //  }); destroytitle
-// spiral
-// waterfall model
-// SDLC SCRUM
+

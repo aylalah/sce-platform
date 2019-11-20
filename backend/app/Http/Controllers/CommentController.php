@@ -35,29 +35,29 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-    //     $authid=auth()->user()->id;
+        $authid=auth()->user()->id;
         
-    //      $request->merge(['user_id'=>$authid]);
+         $request->merge(['user_id'=>$authid]);
          $id=$request->title_id;
-    //     //  return $id;
-    //     $comment=comment_tbs::create($request-> all());
-    //     // return $comment;
-    //     if($comment){
-    //        $count= DB::table("comment_tbs")->where('title_id','=',$id)
-    //         ->count();
-    //         $updatecomment=DB::table('titles')
-    // ->where('id', $id)
-    // ->update(['comment_count' =>$count]); 
+        //  return $id;
+        $comment=comment_tbs::create($request-> all());
+        // return $comment;
+        if($comment){
+           $count= DB::table("comment_tbs")->where('title_id','=',$id)
+            ->count();
+            $updatecomment=DB::table('titles')
+    ->where('id', $id)
+    ->update(['comment_count' =>$count]); 
   
-    //  return $count;
-    //     }
-    $count= DB::table("comment_tbs")->where('title_id','=',$id)
-    ->count();
-    $updatecomment=DB::table('titles')
-->where('id', $id)
-->update(['comment_count' =>$count]); 
+     return $count;
+        }
+//     $count= DB::table("comment_tbs")->where('title_id','=',$id)
+//     ->count();
+//     $updatecomment=DB::table('titles')
+// ->where('id', $id)
+// ->update(['comment_count' =>$count]); 
 
-return $count;
+// return $count;
     }
 
     /**

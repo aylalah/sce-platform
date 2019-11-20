@@ -27,11 +27,10 @@
                                                         <label for="form-create-agency-title">Tag:</label>
                                                         <input type="text" class="form-control" id="form-create-agency-title" disabled value="{{catname}}">
                                                     </div><!-- /.form-group -->
-
-                                                    <div class="form-group">
+                                                    <!-- <div class="form-group">
                                                         <label for="form-create-agency-title">Name or Title:</label>
                                                         <input type="text" class="form-control" id="form-create-agency-title" disabled value="{{title}}">
-                                                    </div><!-- /.form-group -->
+                                                    </div> -->
                                                     <div class="form-group">
                                                         <label for="form-create-agency-title">Location:</label>
                                                         <input type="text" class="form-control" id="form-create-agency-title" disabled value="{{location}}">
@@ -45,8 +44,15 @@
                                                     <label for="submit-area">Insert Image</label>
                                                     <img alt="" class="image" src="image">
                                                 </div><!-- /.form-group -->
-                                            </div><!-- /.col-md-6 -->  
-                          
+                                            </div><!-- /.col-md-6 -->
+                                              
+                                            <div class="form-group">
+                                                    <!-- <label for="submit-area">Change title Image</label> -->
+                                                    <div class="input-group">
+                                                        <input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="Upload Gallery Images" (change)="uploadGallery($event)">
+                                                        <!-- <span class="input-group-addon">m<sup>2</sup></span> -->
+                                                    </div>
+                                                </div>
                                         </div><!-- /.block -->
                                     </div><!-- /.row -->
                                 </section>
@@ -55,6 +61,23 @@
                                     <header><h2>Content</h2></header>
                                 <div>       
                                     <div [formGroup]="orderForm">
+                                            <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="submit-title">Title</label>
+                                                            <input type="text" formControlName="name_title" class="form-control" id="submit-title" name="name_title" required>
+                                                        </div>
+                                                    </div>                                            
+                                                </div>
+                                                <div class="col-md-12 col-sm-12">
+                                                  <div class="form-group">
+                                                      <label for="submit-area">Change title Image</label>
+                                                      <div class="input-group">
+                                                          <input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="Browse Images" (change)="uploadFiles($event)">
+                                                          <!-- <span class="input-group-addon">m<sup>2</sup></span> -->
+                                                      </div>
+                                                  </div><!-- /.form-group -->
+                                              </div>
                                         <div class="row" formArrayName="gcontents">
 
                                                 <div  *ngFor="let c of result; let i = index" [formGroupName]="i">                                   
@@ -63,7 +86,7 @@
                                                         <div class="row">
                                                           <div class="col-md-8">
                                                               <div class="form-group">
-                                                                  <label for="submit-title">Title</label>
+                                                                  <label for="submit-title">Header</label>
                                                                   <input type="text" formControlName="header" class="form-control" id="submit-title" name="header" required>
                                                               </div>
                                                           </div>                                            

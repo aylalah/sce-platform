@@ -10,6 +10,7 @@ use App\title;
 use Image;
 use App\User;
 use App\comment_tbs;
+use App\Galleries;
 class ContentController extends Controller
 {
     /**
@@ -27,6 +28,11 @@ class ContentController extends Controller
         ->join('users','titles.user_id','=','users.id')
         ->select('titles.*','categories.catname','categories.destription','categories.activity_id','activities.actname','users.firstname','users.lastname','users.middlename', 'users.familybackground', 'users.image')
        ->where('titles.id','=',$id)->get(),
+       'gallery'=>Galleries::orderBy('id')->join('titles','Galleries.title_id','=','titles.id')
+       ->join('users','titles.user_id','=','users.id')
+        ->select('Galleries.*','titles.name_title','titles.location','titles.t_image','users.firstname','users.lastname','users.middlename','users.image','users.email')
+       ->where('title_id','=',$id)
+       ->get(),
        'comment'=>comment_tbs::orderBy('id')->join('titles','comment_tbs.title_id','=','titles.id')
        ->join('users','comment_tbs.user_id','=','users.id')
         ->select('comment_tbs.*','titles.name_title','titles.location','titles.t_image','users.firstname','users.lastname','users.middlename','users.image','users.email')
@@ -76,22 +82,34 @@ class ContentController extends Controller
     }
     public function store(Request $request)
     {
-        $authid=auth()->user()->id;
         
+        $authid=auth()->user()->id;
+        $image_name= $request->image;
           $request->merge(['user_id'=>$authid]);
          $detcontents = $request->contents;
-         if ($request->t_image ){
-            $file=$request->t_image;
-            $filename=time().'.' . explode('/', explode(':', substr($file, 0, strpos($file,';')))[1])[1];
-         
-            Image::make($file)->resize(300, 300)->save(public_path('/upload/uploads/'.$filename));
-           
-            $request->merge(['t_image'=>$filename]);
-           
-        }
+         $files=$image_name[0];
+         $filenames=time().'.' . explode('/', explode(':', substr($files, 0, strpos($files,';')))[1])[1];
+        Image::make($files)->resize(300, 300)->save(public_path('/upload/uploads/'.$filenames));
+       
+        $request->merge(['t_image'=>$filenames]);
+        // return $request;
         $content= title::create($request-> all());
         // return $content->id;
-
+$imageName=[];
+$count = 0;
+foreach ($image_name as $img) {
+        $file=$img;
+       $filename=$count.'.'.time().'.' . explode('/', explode(':', substr($file, 0, strpos($file,';')))[1])[1];
+    
+        Image::make($file)->resize(300, 300)->save(public_path('/upload/uploads/'.$filename));
+    $imageName[] =[
+     'title_id' => $content->id,
+   'image_name'=> $filename,
+    ] ; 
+    $count++;
+}
+   Galleries::insert($imageName);
+//  return $imageName;
         $contentData=[];
         
         foreach ($detcontents as $item) {
@@ -105,7 +123,7 @@ class ContentController extends Controller
             ] ; 
         }
      
-         Content::insert($contentData);
+        Content::insert($contentData);
          return $contentData;
     }
 
@@ -128,7 +146,8 @@ class ContentController extends Controller
       $fdata=$request->fdata;
       $name_title=$request->fdata['name_title'];
     $detcontents= $fdata['gcontents'];
-    //   return $name_title;
+    $image_name=$request->galleryimage;
+    //   return $request;
     if ($request->t_image){
         $file=$request->t_image;
         $filename=time().'.' . explode('/', explode(':', substr($file, 0, strpos($file,';')))[1])[1];
@@ -140,6 +159,20 @@ class ContentController extends Controller
         ->where('id', $id)
         ->update(['status' =>'E','t_image'=>$request->t_image]);
     }
+    $imageName=[];
+$count = 0;
+foreach ($image_name as $img) {
+        $file=$img;
+       $filename=$count.'.'.time().'.' . explode('/', explode(':', substr($file, 0, strpos($file,';')))[1])[1];
+    
+        Image::make($file)->resize(300, 300)->save(public_path('/upload/uploads/'.$filename));
+    $imageName[] =[
+     'title_id' => $id,
+   'image_name'=> $filename,
+    ] ; 
+    $count++;
+}
+  $gally= Galleries::insert($imageName);
     $updatetitle=DB::table('titles')
     ->where('id', $id)
     ->update(['status' =>'E','name_title'=>$name_title]); 
@@ -152,7 +185,7 @@ class ContentController extends Controller
     
     }
     
-    if($update | $updatetitle){
+    if($update | $updatetitle | $gally){
         return $id;
     }else{
         return '
@@ -215,11 +248,7 @@ class ContentController extends Controller
     ->update(['status' =>'T']); 
   
      return $trash;
-    // if($update){
-    //     return '
-    //         "success":"true"
-    //     ';
-    // }
+    
     }
     public function destroytitle(Request $request)
     {
@@ -227,15 +256,7 @@ class ContentController extends Controller
     
         $deletet=DB::table('titles')->where('id', $id)->delete();
         $deletec=DB::table('contents')->where('name_id', $id)->delete();
-    //     if($deletet){
-    //     return '
-    //         "success":"true"
-    //     ';
-    // }else{
-    //     return '
-    //     "danger":"false"
-    // ';
-    // }
+   
     return $id;
     }
     public function destroy($id)

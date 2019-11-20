@@ -89,9 +89,12 @@ this.Jarwis.getcattrashtitle().subscribe(
 
   deleteu(id){
    this.Jarwis.deleteuser(id).subscribe(
-    data => this.handleResponse(data),
-      error => this.handleError(error)
- );
+    data =>{
+      let snackBarRef = this.snackBar.open("Successfully", 'Dismiss', {
+        duration: 2000
+      }) 
+    });
+  this.ngOnInit()
   }
   movetrasha(id){
     
@@ -118,40 +121,49 @@ this.Jarwis.getcattrashtitle().subscribe(
 
   deletec(id){
    this.Jarwis.deletecat(id).subscribe(
-    data => this.handleResponse(data),
-      error => this.handleError(error)
- );
+    data =>{
+      let snackBarRef = this.snackBar.open("Delete Successfully", 'Dismiss', {
+        duration: 2000
+      }) 
+    });
+  this.ngOnInit()
   }
   deletea(id){
     // console.log(id)
    this.Jarwis.deleteact(id).subscribe(
-    data => this.handleResponse(data),
-      error => this.handleError(error)
- );
+    data =>{
+      let snackBarRef = this.snackBar.open("Delete Successfully", 'Dismiss', {
+        duration: 2000
+      }) 
+    });
+  this.ngOnInit()
   }
   deletep(id){
    this.Jarwis.deletetitle(id).subscribe(
-    data => this.handleResponse(data),
-      error => this.handleError(error)
- );
-  }
-  handleError(error: any): void {
-   // this.disabled=false;
-   // this.sav= 'Update';
-  }
-  
-  
-  
-  handleResponse(data) { 
-    console.log(data) 
-   let snackBarRef = this.snackBar.open("Delete Successfully", 'Dismiss', {
-    duration: 2000
-  })  
- //  this.disabled=true;
-  // this.router.navigateByUrl('/population/'+this.paramsid+'');
+    data =>{
+      let snackBarRef = this.snackBar.open("Delete Successfully", 'Dismiss', {
+        duration: 2000
+      }) 
+    });
   this.ngOnInit()
-  //  this.router.navigateByUrl('/User/(side:Details)');
   }
+//   handleError(error: any): void {
+//    // this.disabled=false;
+//    // this.sav= 'Update';
+//   }
+  
+  
+  
+//   handleResponse(data) { 
+//     console.log(data) 
+//    let snackBarRef = this.snackBar.open("Delete Successfully", 'Dismiss', {
+//     duration: 2000
+//   })  
+//  //  this.disabled=true;
+//   // this.router.navigateByUrl('/population/'+this.paramsid+'');
+//   this.ngOnInit()
+//   //  this.router.navigateByUrl('/User/(side:Details)');
+//   }
   opencomformed(){
     console.log('here')
     const dialogRef = this.dialog.open(ModalComponent , {

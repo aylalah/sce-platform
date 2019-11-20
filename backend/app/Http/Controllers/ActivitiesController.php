@@ -20,7 +20,7 @@ class ActivitiesController extends Controller
     public function index()
     {
         //Addtype::all()
-        return response()->json(Activities::all());
+        return response()->json(Activities::where('status','Y')->get());
     }
 
     public function movetrasha(Request $request)
