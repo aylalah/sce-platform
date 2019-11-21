@@ -35,6 +35,7 @@ import { SettingsComponent } from './admin/settings/settings.component';
 import { UpdateComponent } from './user/update/update.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component'​;
 import {NgxPaginationModule} from 'ngx-pagination';
+import { PlatformComponent } from './platform/platform.component';
 // import { LazyLoadImageModule, scrollPreset } from 'ng-lazyload-image';
 
 
@@ -59,7 +60,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     UsersComponent,
     SettingsComponent,
     UpdateComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    PlatformComponent
   ],
   imports: [
     BrowserModule,

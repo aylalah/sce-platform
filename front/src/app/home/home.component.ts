@@ -8,6 +8,8 @@ import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
 
+declare let jQuery: any;
+
 
 
 
@@ -86,6 +88,46 @@ export class HomeComponent implements OnInit {
   public fakerIt = [];
 
   ngOnInit() {
+    
+
+    (function($) {
+      "use strict";
+
+      // Full Width Carousel
+      $('.owl-slide').owlCarousel({
+        nav: true,
+        loop: true,
+        autoplay: true,
+        items: 1
+      });
+
+      // Recent Reviews
+      $('.owl-list').owlCarousel({
+        margin: 25,
+        nav: true,
+        dots: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          500: {
+            items: 2
+          },
+          701: {
+            items: 3
+          },
+          1000: {
+            items: 4
+          }
+        }
+      });
+
+      // lightbox
+      $('[data-lightbox]').lightbox();
+      
+    })(jQuery);
+
+
 
     this.fakerIt = this.mapserver.localGovt();
 

@@ -100,7 +100,7 @@ handleError(error) {
     )
 
 
-    this.actRoute.paramMap.subscribe((params => {  
+    this.actRoute.paramMap.subscribe(( params => {  
       
       var id= this.actRoute.snapshot.params['id'];
      
@@ -123,7 +123,9 @@ handleError(error) {
                     this.location= this.response.content[0].location;
                    
                     this.contents=this.response.content;
-                    this.comment=this.response.comment;               
+                    this.comment=this.response.comment;  
+                    
+                    console.log(this.response);
                     
                     //map Init
                     this.coordGet.getLocality(this.response.content[0].location).subscribe(data=>{

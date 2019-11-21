@@ -18,9 +18,11 @@ import { ContactComponent } from './contact/contact.component';
 import { UpdateComponent } from './user/update/update.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { PlatformComponent } from './platform/platform.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent },
+  {path: 'platform', component: PlatformComponent },
   {path: 'Login', component: LoginComponent,canActivate: [BeforeLoginService] },
   {path: 'Signin', component: SigninComponent,canActivate: [BeforeLoginService] },
   {path: 'User', component: AccountComponent,canActivate: [AfterLoginService], 
