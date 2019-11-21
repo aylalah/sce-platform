@@ -124,7 +124,5 @@ comment(data) {
     Authorization:`Bearer ${localStorage.token}`
   }})
 }
-count(id:string) {
-  return this.http.get(`${this.baseUrl}/count/${id}`)
-}
+
 }

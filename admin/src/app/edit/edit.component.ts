@@ -48,7 +48,9 @@ export class EditComponent implements OnInit {
   location: any;
   paramsid: any;
   t_image: any;
- 
+  img= [];
+  galleryimage: any;
+  gallery: any;
 
   constructor(private Jarwis: JarwisService, private router: Router, public actRoute: ActivatedRoute,  private formBuilder: FormBuilder,public snackBar: MatSnackBar ) { }
 
@@ -153,6 +155,23 @@ export class EditComponent implements OnInit {
 }));
  
 }
+uploadGallery(event){
+  let files =event.target.files;
+  if (files){
+    for(let file of files){
+      let reader= new FileReader();
+      let vm = this;
+      reader.onload =()=> {
+       this.img.push(reader.result);
+      
+      }
+      reader.readAsDataURL(file);
+      
+  }
+  }
+  this.galleryimage =this.img;
+   
+}
 uploadFiles(event){
   let files =event.target.files[0];
   let reader = new FileReader();
@@ -167,7 +186,7 @@ uploadFiles(event){
 onSubmit() {
  // console.log(this.paramsid)
 //  console.log(this.orderForm.value) 
- this.Jarwis.updatecontent({fdata:this.orderForm.value,id:this.paramsid,t_image:this.t_image}).subscribe(
+ this.Jarwis.updatecontent({fdata:this.orderForm.value,id:this.paramsid,t_image:this.t_image,galleryimage:this.galleryimage}).subscribe(
    data => this.handleResp(data),
      error => this.handleErr(error)
 );
