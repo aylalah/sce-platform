@@ -68,7 +68,7 @@ Route::post('deletetitle','ContentController@destroytitle');
 Route::get('comments','UserController@getComments');
 Route::get('rates','UserController@getRates');
 Route::get('all','UserController@getAll');
-Route::get('articles','UserController@getArticle');
+Route::get('getArticle','UserController@getArticle');
 Route::get('titlerates','UserController@getRatesforTitle');
 Route::get('titlecomment','UserController@getcommentforTitle');
 Route::post('addview','UserController@addview');

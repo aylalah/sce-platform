@@ -1,39 +1,54 @@
-<div>
-    <!-- Breadcrumb -->
+<!-- main -->
+<section class="hero hero-profile" style="background-image: url('https://img.youtube.com/vi/D3pYbbA1kfk/maxresdefault.jpg');">
+    <div class="overlay"></div>
     <div class="container">
-        <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Account</a></li>
-            <li class="active">Profile</li>
-        </ol>
+      <div class="hero-block">
+        <h5>{{profres.firstname + " " + profres.lastname}}</h5>
+        <a class="btn btn-primary btn-sm btn-shadow btn-rounded btn-icon btn-add" href="#" data-toggle="tooltip" title="Add friend" role="button"><i class="fa fa-user-plus"></i></a>
+      </div>
     </div>
-    <!-- end Breadcrumb -->
-  
+  </section>
+
+  <section class="toolbar toolbar-profile" data-fixed="true">
     <div class="container">
-        <div class="row">
-        <!-- sidebar -->
-        <div class="col-md-3 col-sm-2">
-            <section id="sidebar">
-                <header><h3>Account</h3></header>
-                <aside>
-                    <ul class="sidebar-navigation" >
-                            <li  class="active"><a [routerLink]="['/User', {outlets: {side: ['Details']}}]"><i class="fa fa-dashboard"></i><span>Account</span></a></li>
-                            <li><a [routerLink]="['/User', {outlets: {side: ['Mypost']}}]"><i class="fa fa-plus"></i><span>My Post</span></a></li>                      
-                        <li><a [routerLink]="['/User', {outlets: {side: ['Profile']}}]"><i class="fa fa-user"></i><span>Profile</span></a></li>
-                        <li class="has-child"><a [routerLink]="['/User', {outlets: {side: ['Post']}}]" ><i class="fa fa-pencil"></i><span>Contribute</span></a>
-                            
-                        </li>
-                    </ul>
-                </aside>
-            </section><!-- /#sidebar -->
-        </div><!-- /.col-md-3 -->
-        <!-- end Sidebar -->
-        <div >
-                <router-outlet name="side"></router-outlet>
+      <div class="profile-avatar">
+        <a href="#"><img [src]="image" alt="image"></a>
+        <div class="sticky">
+          <a href="#"><img src="assets/img/user/avatar-sm.jpg" alt=""></a>
+          <div class="profile-info">
+            <h5>Nathan Drake</h5>
+            <span>@nathan</span>
           </div>
-        </div><!-- /.row -->
-    </div><!-- /.container -->
+        </div>
+      </div>
+      <div class="dropdown float-right hidden-md-down">
+        <a class="btn btn-secondary btn-icon btn-sm m-l-25 float-right" href="#" data-toggle="dropdown" role="button"><i class="fa fa-cog"></i></a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item active" href="#">Setting</a>
+          <a class="dropdown-item" href="#">Mail</a>
+          <a class="dropdown-item" href="#">Report</a>
+          <a class="dropdown-item" href="#">Block</a>
+        </div>
+      </div>
+      <ul class="toolbar-nav hidden-md-down">
+        <li class="active"><a href="#" [routerLink]="['/User', {outlets: {side: ['Details']}}]" >Timeline</a></li>
+        <li><a href="#" [routerLink]="['/User', {outlets: {side: ['Profile']}}]">About</a></li>
+        <li><a href="#" [routerLink]="['/User', {outlets: {side: ['Mypost']}}]">Stories</a></li>
+        <li><a href="#" [routerLink]="['/User', {outlets: {side: ['family']}}]">Family/Friend</a></li>
+        <li><a href="#" [routerLink]="['/User', {outlets: {side: ['gallery']}}]">Images</a></li>
+        <li><a href="#" [routerLink]="['/User', {outlets: {side: ['video']}}]">Videos</a></li>
+        <li><a href="#" [routerLink]="['/User', {outlets: {side: ['group']}}]">Groups</a></li>
+        <li><a href="#" [routerLink]="['/User', {outlets: {side: ['Post']}}]">Contribute</a></li>
+      </ul>
+    </div>
+  </section>
+  <div >
+        <router-outlet name="side"></router-outlet>
   </div>
-  <!-- end Page Content -->
+
+  
+
+
+
   
 

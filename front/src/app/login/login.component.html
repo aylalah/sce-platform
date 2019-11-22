@@ -1,46 +1,46 @@
-<!-- Page Content -->
-<div id="page-content">
-  <!-- Breadcrumb -->
-  <div class="container">
-      <ol class="breadcrumb">
-          <li><a href="#">Home</a></li>
-          <li class="active">Sign In</li>
-      </ol>
-  </div>
-  <!-- end Breadcrumb -->
-
-  <div class="container">
-      <header><h1>Sign In</h1></header>
+<!-- main -->
+<section class="bg-image player p-y-70" style="background-image: url('https://youtu.be/g1MoNUpoTJs');" data-property="{videoURL:'g1MoNUpoTJs',containment:'self', stopMovieOnBlur:false, showControls: false, realfullscreen: true, showYTLogo: false, muted:true, quality: 'highres',autoPlay:true,loop:true,opacity:1}">
+    <!-- <video autoplay controls muted="true" loop id="myVideo">
+            <source src="/assets/vid/video-bg.mp4" type="video/mp4">
+          </video> -->
+    <div class="overlay"></div>
+    <div class="container">
       <div class="row">
-          <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
-              <form role="form" id="form-create-account" #signupForm=ngForm (ngSubmit)="onSubmit()">
-                <!-- <div class="alert alert-success" [hidden]="!message">
-                    {{message}}
-                  </div>
-                  <div class="alert alert-danger" [hidden]="!error">
-                    {{error}}
-                  </div> -->
-                <div class="form-group">
-                            <label for="account-email">Email:</label>
-                            <input type="email" required class="form-control" id="account-email" name="email" [(ngModel)]="form.email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="account-password">Password:</label>
-                            <input type="password" required class="form-control" id="account-password" name="password" [(ngModel)]="form.password" required>
-                        </div>
-
-                   
-                  <div class="form-group clearfix">
-                      <button type="submit" [disabled]= "disabled" class="btn pull-right btn-default" id="account-submit">
-                            <i id="loader2" *ngIf="disabled"  class="fa fa-spin fa-spinner"></i> {{sav}}</button>
-                  </div>
+        <div class="col-12 col-sm-8 col-md-4 mx-auto">
+          <div class="card m-b-0">
+            <div class="card-header">
+              <h4 class="card-title"><i class="fa fa-sign-in"></i> Login to your account</h4>
+            </div>
+            <div class="card-block">
+            <form role="form" id="form-create-account" #signupForm=ngForm (ngSubmit)="onSubmit()">
+                <a class="btn btn-social btn-facebook btn-block btn-icon-left" href="" role="button"><i class="fa fa-facebook"></i> Connect with Facebook</a>
+                <div class="divider">
+                  <span>or</span>
+                </div>
+                <div class="form-group input-icon-left m-b-10">
+                  <i class="fa fa-user"></i>
+                  <input type="email" class="form-control form-control-secondary" placeholder="Email" id="account-email" name="email" [(ngModel)]="form.email" required>
+                </div>
+                <div class="form-group input-icon-left m-b-15">
+                  <i class="fa fa-lock"></i>
+                  <input type="password" class="form-control form-control-secondary" placeholder="Password" id="account-password" name="password" [(ngModel)]="form.password" required>
+                </div>
+                <label class="custom-control custom-checkbox custom-checkbox-primary">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Remember me</span>
+              </label>
+                <button type="submit" class="btn btn-primary btn-block m-t-10" [disabled]= "disabled"> 
+                    <i id="loader2" *ngIf="disabled"  class="fa fa-spin fa-spinner"></i> {{sav}} <i class="fa fa-sign-in"></i></button>
+                <div class="divider">
+                  <span>Don't have an account?</span>
+                </div>
+                <a class="btn btn-secondary btn-block" [routerLink]="['/Signin']" role="button">Register</a>
               </form>
-              <hr>
-              <div class="center"><a [routerLink]="['/Signin']">Creat an Account</a></div>
-              <div class="center"><a [routerLink]="['/Fpassword']">I don't remember my password</a></div>
+            </div>
           </div>
-      </div><!-- /.row -->
-  </div><!-- /.container -->
-</div>
-<!-- end Page Content -->
-
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /main -->

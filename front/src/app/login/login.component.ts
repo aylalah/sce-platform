@@ -7,6 +7,8 @@ import { AuthService } from '../service/auth.service';
 
 import { MatSnackBar } from '@angular/material';
 
+declare let jQuery: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -53,7 +55,7 @@ public role;
    
     this.Auth.changeAuthStatus(true);
   
-   this.router.navigateByUrl('/User/(side:Profile)');
+   this.router.navigateByUrl('/User/(side:Details)');
    this.disabled= false;
    this.sav= 'Submited'
 
@@ -73,7 +75,11 @@ public role;
   }
 
   ngOnInit() {
-  
+
+    (function($) {
+      "use strict";
+      $(".player").mb_YTPlayer();
+    })(jQuery);  
     
   }
 

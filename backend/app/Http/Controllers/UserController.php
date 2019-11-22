@@ -31,13 +31,12 @@ class UserController extends Controller
     public function getArticle()
     {
         $article = DB::table('titles')
-        ->select('titles.title_id','titles.name_title','titles.location','titles.t_image','titles.about','titles.views',
-        'titles.category_id','titles.user_id','contents.header','contents.content','contents.c_image', 'contents.list',
-        'categories.category_id','categories.catname', 'activities.activity_id','activities.actname')
-        ->join ('contents','titles.title_id','=','contents.title_id')
-        ->join ('categories','categories.category_id','=','titles.category_id')
-        ->join ('activities','activities.activity_id','=','categories.activity_id')
-        // ->join ('rate_tb','rate_tb.title_id','=','titles.title_id')
+        ->select('titles.*','contents.header','contents.content','contents.c_image', 'contents.list',
+        'categories.id','categories.catname', 'activities.actname','users.image', 'users.firstname', 'users.lastname')
+        ->join ('contents','titles.id','=','contents.name_id')
+        ->join ('categories','categories.id','=','titles.category_id')
+        ->join ('activities','activities.id','=','categories.activity_id')
+        ->join ('users','titles.user_id','=','users.id')
         // ->join ('comment_tb','comment_tb.title_id','=','titles.title_id')
         // ->orderBy('title_id','actname')
         // ->take(100)

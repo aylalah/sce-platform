@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JarwisService } from '../../service/jarwis.service';
+
+declare let jQuery: any;
+
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -19,13 +22,32 @@ export class AccountComponent implements OnInit {
   people = false;
 
 public res:any;
+  profres: any;
+  image: string;
   constructor( private Jarwis: JarwisService,
     private router: Router
   ) { }
 
   ngOnInit() {
+
+    this.Jarwis.profile().subscribe(
+      data=>{
+      
+      this.profres = data;
+      this.image='https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/'+this.profres.image
+     
+    });
+
+    (function($) {
+      "use strict";
+      // lightbox
+      $('[data-lightbox]').lightbox({
+        disqus: 'gameforestyakuzieu'
+      });
+    })(jQuery);
     
   }
+  
  
   menu(take) { 
     var result = (take=='details')?this.details=true:this.details=false;

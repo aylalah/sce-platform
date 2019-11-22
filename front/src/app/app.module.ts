@@ -36,6 +36,9 @@ import { UpdateComponent } from './user/update/update.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component'​;
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PlatformComponent } from './platform/platform.component';
+import { GalleryComponent } from './user/gallery/gallery.component';
+import { VideoComponent } from './user/video/video.component';
+// import { OwlModule } from 'ngx-owl-carousel';
 // import { LazyLoadImageModule, scrollPreset } from 'ng-lazyload-image';
 
 
@@ -61,7 +64,9 @@ import { PlatformComponent } from './platform/platform.component';
     SettingsComponent,
     UpdateComponent,
     AdminLoginComponent,
-    PlatformComponent
+    PlatformComponent,
+    GalleryComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +88,8 @@ import { PlatformComponent } from './platform/platform.component';
 
     MatAutocompleteModule​,
     MatFormFieldModule,
+    // BrowserModule,
+    // OwlModule
   
   ],
   providers: [JarwisService,TokenService,AuthService,BeforeLoginService,AfterLoginService],

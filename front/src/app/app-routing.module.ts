@@ -19,6 +19,7 @@ import { UpdateComponent } from './user/update/update.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { PlatformComponent } from './platform/platform.component';
+import { GalleryComponent } from './user/gallery/gallery.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
          {path: 'Details', component: DetailsComponent, outlet: 'side',canActivate: [AfterLoginService] },
          {path: 'Post', component: PostComponent, outlet: 'side',canActivate: [AfterLoginService] },
          {path: 'Mypost', component: MypostComponent, outlet: 'side' ,canActivate: [AfterLoginService]},
-         {path: 'Update/:id', component: UpdateComponent, outlet: 'side' ,canActivate: [AfterLoginService]}
+         {path: 'Update/:id', component: UpdateComponent, outlet: 'side' ,canActivate: [AfterLoginService]},
+         {path: 'gallery', component: GalleryComponent, outlet: 'side' ,canActivate: [AfterLoginService]}
      ],
         },
 

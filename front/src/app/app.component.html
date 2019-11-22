@@ -12,51 +12,19 @@
                     <li><a href="/">Home</a> </li>
                     <li><a href="#" [routerLink]="['/platform']">Platform</a></li>
                     <li class="has-dropdown mega-menu mega-games">
-                            <a href="games.html">Our Stories</a>
+                            <a href="#" >Our Stories</a>
                             <ul>
                               <li>
                                 <div class="container">
                                   <div class="row">
-                                    <div class="col">
+                                    <div class="col" *ngFor="let H of footer">
                                       <div class="img">
-                                        <a href="game-post.html"><img src="img/menu/menu-1.jpg" alt="Last of Us: Part 2"></a>
-                                        <span class="badge badge-ps4">PS4</span>
+                                        <a routerink="" (click)="nav(H.id)"><img style="width: 180px;" src="https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/{{H.t_image}}" alt="Last of Us: Part 2"></a>
+                                        <span class="badge badge-ps4"> {{H.catname}}</span>
                                       </div>
-                                      <h4><a href="game-post.html">Grand Theft Auto V</a></h4>
-                                      <span>Jun 29, 2019</span>
-                                    </div>
-                                    <div class="col">
-                                      <div class="img">
-                                        <a href="game-post.html"><img src="img/menu/menu-2.jpg" alt="Injustice 2"></a>
-                                        <span class="badge badge-steam">Steam</span>
-                                      </div>
-                                      <h4><a href="game-post.html">Injustice 2</a></h4>
-                                      <span>June 10, 2017</span>
-                                    </div>
-                                    <div class="col">
-                                      <div class="img">
-                                        <a href="game-post.html"><img src="img/menu/menu-3.jpg" alt="Bioshock: Infinite"></a>
-                                        <span class="badge badge-xbox-one">Xbox One</span>
-                                      </div>
-                                      <h4><a href="game-post.html">Bioshock: Infinite</a></h4>
-                                      <span>May 16, 2017</span>
-                                    </div>
-                                    <div class="col">
-                                      <div class="img">
-                                        <a href="game-post.html"><img src="img/menu/menu-4.jpg" alt="Batman: Arkham Knight"></a>
-                                        <span class="badge badge-ps4">PS4</span>
-                                      </div>
-                                      <h4><a href="game-post.html">Batman: Arkham Knight</a></h4>
-                                      <span>May 10, 2017</span>
-                                    </div>
-                                    <div class="col">
-                                      <div class="img">
-                                        <a href="game-post.html"><img src="img/menu/menu-5.jpg" alt="Bioshock: Infinite"></a>
-                                        <span class="badge badge-pc">PC</span>
-                                      </div>
-                                      <h4><a href="game-post.html">Hitman Absolution</a></h4>
-                                      <span>May 10, 2017</span>
-                                    </div>
+                                      <h4><a (click)="nav(H.id)"> {{H.name_title}}</a></h4>
+                                      <span> {{H.created_at}}</span>
+                                    </div>                                  
                                   </div>
                                 </div>
                               </li>
@@ -65,7 +33,7 @@
                     <li class="has-dropdown">
                       <a href="forums.html">Categories</a>
                       <ul class="child-navigation">
-                            <li *ngFor="let r of res"><a routerLink="" (click)="navigate(r.id)">{{r.actname}}</a></li>                             
+                            <li *ngFor="let r of res"><a routerlink="" (click)="navigate(r.id)">{{r.actname}}</a></li>                             
                       </ul>
                     </li>              
                     <li><a [routerLink]="['/About']">About</a></li>
