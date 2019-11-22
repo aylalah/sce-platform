@@ -35,6 +35,11 @@ import { SettingsComponent } from './admin/settings/settings.component';
 import { UpdateComponent } from './user/update/update.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component'​;
 import {NgxPaginationModule} from 'ngx-pagination';
+import { PlatformComponent } from './platform/platform.component';
+import { GalleryComponent } from './user/gallery/gallery.component';
+import { VideoComponent } from './user/video/video.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+// import { OwlModule } from 'ngx-owl-carousel';
 // import { LazyLoadImageModule, scrollPreset } from 'ng-lazyload-image';
 
 
@@ -59,7 +64,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
     UsersComponent,
     SettingsComponent,
     UpdateComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    PlatformComponent,
+    GalleryComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
@@ -78,9 +86,11 @@ import {NgxPaginationModule} from 'ngx-pagination';
     // LazyLoadImageModule.forRoot({
     //   preset: scrollPreset 
     // }),
-
+    ScrollingModule,
     MatAutocompleteModule​,
     MatFormFieldModule,
+    // BrowserModule,
+    // OwlModule
   
   ],
   providers: [JarwisService,TokenService,AuthService,BeforeLoginService,AfterLoginService],

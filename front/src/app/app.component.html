@@ -1,139 +1,131 @@
-
-<!-- Wrapper -->
-<div class="wrapper">
-
-  <div class="navigation">
-      <div class="secondary-navigation" style="background-color: #118149;">
-          <div class="container">
-              <div class="contact">                  
-                  <figure style="color: cornsilk;"><strong>Location:</strong>Ogun, Nigeria</figure>
-              </div>
-              <div class="user-area">
-                  <div class="actions">
-                      <!-- <a href="create-agency.html" class="promoted">Create Agency</a> -->
-                      <a style="color: cornsilk;" [routerLink]="['/Signin']" class="promoted" *ngIf="!loggedIn"><strong>Register</strong></a>
-                      <a style="color: cornsilk;" [routerLink]="['/Login']" *ngIf="!loggedIn">Sign In</a>
-                      <a style="color: cornsilk;" href=""  [routerLink]="['/User', {outlets: {side: ['Profile']}}]"  *ngIf="loggedIn">
-                        Account </a>
-                        <a style="color: cornsilk;" href="" (click)="logout($event)"  routerLink="Register" *ngIf="loggedIn">
-                             Logout
-                              </a>
-                              <a style="color: cornsilk;" href="" *ngIf="loggedIn"><img [src]='image'  style="width: 30px;border-radius: 50%;height: 30px;"></a>
-                  </div>                
-              </div>
-          </div>
-      </div>
-      <div class="container">
-          <header class="navbar" id="top" role="banner">
-              <div class="navbar-header">
-                  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                  </button>
-                  <div class="navbar-brand nav" id="brand">
-                        <a href="" ><img src="assets/img/logo.png" ></a>
-                      <!-- <a href="">{{ title }}</a> -->
-                  </div>
-              </div>
-              <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-                  <ul class="nav navbar-nav">
-                      <li ><a href="/">Homepage</a>
-                          
-                      </li>
-                      <li class="has-child"><a href="#">Category</a>
-                          <ul class="child-navigation">
-                                <li *ngFor="let r of res"><a routerLink="" (click)="navigate(r.id)">{{r.actname}}</a></li>                             
-                          </ul>
-                      </li>                      
-                      <li><a [routerLink]="['/About']">About</a></li>
-                      <li><a [routerLink]="['/Contact']">Contact</a></li>
-                      <li><a [routerLink]="['/User', {outlets: {side: ['Post']}}]" *ngIf="loggedIn" >Contribute</a></li>                  
-                      <li><a [routerLink]="['/Login']" *ngIf="!loggedIn" >Contribute</a></li>  
-                  </ul>
-              </nav><!-- /.navbar collapse-->
-              
-          </header><!-- /.navbar -->
-      </div><!-- /.container -->
-  </div><!-- /.navigation -->
-
-  <!-- <div class="container">
-      <div class="geo-location-wrapper">
-          <span class="btn geo-location"><i class="fa fa-map-marker"></i><span class="text">Find My Position</span></span>
-      </div>
-  </div> -->
-
-  <div >
-    <router-outlet></router-outlet>
-  </div>
-
-  <!-- Page Footer -->
-  <footer id="page-footer">
-      <div class="inner">
-          <aside id="footer-main">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-md-3 col-sm-3">
-                          <article>
-                              <h3>About Us</h3>
-                              <p>Ogun State culture has a rich culture with formidable background that requires preservation and promotion which will not
-                                  happen effectively without the leverage of technology and DEAB intervention.
-                              </p>
-                              <hr>
-                              <a href="About/" class="link-arrow">Read More</a>
-                          </article>
-                      </div><!-- /.col-sm-3 -->
-                      <div class="col-md-3 col-sm-3">
-                          <article>
-                              <h3>Recent Contribution</h3>
-                              <div class="property small" *ngFor="let f of footer">
-                                  <a routerLink="" (click)="nav(f.id)">
-                                      <div class="property-image">
-                                          <img alt="" src="https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/{{f.t_image}}">
+<!-- header -->
+<header id="header">
+        <div class="container">
+          <div class="navbar-backdrop">
+            <div class="navbar">
+              <div class="navbar-left">
+                <a class="navbar-toggle"><i class="fa fa-bars"></i></a>
+                <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Sabi-Ogun"></a>
+                <nav class="nav">
+                  <ul>
+                        
+                    <li><a href="/">Home</a> </li>
+                    <li><a href="#" [routerLink]="['/platform']">Platform</a></li>
+                    <li class="has-dropdown mega-menu mega-games">
+                            <a href="#" >Our Stories</a>
+                            <ul>
+                              <li>
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col" *ngFor="let H of footer">
+                                      <div class="img">
+                                        <a routerink="" (click)="nav(H.id)"><img style="width: 180px;" src="https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/{{H.t_image}}" alt="Last of Us: Part 2"></a>
+                                        <span class="badge badge-ps4"> {{H.catname}}</span>
                                       </div>
-                                  </a>
-                                  <div class="info">
-                                      <a routerLink="" (click)="nav(f.id)" ><h4>{{f.name_title}}</h4></a>
-                                      <!-- <figure>{{f.}}</figure> -->
-                                      <div class="tag price">{{f.catname}}</div>
+                                      <h4><a (click)="nav(H.id)"> {{H.name_title}}</a></h4>
+                                      <span> {{H.created_at}}</span>
+                                    </div>                                  
                                   </div>
-                              </div><!-- /.property -->                              
-                          </article>
-                      </div><!-- /.col-sm-3 -->
-                      <div class="col-md-3 col-sm-3">
-                          <article>
-                              <h3>Contact</h3>
-                              <address>
-                                  <strong>DEAG Foundation</strong><br>
-                                  Ogun State
-                              </address>
-                              +234 (080) 73351737<br>
-                              <a href="#">contact@deag.org</a>
-                          </article>
-                      </div><!-- /.col-sm-3 -->
-                      <div class="col-md-3 col-sm-3">
-                          <article>
-                              <h3>Useful Links</h3>
-                              <ul class="list-unstyled list-links col-3" *ngFor="let r of res">
-                                  <li><a routerLink="" (click)="navigate(r.id)">{{r.actname}}</a></li>                                  
-                              </ul>
-                          </article>
-                      </div><!-- /.col-sm-3 -->
-                  </div><!-- /.row -->
-              </div><!-- /.container -->
-          </aside><!-- /#footer-main -->
-          <aside id="footer-thumbnails" class="footer-thumbnails"></aside><!-- /#footer-thumbnails -->
-          <aside id="footer-copyright">
-              <div class="container">
-                  <span>Copyright © 2019. All Rights Reserved.</span>
-                  <span class="pull-right"><a href="#page-top" class="roll">Go to top</a></span>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                    <li class="has-dropdown">
+                      <a href="forums.html">Categories</a>
+                      <ul class="child-navigation">
+                            <li *ngFor="let r of res"><a routerlink="" (click)="navigate(r.id)">{{r.actname}}</a></li>                             
+                      </ul>
+                    </li>              
+                    <li><a [routerLink]="['/About']">About</a></li>
+                    <li><a [routerLink]="['/Contact']">Contact</a></li>
+                    <li><a [routerLink]="['/User', {outlets: {side: ['Post']}}]" *ngIf="loggedIn" >Contribute</a></li>                  
+                    <li><a [routerLink]="['/Login']" *ngIf="!loggedIn" >Contribute</a></li>  
+                  </ul>
+                </nav>
               </div>
-          </aside>
-      </div><!-- /.inner -->
-  </footer>
-  <!-- end Page Footer -->
-</div>
+              <div class="nav navbar-right">
+                <ul>                        
 
+                    <a style="color: cornsilk;" href="" *ngIf="loggedIn"><img [src]='image'  style="width: 30px;border-radius: 50%;height: 30px;"></a>
+                  <li class="hidden-xs-down"><a [routerLink]="['/Login']" *ngIf="!loggedIn">Login</a></li>
+                  <li class="hidden-xs-down"><a href=""  [routerLink]="['/User', {outlets: {side: ['Profile']}}]"  *ngIf="loggedIn">Account</a></li>
+                  <li class="hidden-xs-down"><a [routerLink]="['/Signin']" *ngIf="!loggedIn"><strong>Register</strong></a></li>
+                  <li class="hidden-xs-down"><a href="" (click)="logout($event)"  routerLink="Register" *ngIf="loggedIn"><strong>Logout</strong></a></li>
+                  <li><a data-toggle="search"><i class="fa fa-search"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="navbar-search">
+            <div class="container">
+              <form method="post">
+                <input type="text" class="form-control" placeholder="Search...">
+                <i class="fa fa-times close"></i>
+              </form>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- /header -->
 
+            <div >
+                <router-outlet></router-outlet>
+            </div>
 
+      <!-- footer -->
+  <footer id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-5">
+              <h4 class="footer-title">About Sabo-Ogun</h4>
+              <p>Ogun State culture has a rich culture with formidable background that requires preservation and promotion which will not
+                    happen effectively without the leverage of technology and DEAB intervention.</p>
+
+                    <h4 class="footer-title">Contact</h4>
+                    <p>DEAG Foundation<br>
+                        Ogun State</p>                         
+                    +234 (080) 73351737<br>
+                    <a href="#">contact@deag.org</a>
+            </div>
+            <div class="col-sm-12 col-md-3">
+              <h4 class="footer-title">Platform</h4>
+              <div class="row">
+                <div class="col">
+                  <ul  *ngFor="let r of res">
+                    <li><a href="#" (click)="navigate(r.id)">{{r.actname}}</a></li>                    
+                  </ul>
+                </div>
+                <div class="col">
+                  <ul>
+                    <!-- <li><a href="games.html">Games</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="forums.html">Forums</a></li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+              <h4 class="footer-title">Subscribe</h4>
+              <p>Subscribe to our newsletter and get notification when new games are available.</p>
+              <div class="input-group m-t-25">
+                <input type="text" class="form-control" placeholder="Email">
+                <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">Subscribe</button>
+              </span>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="footer-social">
+              <a href="https://facebook.com/yakuthemes" target="_blank" data-toggle="tooltip" title="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://twitter.com/yakuthemes" target="_blank" data-toggle="tooltip" title="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="https://steamcommunity.com/id/yakuzi" target="_blank" data-toggle="tooltip" title="steam"><i class="fa fa-steam"></i></a>
+              <a href="https://www.twitch.tv/" target="_blank" data-toggle="tooltip" title="twitch"><i class="fa fa-twitch"></i></a>
+              <a href="https://www.youtube.com/user/1YAKUZI" target="_blank" data-toggle="tooltip" title="youtube"><i class="fa fa-youtube"></i></a>
+            </div>
+            <p>Copyright &copy; 2019 <a href="https://themeforest.net/item/gameforest-responsive-gaming-html-theme/5007730" target="_blank">Sabiogun</a>. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+      <!-- /footer -->

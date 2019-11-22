@@ -52,7 +52,12 @@ class AuthController extends Controller
     public function signup(SignUpRequest $request){
        
             $user= User::create($request-> all());
-            return $this->login($request);
+
+            if($user){
+                return $this->login($request);
+            } else {
+                return response()->json(['error' => 'Failed'], 401);
+            }
            
        }
 

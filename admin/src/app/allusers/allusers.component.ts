@@ -9,6 +9,7 @@ import { EdituserComponent } from '../edituser/edituser.component';
   styleUrls: ['./allusers.component.css']
 })
 export class AllusersComponent implements OnInit {
+  p:any;
   res: any;
   length: any;
   isPopupOpened = true;

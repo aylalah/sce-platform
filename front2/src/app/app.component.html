@@ -1,0 +1,139 @@
+
+<!-- Wrapper -->
+<div class="wrapper">
+
+  <div class="navigation">
+      <div class="secondary-navigation" style="background-color: #118149;">
+          <div class="container">
+              <div class="contact">                  
+                  <figure style="color: cornsilk;"><strong>Location:</strong>Ogun, Nigeria</figure>
+              </div>
+              <div class="user-area">
+                  <div class="actions">
+                      <!-- <a href="create-agency.html" class="promoted">Create Agency</a> -->
+                      <a style="color: cornsilk;" [routerLink]="['/Signin']" class="promoted" *ngIf="!loggedIn"><strong>Register</strong></a>
+                      <a style="color: cornsilk;" [routerLink]="['/Login']" *ngIf="!loggedIn">Sign In</a>
+                      <a style="color: cornsilk;" href=""  [routerLink]="['/User', {outlets: {side: ['Profile']}}]"  *ngIf="loggedIn">
+                        Account </a>
+                        <a style="color: cornsilk;" href="" (click)="logout($event)"  routerLink="Register" *ngIf="loggedIn">
+                             Logout
+                              </a>
+                              <a style="color: cornsilk;" href="" *ngIf="loggedIn"><img [src]='image'  style="width: 30px;border-radius: 50%;height: 30px;"></a>
+                  </div>                
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <header class="navbar" id="top" role="banner">
+              <div class="navbar-header">
+                  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <div class="navbar-brand nav" id="brand">
+                        <a href="" ><img src="assets/img/logo.png" ></a>
+                      <!-- <a href="">{{ title }}</a> -->
+                  </div>
+              </div>
+              <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                  <ul class="nav navbar-nav">
+                      <li ><a href="/">Homepage</a>
+                          
+                      </li>
+                      <li class="has-child"><a href="#">Category</a>
+                          <ul class="child-navigation">
+                                <li *ngFor="let r of res"><a routerLink="" (click)="navigate(r.id)">{{r.actname}}</a></li>                             
+                          </ul>
+                      </li>                      
+                      <li><a [routerLink]="['/About']">About</a></li>
+                      <li><a [routerLink]="['/Contact']">Contact</a></li>
+                      <li><a [routerLink]="['/User', {outlets: {side: ['Post']}}]" *ngIf="loggedIn" >Contribute</a></li>                  
+                      <li><a [routerLink]="['/Login']" *ngIf="!loggedIn" >Contribute</a></li>  
+                  </ul>
+              </nav><!-- /.navbar collapse-->
+              
+          </header><!-- /.navbar -->
+      </div><!-- /.container -->
+  </div><!-- /.navigation -->
+
+  <!-- <div class="container">
+      <div class="geo-location-wrapper">
+          <span class="btn geo-location"><i class="fa fa-map-marker"></i><span class="text">Find My Position</span></span>
+      </div>
+  </div> -->
+
+  <div >
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Page Footer -->
+  <footer id="page-footer">
+      <div class="inner">
+          <aside id="footer-main">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-3 col-sm-3">
+                          <article>
+                              <h3>About Us</h3>
+                              <p>Ogun State culture has a rich culture with formidable background that requires preservation and promotion which will not
+                                  happen effectively without the leverage of technology and DEAB intervention.
+                              </p>
+                              <hr>
+                              <a href="About/" class="link-arrow">Read More</a>
+                          </article>
+                      </div><!-- /.col-sm-3 -->
+                      <div class="col-md-3 col-sm-3">
+                          <article>
+                              <h3>Recent Contribution</h3>
+                              <div class="property small" *ngFor="let f of footer">
+                                  <a routerLink="" (click)="nav(f.id)">
+                                      <div class="property-image">
+                                          <img alt="" src="https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/{{f.t_image}}">
+                                      </div>
+                                  </a>
+                                  <div class="info">
+                                      <a routerLink="" (click)="nav(f.id)" ><h4>{{f.name_title}}</h4></a>
+                                      <!-- <figure>{{f.}}</figure> -->
+                                      <div class="tag price">{{f.catname}}</div>
+                                  </div>
+                              </div><!-- /.property -->                              
+                          </article>
+                      </div><!-- /.col-sm-3 -->
+                      <div class="col-md-3 col-sm-3">
+                          <article>
+                              <h3>Contact</h3>
+                              <address>
+                                  <strong>DEAG Foundation</strong><br>
+                                  Ogun State
+                              </address>
+                              +234 (080) 73351737<br>
+                              <a href="#">contact@deag.org</a>
+                          </article>
+                      </div><!-- /.col-sm-3 -->
+                      <div class="col-md-3 col-sm-3">
+                          <article>
+                              <h3>Useful Links</h3>
+                              <ul class="list-unstyled list-links col-3" *ngFor="let r of res">
+                                  <li><a routerLink="" (click)="navigate(r.id)">{{r.actname}}</a></li>                                  
+                              </ul>
+                          </article>
+                      </div><!-- /.col-sm-3 -->
+                  </div><!-- /.row -->
+              </div><!-- /.container -->
+          </aside><!-- /#footer-main -->
+          <aside id="footer-thumbnails" class="footer-thumbnails"></aside><!-- /#footer-thumbnails -->
+          <aside id="footer-copyright">
+              <div class="container">
+                  <span>Copyright © 2019. All Rights Reserved.</span>
+                  <span class="pull-right"><a href="#page-top" class="roll">Go to top</a></span>
+              </div>
+          </aside>
+      </div><!-- /.inner -->
+  </footer>
+  <!-- end Page Footer -->
+</div>
+
+
+

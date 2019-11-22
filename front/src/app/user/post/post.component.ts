@@ -6,13 +6,15 @@ import { MatSnackBar } from '@angular/material';
 import { MapServiceService } from 'src/app/map-service.service';
 import { Router } from '@angular/router';
 
+declare let jQuery: any;
+declare let Switchery:any;
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
- 
 public res:any;
 public response:any;
 public selectedid:any;
@@ -25,7 +27,8 @@ location:null,
 about: 'Content',
 t_image:null,
 image:null,
-contents:null,
+header:null,
+content:null,
 }
   disabled=false;
   sav= 'Contribute';
@@ -46,8 +49,8 @@ contents:null,
   }
  
   onSubmit() {
-    this.form.contents=this.items  
-    // console.log(this.form)
+    // this.form.contents=this.items  
+    console.log(this.form)
     this.Jarwis.content(this.form).subscribe(
       data => this.handleResponse(data),
         error => this.handleError(error)
@@ -120,6 +123,18 @@ contents:null,
     console.log(this.form.image)
   }
   ngOnInit() {
+
+    (function($) {
+      "use strict";
+      $('#summernote').summernote({
+        height: 200,
+        styleTags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+      });
+      $(".js-example-basic").select2();
+      $(".flatpickr").flatpickr();
+      var elem = document.querySelector('.js-switch');
+      var init = new Switchery(elem);
+    })(jQuery);
     
     
       this.Jarwis.getact().subscribe(

@@ -47,6 +47,9 @@ export class JarwisService {
   getact() {
     return this.http.get(`${this.baseUrl}/getact`,)
   }
+  getArticle() {
+    return this.http.get(`${this.baseUrl}/getArticle`,)
+  }
   profile() {
     return this.http.get(`${this.baseUrl}/me`,{headers:{
       Authorization:`Bearer ${localStorage.token}`
@@ -76,12 +79,13 @@ export class JarwisService {
   displaypeople() {
     return this.http.get(`${this.baseUrl}/displaypeople`,)
   }
+  displaytourist() {
+    return this.http.get(`${this.baseUrl}/displaytourist`,)
+  }
   displaynews() {
     return this.http.get(`${this.baseUrl}/displaynews`,)
   }
-  displaylocation() {
-    return this.http.get(`${this.baseUrl}/displaylocation`,)
-  }
+  
   displayactbytitle() {
     return this.http.get<any>(`${this.baseUrl}/displayactbytitle`,)
   }

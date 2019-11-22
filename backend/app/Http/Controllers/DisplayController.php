@@ -41,10 +41,10 @@ class DisplayController extends Controller
             
             [
                 // 'comment' =>comment_tbs::where('id','=',1)->get(),
-                'event' =>Activities::where('id','=',1)->get(),
+                'event' =>Activities::where('id','=',2)->get(),
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
-               ->where('activity_id','=',1)
+               ->where('activity_id','=',2)
                ->where('titles.status','=','Y')
                ->inRandomOrder()->limit(4)
                 ->get()
@@ -53,32 +53,17 @@ class DisplayController extends Controller
         );
     }
 
-    public function displaylocation()
-    {
-        return response()->json(
-            
-            [
-                // 'comment' =>comment_tbs::where('id','=',6)->get(),
-                'event' =>Activities::where('id','=',6)->get(),
-                'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
-                ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
-               ->where('activity_id','=',6)
-               ->where('titles.status','=','Y')
-               ->inRandomOrder()->limit(4)
-                ->get()
-            ]
-        );
-    }
+    
     public function displayartifact()
     {
       
        return response()->json(
             [
 
-                'event' =>Activities::where('id','=',2)->get(),
+                'event' =>Activities::where('id','=',6)->get(),
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
-               ->where('activity_id','=',2)
+               ->where('activity_id','=',6)
                ->where('titles.status','=','Y')
             ->inRandomOrder()->limit(4)
                ->get()
@@ -92,11 +77,11 @@ class DisplayController extends Controller
         return response()->json(
             [
 
-                'event' =>Activities::where('id','=',3)->get(),
+                'event' =>Activities::where('id','=',7)->get(),
                 
                 'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
                 ->select('titles.*','categories.catname','categories.destription','categories.activity_id')
-               ->where('activity_id','=',3)
+               ->where('activity_id','=',7)
                ->where('titles.status','=','Y')
                ->inRandomOrder()->limit(4)
                 ->get()
@@ -114,6 +99,23 @@ class DisplayController extends Controller
                ->where('titles.status','=','Y')
                ->inRandomOrder()->limit(4)
               ->get()
+            ]
+        );
+    }
+
+    public function displaytourist()
+    {
+        return response()->json(
+            [
+
+                'event' =>Activities::where('id','=',3)->get(),
+                'subevent'=>title::orderBy('id', 'desc')->join('categories','titles.category_id','=','categories.id')
+                ->join('users','titles.user_id','=','users.id')
+            ->select('titles.*','categories.catname','categories.destription','categories.activity_id','users.firstname','users.lastname','users.middlename')
+              ->where('activity_id','=',3)
+              ->where('titles.status','=','Y')
+              ->inRandomOrder()->limit(4)
+               ->get()
             ]
         );
     }
@@ -166,7 +168,7 @@ class DisplayController extends Controller
             ->select('titles.*','categories.catname')
             ->where('titles.status','=','Y')
 
-            ->inRandomOrder()->limit(2)
+            ->inRandomOrder()->limit(6)
                ->get()
         ]);
     }

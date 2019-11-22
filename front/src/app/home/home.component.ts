@@ -8,6 +8,8 @@ import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
 
+declare let jQuery: any;
+
 
 
 
@@ -72,6 +74,9 @@ export class HomeComponent implements OnInit {
   actdata: any;
   acttitle: any;
   comment: any;
+  restc: any;
+  rest: any;
+  resth: any;
   
   constructor(private Jarwis: JarwisService,private router: Router,private mapserver: MapServiceService, private coordGet: MapServiceService) { }
 
@@ -83,6 +88,46 @@ export class HomeComponent implements OnInit {
   public fakerIt = [];
 
   ngOnInit() {
+    
+
+    (function($) {
+      "use strict";
+
+      // Full Width Carousel
+      $('.owl-slide').owlCarousel({
+        nav: true,
+        loop: true,
+        autoplay: true,
+        items: 1
+      });
+
+      // Recent Reviews
+      $('.owl-list').owlCarousel({
+        margin: 25,
+        nav: true,
+        dots: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          500: {
+            items: 2
+          },
+          701: {
+            items: 3
+          },
+          1000: {
+            items: 4
+          }
+        }
+      });
+
+      // lightbox
+      $('[data-lightbox]').lightbox();
+      
+    })(jQuery);
+
+
 
     this.fakerIt = this.mapserver.localGovt();
 
@@ -104,15 +149,17 @@ export class HomeComponent implements OnInit {
       this.Jarwis.displayevent().subscribe(
         data=>{
           // All data which contain category and subcat
+          
         this.rese = data;  
         //this is one category which is event
         this.reseh=this.rese.event[0]
         this.actname=this.reseh.actname
-        this.comment=this.rese.comment[0].length
+
+        // this.comment=this.rese.comment[0].length
         this.id=this.reseh.id
         //this is all subcat under event category
         this.resec=this.rese.subevent
-        //  console.log(this.id)
+         console.log(this.resec)
         
         }
       )
@@ -124,7 +171,7 @@ export class HomeComponent implements OnInit {
         this.actname1=this.resah.actname
         this.id1=this.resah.id
         this.resac=this.resa.subevent
-        //  console.log(this.id1)
+         console.log(this.resac)
 
         
         }
@@ -141,17 +188,19 @@ export class HomeComponent implements OnInit {
         
         }
       )
-      this.Jarwis.displaylocation().subscribe(
+
+      this.Jarwis.displaytourist().subscribe(
         data=>{
-        this.resl = data;  
-        this.reslh=this.resb.event[0]
-        this.actname3=this.reslh.actname
-        this.id3=this.reslh.id
-        this.reslc=this.resl.subevent 
-      //  console.log(this.reslc)
+        this.rest= data;  
+        this.resth=this.rest.event[0]
+        this.actname3=this.resth.actname
+        this.id4=this.resth.id
+        this.restc=this.rest.subevent 
+        // console.log(this.resnc)
         
         }
       )
+      
       this.Jarwis.displaynews().subscribe(
         data=>{
         this.resn= data;  

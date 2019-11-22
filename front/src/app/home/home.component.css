@@ -1,0 +1,31 @@
+.image{
+    height:45em; 
+    background-size:cover;
+    width:auto;
+    background-image:url('/assets/vid/video-bg.mp4');
+    background-position:50% 50%;
+  }
+
+  .image2{
+    height:45em; 
+    background-size:cover;
+    width:auto;
+    background-image:url('/assets/img/carousel/carousel-1.jpg');
+    background-position:50% 50%;
+  }
+
+  .image3{
+    height:45em; 
+    background-size:cover;
+    width:auto;
+    background-image:url('/assets/img/carousel/carousel-1.jpg');
+    background-position:50% 50%;
+  }
+
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }

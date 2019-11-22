@@ -43,7 +43,8 @@ Route::get('displayartifact','DisplayController@displayartifact');
 Route::get('displaybusiness','DisplayController@displaybusiness');
 Route::get('displaypeople','DisplayController@displaypeople');
 Route::get('displaynews','DisplayController@displaynews');
-Route::get('displaylocation','DisplayController@displaylocation');
+Route::get('displaytourist','DisplayController@displaytourist');
+
 Route::get('displayactbytitle','DisplayController@displayactbytitle');
 Route::get('getalltitle','DisplayController@getalltitle');
 Route::get('getalladmintitle','DisplayController@getalladmintitle');
@@ -67,7 +68,7 @@ Route::post('deletetitle','ContentController@destroytitle');
 Route::get('comments','UserController@getComments');
 Route::get('rates','UserController@getRates');
 Route::get('all','UserController@getAll');
-Route::get('articles','UserController@getArticle');
+Route::get('getArticle','UserController@getArticle');
 Route::get('titlerates','UserController@getRatesforTitle');
 Route::get('titlecomment','UserController@getcommentforTitle');
 Route::post('addview','UserController@addview');

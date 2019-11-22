@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { JarwisService } from '../service/jarwis.service';
 import { TokenService } from '../service/token.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 declare var $: any;
 export interface Gender {
   value: string;
@@ -23,19 +24,19 @@ export class SigninComponent implements OnInit {
     email: null,
     firstname: null,
     lastname: null,
-    middlename: null,
-    family: null,
-    familybackground: null,
+    middlename: 'null',
+    family: 'null',
+    familybackground: 'null',
     gender: 'Male',
-    address: null,
+    address: 'null',
     town: 'Abeokuta',
-    phone:null,
+    phone:'null',
     password: null,
     password_confirmation: null,
     role_id:null
   };
-  disable= "disabled";
-  disabled= true;
+
+  disabled= false;
   sav= 'Register'
   public error: any;
   public gender;
@@ -45,7 +46,9 @@ export class SigninComponent implements OnInit {
   options: { name: string; value: number; }[];
   constructor( private Jarwis: JarwisService,
     private Token: TokenService,
-    private router: Router) { }
+    private router: Router,
+    public snackBar: MatSnackBar, 
+    ) { }
     Genders: Gender[] = [
       {value: 'Miss', viewValue: 'Miss'},
       {value: 'Mr', viewValue: 'Mr'},
@@ -57,33 +60,31 @@ export class SigninComponent implements OnInit {
       {value: 'Ota', viewValue: 'Ota'}
     ];
     onSubmit() {
-     
+      this.disabled= true;
+      this.sav= 'Registering'
       this.form.role_id=1
   //  console.log(this.form)
       this.Jarwis.signup(this.form).subscribe(
-       
         data => this.handleResponse(data),
-        error => this.handleError(error), 
-             
+        error => this.handleError(error)
       );
-      this.disabled=true;  
-      this.sav= 'Processing';
     }
     handleResponse(data) {
       this.disabled=true; 
       this.Token.handle(data.access_token);
-      this.router.navigateByUrl('/User/(side:Profile)');
-      this.disabled=false; 
-      this.sav= 'Saved';
+      this.router.navigateByUrl('/User/(side:Details)');
       this.ngOnInit();
-      
-    }
-  
-    handleError(error) {
-      this.disabled=false; 
-      this.error = error.error.errors;
-      console.log(this.error);
-    }
+      this.disabled= false;
+      this.sav= 'Submited'
+   
+     }
+   
+     handleError(error) {
+   
+      this.error = error.error.errors;      
+      this.disabled= false;   
+     }
+
     displayroleuser(){
       this.Jarwis.roleuser().subscribe(
         data=>{

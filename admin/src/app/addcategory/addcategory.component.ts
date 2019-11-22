@@ -18,6 +18,7 @@ export class AddcategoryComponent implements OnInit {
   }
   public res:any;
   public result;
+  p:any;
   message: any;
   error: any;
   catres: any;

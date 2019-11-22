@@ -43,6 +43,9 @@ id: any;
   result: any;
   view: any;
  public tid;
+  location: any;
+  img:any;
+  images: any;
 constructor(private Jarwis: JarwisService,public snackBar: MatSnackBar,private router: Router, public actRoute: ActivatedRoute, private coordGet: MapServiceService) { }
 @ViewChild('map') mapElement: any;
 
@@ -99,7 +102,7 @@ handleError(error) {
     )
 
 
-    this.actRoute.paramMap.subscribe((params => {  
+    this.actRoute.paramMap.subscribe(( params => {  
       
       var id= this.actRoute.snapshot.params['id'];
      
@@ -119,10 +122,12 @@ handleError(error) {
                     this.dates=this.res.created_at;
                     this.bio=this.res.familybackground;
                     this.name=this.res.firstname+" "+this.res.lastname+" "+this.res.middlename;
-                   
+                    this.location= this.response.content[0].location;
+                   this.img=this.res.t_image;
                     this.contents=this.response.content;
-                    this.comment=this.response.comment;                   
+                    this.comment=this.response.comment;  
                     
+                    console.log(this.response);
                     
                     //map Init
                     this.coordGet.getLocality(this.response.content[0].location).subscribe(data=>{
@@ -151,7 +156,7 @@ handleError(error) {
                       });
                     })
                     
-                    this.image='https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/'+this.res.t_image
+                    this.images='https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/'+this.res.t_image
                     this.uimage='https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/'+this.res.image;
                      
                     })

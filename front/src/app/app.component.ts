@@ -3,6 +3,7 @@ import { JarwisService } from './service/jarwis.service';
 import { AuthService } from './service/auth.service';
 import { Router } from '@angular/router';
 import { TokenService } from './service/token.service';
+declare let jQuery: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -38,7 +39,7 @@ export class AppComponent {
       data=>{
       this.ftitle = data; 
       this.footer=this.ftitle[0] 
-      
+      console.log(this.footer)
      
       
       }
@@ -50,7 +51,80 @@ export class AppComponent {
       this.response = data;
       this.image='https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/'+this.response.image
      
-    })
+    });
+    
+    (function($) {
+      "use strict";
+
+    // Popovers
+  // ======================
+	$("[data-toggle='popover']").popover();
+
+
+	// Sticky Sections
+  // ======================
+  if ($.fn.sticky) {
+		$('section[data-fixed="true"]').sticky({ topSpacing: $('#header').outerHeight(), zIndex: 1039 }).on('sticky-start', function() { $('#header').addClass('no-shadow'); }).on('sticky-end', function() { $('#header').removeClass('no-shadow'); });
+  }
+
+	$(window).resize(function() {
+    $('.sticky-wrapper').each(function() {
+      $(this).css('min-height', $(this).children().outerHeight() );
+    });
+  });
+// Fixed Navigation
+  // ======================
+	$(window).scroll(function(){
+  	if ($(this).scrollTop() > 40) {
+    	$('body').addClass('header-scroll');
+    } else {
+			$('body').removeClass('header-scroll');
+    }
+  });
+
+
+	// Responsive Navbar
+  // ======================
+	// Toggle Navbar
+	$(".navbar-toggle").click(function () {
+		$('body').toggleClass('navbar-open');
+		return false;
+	});
+
+	// Nav Responsive
+	$('#header .navbar-left .nav').clone().prependTo("body").addClass('nav-responsive');
+
+	// Nav Responsive
+	$('.nav-responsive .has-dropdown > a').click(function() {
+		$(this).parent().toggleClass('open');
+		return false;
+	});
+
+
+	// Search Bar
+  // ======================
+	// Toggle Search
+	$("[data-toggle='search']").click(function () {
+		$('body').toggleClass('navbar-search-open');
+		return false;
+	});
+
+	// Close Search
+	$(".navbar-search .close").click(function () {
+$('body').removeClass('navbar-search-open');
+		return false;
+	});
+
+
+	// Nav Dropdown Open
+	// ======================
+	$('#header .has-dropdown').hover(function() {
+		$(this).addClass('open');
+	}, function() {
+		$(this).removeClass('open');
+  });
+  
+})(jQuery);
 
   }
   
