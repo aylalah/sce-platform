@@ -25,6 +25,7 @@ export class PlatformComponent implements OnInit {
   myCarouselImages =[1,2,3,4,5,6].map((i)=>`https://picsum.photos/640/480?image=${i}`);
   mySlideOptions={items: 1, dots: true, nav: false};
   myCarouselOptions={items: 3, dots: true, nav: true};
+  gallery: any;
 
   constructor( private Auth: AuthService,
     private router: Router,
@@ -40,8 +41,10 @@ export class PlatformComponent implements OnInit {
       this.Jarwis.getArticle().subscribe(
         data=>{
         this.ftitle = data; 
-        this.article=this.ftitle
-            console.log(this.article);
+
+        this.article=this.ftitle.name
+        this.gallery=this.ftitle.gallery
+            console.log(this.gallery);
         }
       )
 

@@ -27,7 +27,8 @@ location:null,
 about: 'Content',
 t_image:null,
 image:null,
-contents:null,
+header:null,
+content:null,
 }
   disabled=false;
   sav= 'Contribute';
@@ -48,8 +49,8 @@ contents:null,
   }
  
   onSubmit() {
-    this.form.contents=this.items  
-    // console.log(this.form)
+    // this.form.contents=this.items  
+    console.log(this.form)
     this.Jarwis.content(this.form).subscribe(
       data => this.handleResponse(data),
         error => this.handleError(error)

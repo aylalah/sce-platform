@@ -38,6 +38,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { PlatformComponent } from './platform/platform.component';
 import { GalleryComponent } from './user/gallery/gallery.component';
 import { VideoComponent } from './user/video/video.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 // import { OwlModule } from 'ngx-owl-carousel';
 // import { LazyLoadImageModule, scrollPreset } from 'ng-lazyload-image';
 
@@ -85,7 +86,7 @@ import { VideoComponent } from './user/video/video.component';
     // LazyLoadImageModule.forRoot({
     //   preset: scrollPreset 
     // }),
-
+    ScrollingModule,
     MatAutocompleteModule​,
     MatFormFieldModule,
     // BrowserModule,

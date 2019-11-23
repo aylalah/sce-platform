@@ -44,6 +44,10 @@ id: any;
   view: any;
  public tid;
   location: any;
+
+  img:any;
+  images: any;
+
 constructor(private Jarwis: JarwisService,public snackBar: MatSnackBar,private router: Router, public actRoute: ActivatedRoute, private coordGet: MapServiceService) { }
 @ViewChild('map') mapElement: any;
 
@@ -121,7 +125,8 @@ handleError(error) {
                     this.bio=this.res.familybackground;
                     this.name=this.res.firstname+" "+this.res.lastname+" "+this.res.middlename;
                     this.location= this.response.content[0].location;
-                   
+                   this.img=this.res.t_image;
+
                     this.contents=this.response.content;
                     this.comment=this.response.comment;  
                     
@@ -154,7 +159,7 @@ handleError(error) {
                       });
                     })
                     
-                    this.image='https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/'+this.res.t_image
+                    this.images='https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/'+this.res.t_image
                     this.uimage='https://sabiogun.jtcheck.com/sce-ogun/backend/public/upload/uploads/'+this.res.image;
                      
                     })
