@@ -52,26 +52,16 @@ class UserController extends Controller
       
        ]
     );
-        // $article = DB::table('titles')
-        // ->select('titles.*','contents.header','contents.content','contents.c_image', 'contents.list',
-        // 'categories.id','categories.catname', 'activities.actname','users.image', 'users.firstname', 'users.lastname')
-        // ->join ('contents','titles.id','=','contents.name_id')
-        // ->join ('categories','categories.id','=','titles.category_id')
-        // ->join ('activities','activities.id','=','categories.activity_id')
-        // ->join ('users','titles.user_id','=','users.id')
-        // // ->join ('comment_tb','comment_tb.title_id','=','titles.title_id')
-        // // ->orderBy('title_id','actname')
-        // // ->take(100)
-        // ->get();
 
-        // if($article){
-        //     return $article;
-        // } else {
-        //     return '{
-        //         "success":false,
-        //         "message":"Failed"
-        //     }';
-        // }
+//         $article = DB::table('titles')
+//         ->select('titles.*','contents.header','contents.content','contents.c_image', 'contents.list',
+//         'categories.id','categories.catname', 'activities.actname','users.image', 'users.firstname', 'users.lastname')
+//         ->join ('contents','titles.id','=','contents.name_id')
+//         ->join ('categories','categories.id','=','titles.category_id')
+//         ->join ('activities','activities.id','=','categories.activity_id')
+//         ->join ('users','titles.user_id','=','users.id')       
+//         ->get();
+
     }
     public function getRatesforTitle()
     {

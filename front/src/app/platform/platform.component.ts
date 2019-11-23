@@ -41,6 +41,7 @@ export class PlatformComponent implements OnInit {
       this.Jarwis.getArticle().subscribe(
         data=>{
         this.ftitle = data; 
+
         this.article=this.ftitle.name
         this.gallery=this.ftitle.gallery
             console.log(this.gallery);
